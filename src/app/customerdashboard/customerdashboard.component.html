@@ -35,7 +35,15 @@
       <div class="mobile_nav_items">
         <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
         <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
-        <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+        <!-- <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a> -->
+        <div class="dropdown">
+          <button class="dropbtn">Fund Transfer</button>
+          <div class="dropdown-content">
+            <a [routerLink]="['/imps']">IMPS Transfer</a>
+            <a [routerLink]="['/neft']">NEFT Transfer</a>
+            <a [routerLink]="['/rtgs']">RTGS Transfer</a>
+          </div>
+        </div>
         <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
         <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
       </div>
@@ -50,6 +58,11 @@
      <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
       <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
       <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+      <ul>
+       <li class="bullet" style="color:white;"><span style="color:white;"> <a [routerLink]="['/imps']">IMPS Transfer</a></span></li>
+        <li class="bullet" style="color:white;"><span style="color:white;">  <a [routerLink]="['/neft']">NEFT Transfer</a></span></li>
+         <li class="bullet" style="color:white;"><span style="color:white;"> <a [routerLink]="['/rtgs']">RTGS Transfer</a></span></li>
+        </ul>
       <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
       <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
      </div>
