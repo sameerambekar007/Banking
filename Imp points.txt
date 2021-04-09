@@ -1,0 +1,51 @@
+json-server --watch products.json
+
+V shaped model- Development and testing happens simultaneously.
+
+Disadvantages of Agile : Documentation not done in the beginning, no scalability
+
+https://github.com/git-sravya/L-T-WebModule.git
+
+DevOps :
+1.Development
+2.Testing
+3.Inteegration
+4.Deployment
+5.Monitoring
+
+DevOps stages :
+1.Version Control
+2.Continuous Integration
+3.Continuous Delivery
+4.Continuous Deployment
+
+Agile addresses gaps between customer and Developer communications
+DevOps addresses gaps between Developer and It Operation communications
+
+
+GIT
+
+git init
+
+touch filename
+
+git status
+
+To staging area/state : git add filename/(git add .) for staging all files
+
+Unstage : $ git rm --cached text3.txt
+
+git commit -m "first commit"
+
+git remote add origin https://github.com/sameerambekar007/Demo.git
+
+git branch -M main
+
+To push : git push -u origin main
+
+$ git pull origin main
+
+new branch - git branch branchname
+
+Switch branch -  git checkout -b branch1
+
