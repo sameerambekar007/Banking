@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <body>
+     
+    
+    <div class="content" style="align-items: center;">
+            <div class="login-box">
+                <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Initiate NEFT Payment</h2>
+                <form>
+
+                  <div class="user-box">
+                    <input type="number" name=" account" required>
+                    <label>Enter Your Account number</label>
+                  </div>
+                  <div class="user-box">
+                    <input type="number"  name="rec_account" required>
+                    <label>Enter Recepient Account number </label>
+                  </div>                 
+                   <div class="user-box">
+                    <input type="number" name="amount" required>
+                    <label>Enter Amount</label>
+                  </div>
+                  
+                  <div class="user-box">
+                    <input type="date" name="date" required>
+                    <label></label>
+                  </div>
+                  <div class="user-box">
+                    <input type="text"  name="remarks" required>
+                    <label>Enter Remarks</label>
+
+                  </div>
+                  
+                  <a [routerLink]="['/transuccess']">
+                    Continue
+                    <span></span> 
+                </a>
+                <a [routerLink]="['/addben']">
+                    Add Beneficiary
+                    <span></span> 
+                </a>
+                <a href="#">
+                    Reset
+                    <span></span> 
+                </a>
+ 
+                </form>
+               </div> 
+    </div>
+    <div>
+        Please note : <br>
+        1. Transactions will be executed on the next working day if they are scheduled for Sundays, Nationsal Holidays, NEFT holidays(as declared by RBI) <br>
+        2.Timings for NEFT : Monday-Saturday(Except 2nd and 4th Saturday) 6:00 AM - 6:30 PM
+    </div>
+ </body>
+</html>
+      

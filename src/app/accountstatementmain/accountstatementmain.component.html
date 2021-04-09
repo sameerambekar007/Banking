@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADFC Withdraw</title>
+    <!-- <link rel="stylesheet" href="styles\style3.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script> -->
+  </head>
+  <body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>  RSVZ <span>Bank</span></h3>
+      </div>
+      <div class="right_area">
+        <a href="index.html" class="logout_btn">Logout</a>
+      </div>
+
+    </header>
+    <!--header area end-->
+  
+    <!--mobile navigation bar start-->
+    <div class="mobile_nav">
+      <div class="nav_bar">
+        <img src="C:\Users\Snehal\Downloads\snehal\attachments\employee avatr.png" class="mobile_profile_image" alt="">
+        <i class="fa fa-bars nav_btn"></i>
+      </div>
+      <div class="mobile_nav_items">
+        <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
+        <a [routerLink]="['/accountstatement']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
+        <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+        <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
+        <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
+      </div>
+    </div>
+    <!--mobile navigation bar end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <div class="profile_info">
+        <img src="../../assets/customer-avatar.png" class="profile_image" alt="">
+        <h4>Jimin</h4>
+      </div>
+      <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
+      <a [routerLink]="['/accountstatement']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
+      <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+      <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
+      <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
+    </div>
+    <!--sidebar end-->
+
+    <div class="content">
+        <div class="login-box">
+            <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Account Statement</h2>
+            <form>
+              <div >
+                <label>From </label>
+                <input type="date" name="WAmount" required="">
+                <label>To</label>
+                <input type="date" name="WAmount" required="">
+              </div>
+
+              <a [routerLink]="['/accountstatement']">
+                View
+                <span></span> 
+              </a>
+            </form> 
+          </div>
+
+           
+         
+    
+  
+
+</div>
+
+</body>
+</html>
+  

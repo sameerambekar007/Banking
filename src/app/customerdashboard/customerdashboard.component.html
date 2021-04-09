@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADFC Customer Dashboard</title>
+    <!-- <link rel="stylesheet" href="styles\style3.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script> -->
+  </head>
+  <body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>  ADFC <span>Bank</span></h3>
+      </div>
+      <div class="right_area">
+        <a href="index.html" class="logout_btn">Logout</a>
+      </div>
+
+    </header>
+    <!--header area end-->
+  
+    <!--mobile navigation bar start-->
+    <div class="mobile_nav">
+      <div class="nav_bar">
+        <img src="../../assets/customer-avatar.png" class="mobile_profile_image" alt="">
+        <i class="fa fa-bars nav_btn"></i>
+      </div>
+      <div class="mobile_nav_items">
+        <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
+        <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
+        <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+        <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
+        <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
+      </div>
+    </div>
+    <!--mobile navigation bar end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <div class="profile_info">
+        <img src="../../assets/customer-avatar.png" class="profile_image" alt="">
+        <h4>Jimin</h4>
+      </div>
+     <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
+      <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
+      <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+      <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
+      <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
+     </div>
+    <!--sidebar end-->
+
+    <div class="content">
+            <div class="login-box">
+                <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Welcome Back....</h2>
+                
+                    <p style="color: aliceblue; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">You’ll find innovation in every corner of our business. From staying ahead of the curve on technology, to continually finding ways of improving processes, to collaborating with trailblazers – bringing new ideas to life is central to the way we support people, businesses, communities and the wider economy.
+                        Find out how ADFC is powering creative thinking, spearheading change in financial services and adapting in a constantly evolving world.
+                        From the launch of the UK’s first credit card and contactless payments to the world’s first ATM, ADFC has been transforming banking for the better for generations.
+                        
+                    </p>
+                  
+                  <br>
+                    <p style="color: aliceblue;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">ADFC has a longstanding tradition of partnering with fintech companies to bring innovative solutions into the market. Our range of programmes help fintech startups to innovate and grow – while bringing brilliant new ideas into the sector, for the benefit of our customers and clients. But we don’t focus on fintech alone – our initiatives for startups also support ground-breaking businesses across sectors including gamestech, lawtech and agritech</p>
+                  
+              </div>
+
+            
+
+               
+             
+        
+      
+    
+    </div>
+
+
+  </body>
+</html>
+      
