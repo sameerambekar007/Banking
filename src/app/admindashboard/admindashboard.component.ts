@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class AdmindashboardComponent implements OnInit {
 
   constructor() { }
-
+ 
   ngOnInit(): void {
+    
+ 
   }
 
+  public sessionStorage = sessionStorage;
+  public session=sessionStorage.getItem('admin_id')
+  
 }
+

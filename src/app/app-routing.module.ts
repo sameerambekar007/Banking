@@ -9,6 +9,7 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { ApprovalpendingComponent } from './approvalpending/approvalpending.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { CustomerdashboardComponent } from './customerdashboard/customerdashboard.component';
+import { CustomerloginComponent } from './customerlogin/customerlogin.component';
 import { ErrorComponent } from './error/error.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
@@ -48,6 +49,7 @@ const routes: Routes = [
   {path:'accountsummary',component:AccountsummaryComponent},
   {path:'approvalpending',component:ApprovalpendingComponent},
   {path:'aboutus',component:AboutusComponent},
+  {path:'custlogin',component:CustomerloginComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'**',component:ErrorComponent}
 ];

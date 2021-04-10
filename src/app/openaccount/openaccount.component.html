@@ -7,14 +7,14 @@
     <div class="content">
             <div class="login-box">
                 <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Open a Savings Account</h2>
-                <form>
-                
+                <form class="box" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate >
+                <!--<input type="text" id="admin_id" name="admin_id" placeholder="Customer ID" #admin_id="ngModel"
+                            [(ngModel)]="contact.admin_id" >-->
                   <h5 style="font-family: Bradley Hand ITC; font-size: 200%;">Personal Details</h5>
                   <div class="user-box">
-                    <input type="text" name="Title" required  #Title="ngModel"
-                    [(ngModel)]="contact.Title" >
-                    <div *ngIf="!Title?.valid && (Title?.dirty || Title?.touched)" class="error">
-                      <div *ngIf="Title.errors.required">
+                    <input type="text" id="title" name="title" required  #title="ngModel" [(ngModel)]="contact.title" >
+                    <div *ngIf="!title?.valid && (title?.dirty || title?.touched)" class="error">
+                      <div *ngIf="title.errors.required">
                         Title is required
                       </div>
           </div>
@@ -22,10 +22,10 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="firstname" required  #firstname="ngModel"
-                    [(ngModel)]="contact.firstname" >
-                    <div *ngIf="!firstname?.valid && (firstname?.dirty || firstname?.touched)" class="error">
-                      <div *ngIf="firstname.errors.required">
+                    <input type="text" id="first_name" name="first_name" required  #first_name="ngModel"
+                    [(ngModel)]="contact.first_name" >
+                    <div *ngIf="!first_name?.valid && (first_name?.dirty || first_name?.touched)" class="error">
+                      <div *ngIf="first_name.errors.required">
                         First Name is required
                       </div>
           </div>
@@ -33,10 +33,10 @@
                   </div>         
 
                    <div class="user-box">
-                    <input type="text" name="middlename" required  #middlename="ngModel"
-                    [(ngModel)]="contact.middlename" >
-                    <div *ngIf="!middlename?.valid && (middlename?.dirty || middlename?.touched)" class="error">
-                      <div *ngIf="middlename.errors.required">
+                    <input type="text" id="middle_name" name="middle_name" required  #middle_name="ngModel"
+                    [(ngModel)]="contact.middle_name" >
+                    <div *ngIf="!middle_name?.valid && (middle_name?.dirty || middle_name?.touched)" class="error">
+                      <div *ngIf="middle_name.errors.required">
                         Middle Name is required
                       </div>
           </div>
@@ -44,10 +44,10 @@
                   </div>
                   
                   <div class="user-box">
-                    <input type="text" name="lastname" required  #lastname="ngModel"
-                    [(ngModel)]="contact.lastname" >
-                    <div *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)" class="error">
-                      <div *ngIf="lastname.errors.required">
+                    <input type="text" id="last_name" name="last_name" required  #last_name="ngModel"
+                    [(ngModel)]="contact.last_name" >
+                    <div *ngIf="!last_name?.valid && (last_name?.dirty || last_name?.touched)" class="error">
+                      <div *ngIf="last_name.errors.required">
                         Last Name is required
                       </div>
           </div>
@@ -55,10 +55,10 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="fathername" required  #fathername="ngModel"
-                    [(ngModel)]="contact.fathername" >
-                    <div *ngIf="!fathername?.valid && (fathername?.dirty || fathername?.touched)" class="error">
-                        <div *ngIf="fathername.errors.required">
+                    <input type="text" id="father_name" name="father_name" required  #father_name="ngModel"
+                    [(ngModel)]="contact.father_name" >
+                    <div *ngIf="!father_name?.valid && (father_name?.dirty || father_name?.touched)" class="error">
+                        <div *ngIf="father_name.errors.required">
                           Father's Name is required
                         </div>
                         </div>
@@ -67,14 +67,14 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="mobile" required  pattern="[7-9]{1}[0-9]{9}" #mobile="ngModel"
-                    [(ngModel)]="contact.mobile " >
-                   <div *ngIf="!mobile?.valid && (mobile?.dirty || mobile?.touched)" class="error">
-                       <div *ngIf="mobile.errors.required">
+                    <input type="text" id="mobile_no" name="mobile_no" required  pattern="[7-9]{1}[0-9]{9}" #mobile_no="ngModel"
+                    [(ngModel)]="contact.mobile_no " >
+                   <div *ngIf="!mobile_no?.valid && (mobile_no?.dirty || mobile_no?.touched)" class="error">
+                       <div *ngIf="mobile_no.errors.required">
                          Mobile number is required
                        </div>
                        
-                     <div *ngIf="mobile.errors.pattern">
+                     <div *ngIf="mobile_no.errors.pattern">
                        Mobile number should be of 10 digits and start with 7,8 or 9
                       </div>
                      </div>  
@@ -83,15 +83,15 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="email" required email #email="ngModel" [(ngModel)]="contact.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                    <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
-                        <div *ngIf="email.errors.required">
+                    <input type="text" id="email_id" name="email_id" required email #email_id="ngModel" [(ngModel)]="contact.email_id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                    <div *ngIf="!email_id?.valid && (email_id?.dirty || email_id?.touched)" class="error">
+                        <div *ngIf="email_id.errors.required">
                           Email is required
                         </div>
-                        <div *ngIf="mobile.errors.pattern">
+                        <div *ngIf="email_id.errors.pattern">
                             Invalid Email Address
                           </div>
-                        <div *ngIf="email.errors.email">
+                        <div *ngIf="email_id.errors.email">
                           Invalid Email Address
                         </div>
                       </div>
@@ -100,13 +100,13 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="aadhar" required pattern="[0-9]{12}" #aadhar="ngModel"
-                    [(ngModel)]="contact.aadhar " >
-                    <div *ngIf="!aadhar?.valid && (aadhar?.dirty || aadhar?.touched)" class="error">
-                       <div *ngIf="aadhar.errors.required">
+                    <input type="text" id="aadhar_no" name="aadhar_no" required pattern="[0-9]{12}" #aadhar_no="ngModel"
+                    [(ngModel)]="contact.aadhar_no " >
+                    <div *ngIf="!aadhar_no?.valid && (aadhar_no?.dirty || aadhar_no?.touched)" class="error">
+                       <div *ngIf="aadhar_no.errors.required">
                          Aadhar Card number is required
                        </div>
-                       <div *ngIf="aadhar.errors.pattern">
+                       <div *ngIf="aadhar_no.errors.pattern">
                          Aadhaar Number should be of 12 digits
                          
                        </div> 
@@ -116,10 +116,10 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="dob" required max="2003-04-22" #dob="ngModel"
-                    [(ngModel)]="contact.dob " >
-                    <div *ngIf="!dob?.valid && (dob?.dirty || dob?.touched)" class="error">
-                        <div *ngIf="dob.errors.required">
+                    <input type="date" id="date_of_birth" name="date_of_birth" required max="2003-04-22" #date_of_birth="ngModel"
+                    [(ngModel)]="contact.date_of_birth " >
+                    <div *ngIf="!date_of_birth?.valid && (date_of_birth?.dirty || date_of_birth?.touched)" class="error">
+                        <div *ngIf="date_of_birth.errors.required">
                           Date of Birth is required
                         </div>
             </div>
@@ -129,14 +129,14 @@
 
                   <h5 style="font-family: Bradley Hand ITC; font-size: 200%;">Residential Address</h5>
                   <div class="user-box">
-                    <input type="text" name="raddr1" required maxlength="15" #raddr1="ngModel"
-                    [(ngModel)]="contact.raddr1" >
-                    <div *ngIf="!raddr1?.valid && (raddr1?.dirty || raddr1?.touched)" class="error">
-                        <div *ngIf="raddr1.errors.required">
+                    <input type="text" id="res_addr_line1" name="res_addr_line1" required maxlength="15" #res_addr_line1="ngModel"
+                    [(ngModel)]="contact.res_addr_line1" >
+                    <div *ngIf="!res_addr_line1?.valid && (res_addr_line1?.dirty || res_addr_line1?.touched)" class="error">
+                        <div *ngIf="res_addr_line1.errors.required">
                             Address Line 1 is required
                         </div>
-                       <div *ngIf="raddr1.errors.maxlength">
-                        Address Line 1 Length should be {{raddr1.errors.maxlength?.requiredLength}}
+                       <div *ngIf="res_addr_line1.errors.maxlength">
+                        Address Line 1 Length should be {{res_addr_line1.errors.maxlength?.requiredLength}}
                       </div>
                 </div>
                     <label>Address Line 1</label>
@@ -144,14 +144,14 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="raddr2" required maxlength="15" #raddr2="ngModel"
-                    [(ngModel)]="contact.raddr2 " >
-                    <div *ngIf="!raddr2?.valid && (raddr2?.dirty || raddr2?.touched)" class="error">
-                        <div *ngIf="raddr2.errors.required">
+                    <input type="text" id="res_addr_line2" name="res_addr_line2" required maxlength="15" #res_addr_line2="ngModel"
+                    [(ngModel)]="contact.res_addr_line2" >
+                    <div *ngIf="!res_addr_line2?.valid && (res_addr_line2?.dirty || res_addr_line2?.touched)" class="error">
+                        <div *ngIf="res_addr_line2.errors.required">
                             Address Line 2 is required
                         </div>
-                       <div *ngIf="raddr2.errors.maxlength">
-                        Address Line 2 Length should be {{raddr2.errors.maxlength?.requiredLength}}
+                       <div *ngIf="res_addr_line2.errors.maxlength">
+                        Address Line 2 Length should be {{res_addr_line2.errors.maxlength?.requiredLength}}
                       </div>
                 </div>
                     <label>Address Line 2</label>
@@ -159,14 +159,14 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="rlandmark" required maxlength="15" #rlandmark="ngModel"
-                    [(ngModel)]="contact.rlandmark" >
-                    <div *ngIf="!rlandmark?.valid && (rlandmark?.dirty || rlandmark?.touched)" class="error">
-                        <div *ngIf="rlandmark.errors.required">
+                    <input type="text" id="res_landmark" name="res_landmark" required maxlength="15" #res_landmark="ngModel"
+                    [(ngModel)]="contact.res_landmark" >
+                    <div *ngIf="!res_landmark?.valid && (res_landmark?.dirty || res_landmark?.touched)" class="error">
+                        <div *ngIf="res_landmark.errors.required">
                             Landmark is required
                         </div>
-                       <div *ngIf="rlandmark.errors.maxlength">
-                        Landmark Length should be {{rlandmark.errors.maxlength?.requiredLength}}
+                       <div *ngIf="res_landmark.errors.maxlength">
+                        Landmark Length should be {{res_landmark.errors.maxlength?.requiredLength}}
                       </div>
                 </div>
                     <label>Landmark</label>
@@ -174,14 +174,14 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="rstate" required maxlength="15" #rstate="ngModel"
-                    [(ngModel)]="contact.rstate" >
-                    <div *ngIf="!rstate?.valid && (rstate?.dirty || rstate?.touched)" class="error">
-                        <div *ngIf="rstate.errors.required">
+                    <input type="text" id="res_state" name="res_state" required maxlength="15" #res_state="ngModel"
+                    [(ngModel)]="contact.res_state" >
+                    <div *ngIf="!res_state?.valid && (res_state?.dirty || res_state?.touched)" class="error">
+                        <div *ngIf="res_state.errors.required">
                             State is required
                         </div>
-                       <div *ngIf="rstate.errors.maxlength">
-                        State Length should be {{rstate.errors.maxlength?.requiredLength}}
+                       <div *ngIf="res_state.errors.maxlength">
+                        State Length should be {{res_state.errors.maxlength?.requiredLength}}
                       </div>
                 </div>
                     <label>State</label>
@@ -189,14 +189,14 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="rcity" required maxlength="15" #rcity="ngModel"
-                    [(ngModel)]="contact.rcity" >
-                    <div *ngIf="!rcity?.valid && (rcity?.dirty || rcity?.touched)" class="error">
-                        <div *ngIf="rcity.errors.required">
+                    <input type="text" id="res_city" name="res_city" required maxlength="15" #res_city="ngModel"
+                    [(ngModel)]="contact.res_city" >
+                    <div *ngIf="!res_city?.valid && (res_city?.dirty || res_city?.touched)" class="error">
+                        <div *ngIf="res_city.errors.required">
                             City is required
                         </div>
-                       <div *ngIf="rcity.errors.maxlength">
-                        City Length should be {{rcity.errors.maxlength?.requiredLength}}
+                       <div *ngIf="res_city.errors.maxlength">
+                        City Length should be {{res_city.errors.maxlength?.requiredLength}}
                       </div>
                 </div>
                     <label>City</label>
@@ -204,13 +204,13 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="rpincode" required pattern="[1-9]{1}[0-9]{5}" #rpincode="ngModel"
-                    [(ngModel)]="contact.rpincode " >
-                      <div *ngIf="!rpincode?.valid && (rpincode?.dirty || rpincode?.touched)" class="error">
-                          <div *ngIf="rpincode.errors.required">
+                    <input type="text" id="res_pincode" name="res_pincode" required pattern="[1-9]{1}[0-9]{5}" #res_pincode="ngModel"
+                    [(ngModel)]="contact.res_pincode " >
+                      <div *ngIf="!res_pincode?.valid && (res_pincode?.dirty || res_pincode?.touched)" class="error">
+                          <div *ngIf="res_pincode.errors.required">
                             Pincode is required
                           </div>
-                          <div *ngIf="rpincode.errors.pattern">
+                          <div *ngIf="res_pincode.errors.pattern">
                             Pincode should be of 6 digits
                             
                           </div>  
@@ -222,14 +222,14 @@
 
                   <h5 style="font-family: Bradley Hand ITC; font-size: 200%;">Permanent Address</h5>
                   <div class="user-box">
-                    <input type="text" name="paddr1" required maxlength="15" #paddr1="ngModel"
-                    [(ngModel)]="contact.paddr1" >
-                    <div *ngIf="!paddr1?.valid && (paddr1?.dirty || paddr1?.touched)" class="error">
-                        <div *ngIf="paddr1.errors.required">
+                    <input type="text" id="perm_addr_line1" name="perm_addr_line1" required maxlength="15" #perm_addr_line1="ngModel"
+                    [(ngModel)]="contact.perm_addr_line1" >
+                    <div *ngIf="!perm_addr_line1?.valid && (perm_addr_line1?.dirty || perm_addr_line1?.touched)" class="error">
+                        <div *ngIf="perm_addr_line1.errors.required">
                             Address Line 1 is required
                         </div>
-                       <div *ngIf="paddr1.errors.maxlength">
-                        Address Line 1 Length should be {{raddr1.errors.maxlength?.requiredLength}}
+                       <div *ngIf="perm_addr_line1.errors.maxlength">
+                        Address Line 1 Length should be {{perm_addr_line1.errors.maxlength?.requiredLength}}
                       </div>
                 </div>
                     <label>Address Line 1</label>
@@ -237,14 +237,14 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="paddr2" required maxlength="15" #paddr2="ngModel"
-                    [(ngModel)]="contact.paddr2" >
-                    <div *ngIf="!paddr2?.valid && (paddr2?.dirty || paddr2?.touched)" class="error">
-                        <div *ngIf="paddr2.errors.required">
+                    <input type="text" id="perm_addr_line2" name="perm_addr_line2" required maxlength="15" #perm_addr_line2="ngModel"
+                    [(ngModel)]="contact.perm_addr_line2" >
+                    <div *ngIf="!perm_addr_line2?.valid && (perm_addr_line2?.dirty || perm_addr_line2?.touched)" class="error">
+                        <div *ngIf="perm_addr_line2.errors.required">
                             Address Line 2 is required
                         </div>
-                       <div *ngIf="paddr2.errors.maxlength">
-                        Address Line 2 Length should be {{paddr2.errors.maxlength?.requiredLength}}
+                       <div *ngIf="perm_addr_line2.errors.maxlength">
+                        Address Line 2 Length should be {{perm_addr_line2.errors.maxlength?.requiredLength}}
                       </div>
                 </div>
                     <label>Address Line 2</label>
@@ -252,14 +252,14 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="plandmark" required maxlength="15" #plandmark="ngModel"
-                    [(ngModel)]="contact.plandmark" >
-                    <div *ngIf="!plandmark?.valid && (plandmark?.dirty || plandmark?.touched)" class="error">
-                        <div *ngIf="plandmark.errors.required">
+                    <input type="text" id="perm_landmark" name="perm_landmark" required maxlength="15" #perm_landmark="ngModel"
+                    [(ngModel)]="contact.perm_landmark" >
+                    <div *ngIf="!perm_landmark?.valid && (perm_landmark?.dirty || perm_landmark?.touched)" class="error">
+                        <div *ngIf="perm_landmark.errors.required">
                             Landmark is required
                         </div>
-                       <div *ngIf="plandmark.errors.maxlength">
-                        Landmark Length should be {{plandmark.errors.maxlength?.requiredLength}}
+                       <div *ngIf="perm_landmark.errors.maxlength">
+                        Landmark Length should be {{perm_landmark.errors.maxlength?.requiredLength}}
                       </div>
                 </div>
                     <label>Landmark</label>
@@ -267,14 +267,14 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="pstate" required maxlength="15" #pstate="ngModel"
-                    [(ngModel)]="contact.pstate" >
-                    <div *ngIf="!pstate?.valid && (pstate?.dirty || pstate?.touched)" class="error">
-                        <div *ngIf="pstate.errors.required">
+                    <input type="text" id="perm_state" name="perm_state" required maxlength="15" #perm_state="ngModel"
+                    [(ngModel)]="contact.perm_state" >
+                    <div *ngIf="!perm_state?.valid && (perm_state?.dirty || perm_state?.touched)" class="error">
+                        <div *ngIf="perm_state.errors.required">
                             State is required
                         </div>
-                       <div *ngIf="pstate.errors.maxlength">
-                        State Length should be {{pstate.errors.maxlength?.requiredLength}}
+                       <div *ngIf="perm_state.errors.maxlength">
+                        State Length should be {{perm_state.errors.maxlength?.requiredLength}}
                       </div>
                 </div>
                     <label>State</label>
@@ -282,14 +282,14 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="pcity" required maxlength="15" #pcity="ngModel"
-                    [(ngModel)]="contact.pcity">
-                    <div *ngIf="!pcity?.valid && (pcity?.dirty || pcity?.touched)" class="error">
-                        <div *ngIf="pcity.errors.required">
+                    <input type="text" id="perm_city" name="perm_city" required maxlength="15" #perm_city="ngModel"
+                    [(ngModel)]="contact.perm_city">
+                    <div *ngIf="!perm_city?.valid && (perm_city?.dirty || perm_city?.touched)" class="error">
+                        <div *ngIf="perm_city.errors.required">
                             City is required
                         </div>
-                       <div *ngIf="pcity.errors.maxlength">
-                        City Length should be {{pcity.errors.maxlength?.requiredLength}}
+                       <div *ngIf="perm_city.errors.maxlength">
+                        City Length should be {{perm_city.errors.maxlength?.requiredLength}}
                       </div>
                 </div>
                     <label>City</label>
@@ -297,14 +297,14 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="ppincode" required pattern="[1-9]{1}[0-9]{5}" #ppincode="ngModel"
-                    [(ngModel)]="contact.ppincode " >
-                      <div *ngIf="!ppincode?.valid && (ppincode?.dirty || ppincode?.touched)" class="error">
-                          <div *ngIf="ppincode.errors.required">
+                    <input type="text" id="perm_pincode" name="perm_pincode" required pattern="[1-9]{1}[0-9]{5}" #perm_pincode="ngModel"
+                    [(ngModel)]="contact.perm_pincode " >
+                      <div *ngIf="!perm_pincode?.valid && (perm_pincode?.dirty || perm_pincode?.touched)" class="error">
+                          <div *ngIf="perm_pincode.errors.required">
                             Pincode is required
                           </div>
                           
-                          <div *ngIf="ppincode.errors.pattern">
+                          <div *ngIf="perm_pincode.errors.pattern">
                             Pincode should be of 6 digits
                             
                           </div> 
@@ -315,14 +315,14 @@
 
                   <h5 style="font-family: Bradley Hand ITC; font-size: 200%;">Occupation Details</h5>
                   <div class="user-box">
-                    <input type="text" name="occtype" required maxlength="15" #occtype="ngModel"
-                    [(ngModel)]="contact.occtype " >
-                      <div *ngIf="!occtype?.valid && (occtype?.dirty || occtype?.touched)" class="error">
-                          <div *ngIf="occtype.errors.required">
+                    <input type="text" id="occ_type" name="occ_type" required maxlength="15" #occ_type="ngModel"
+                    [(ngModel)]="contact.occ_type " >
+                      <div *ngIf="!occ_type?.valid && (occ_type?.dirty || occ_type?.touched)" class="error">
+                          <div *ngIf="occ_type.errors.required">
                               Occupation type is required
                           </div>
-                         <div *ngIf="occtype.errors.maxlength">
-                          Occupation type Length should be {{occtype.errors.maxlength?.requiredLength}}
+                         <div *ngIf="occ_type.errors.maxlength">
+                          Occupation type Length should be {{occ_type.errors.maxlength?.requiredLength}}
                         </div>
                   </div>
                     <label>Occupation type</label>
@@ -330,14 +330,14 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="incsource" required maxlength="15" #incsource="ngModel"
-                    [(ngModel)]="contact.incsource " >
-                      <div *ngIf="!incsource?.valid && (incsource?.dirty || incsource?.touched)" class="error">
-                          <div *ngIf="incsource.errors.required">
+                    <input type="text" id="inc_source" name="inc_source" required maxlength="15" #inc_source="ngModel"
+                    [(ngModel)]="contact.inc_source " >
+                      <div *ngIf="!inc_source?.valid && (inc_source?.dirty || inc_source?.touched)" class="error">
+                          <div *ngIf="inc_source.errors.required">
                               Source of Income is required
                           </div>
-                         <div *ngIf="incsource.errors.maxlength">
-                          Source of Income Length should be {{incsource.errors.maxlength?.requiredLength}}
+                         <div *ngIf="inc_source.errors.maxlength">
+                          Source of Income Length should be {{inc_source.errors.maxlength?.requiredLength}}
                         </div>
                   </div>
                     <label>Source of Income</label>
@@ -345,30 +345,30 @@
                   </div>
 
                   <div class="user-box">
-                    <input type="text" name="grossannincome" required maxlength="15" #grossannincome="ngModel"
-                    [(ngModel)]="contact.grossannincome ">
-                      <div *ngIf="!grossannincome?.valid && (grossannincome?.dirty || grossannincome?.touched)" class="error">
-                          <div *ngIf="grossannincome.errors.required">
+                    <input type="text" id="gross_annual_inc" name="gross_annual_inc" required maxlength="15" #gross_annual_inc="ngModel"
+                    [(ngModel)]="contact.gross_annual_inc ">
+                      <div *ngIf="!gross_annual_inc?.valid && (gross_annual_inc?.dirty || gross_annual_inc?.touched)" class="error">
+                          <div *ngIf="gross_annual_inc.errors.required">
                               Gross Annual Income is required
                           </div>
-                         <div *ngIf="grossannincome.errors.maxlength">
-                          Gross Annual Income Length should be {{grossannincome.errors.maxlength?.requiredLength}}
+                         <div *ngIf="gross_annual_inc.errors.maxlength">
+                          Gross Annual Income Length should be {{gross_annual_inc.errors.maxlength?.requiredLength}}
                         </div>
                   </div>
                     <label>Gross Annual Income</label>
 
                   </div>
                   
+					                  <!-- <input type="text" id="service_ref_no" name="service_ref_no" placeholder="Service Number" #service_ref_no="ngModel"   [(ngModel)]="contact.service_ref_no"> -->
+                  <input type="text" id="acct_type" name="acct_type" placeholder="Account Type" #acct_type="ngModel"   [(ngModel)]="contact.acct_type">
+                  <!-- <input type="text" id="acct_status" name="acct_status" placeholder="Account Status" #sacct_status="ngModel"   [(ngModel)]="contact.acct_status"> -->
+                  <input type="checkbox" id="opt_debit_card" name="opt_debit_card" placeholder="Opt for Debit Card" #opt_debit_card="ngModel"   [(ngModel)]="contact.opt_debit_card">Opt for Debit Card<br>
+                  <input type="checkbox" id="opt_netbanking" name="opt_netbanking" placeholder="Opt for NetBanking" #sopt_netbanking="ngModel"   [(ngModel)]="contact.opt_netbanking">Opt for Net Banking<br>
 
                   <pre>
-                  <input type="checkbox" class="agree">Do you want a debit card?*<br><br>  
-                  <input type="checkbox" class="agree">Opt for Net Banking<br><br>
-                  <input type="checkbox" class="agree">I agree.....<br><br> </pre>
-                  <a [routerLink]="['/approvalpending']">
-                    Submit
-                    <span></span> 
-                </a>
- 
+                    <br>  
+                   </pre>
+                  <input type="submit" value="Register">
                 </form>
                </div> 
     </div>

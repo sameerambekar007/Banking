@@ -23,10 +23,12 @@ import { TransactionsuccessComponent } from './transactionsuccess/transactionsuc
 import { AccountsummaryComponent } from './accountsummary/accountsummary.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountstatementmainComponent } from './accountstatementmain/accountstatementmain.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ApprovalpendingComponent } from './approvalpending/approvalpending.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CustomerloginComponent } from './customerlogin/customerlogin.component';
 
 @NgModule({
   declarations: [
@@ -53,12 +55,15 @@ import { ApprovalpendingComponent } from './approvalpending/approvalpending.comp
     ChangepasswordComponent,
     AccountstatementmainComponent,
     AboutusComponent,
-    ApprovalpendingComponent
+    ApprovalpendingComponent,
+    CustomerloginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
