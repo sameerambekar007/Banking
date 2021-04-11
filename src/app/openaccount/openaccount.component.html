@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  
   <body>
      
     
     <div class="content">
             <div class="login-box">
-                <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Open a Savings Account</h2>
-                <form class="box" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate >
-                <!--<input type="text" id="admin_id" name="admin_id" placeholder="Customer ID" #admin_id="ngModel"
-                            [(ngModel)]="contact.admin_id" >-->
+               <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Open a Savings Account</h2>
+                <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate >
                   <h5 style="font-family: Bradley Hand ITC; font-size: 200%;">Personal Details</h5>
                   <div class="user-box">
-                    <input type="text" id="title" name="title" required  #title="ngModel" [(ngModel)]="contact.title" >
+                   <!-- <input type="text" id="title" name="title" required  #title="ngModel" [(ngModel)]="contact.title" >-->
+                    <label>Title</label><br>
                     <div *ngIf="!title?.valid && (title?.dirty || title?.touched)" class="error">
                       <div *ngIf="title.errors.required">
                         Title is required
                       </div>
-          </div>
-                    <label>Title</label>
+                    </div><br>
+                    <div class="user-box">  
+                      <select id="title" name="title" required  #title="ngModel" [(ngModel)]="contact.title">
+                        <option value=""></option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Ms">Ms</option>
+                      </select>
+                      </div>
                   </div>
 
                   <div class="user-box">
@@ -221,6 +227,7 @@
                   </div>
 
                   <h5 style="font-family: Bradley Hand ITC; font-size: 200%;">Permanent Address</h5>
+                  
                   <div class="user-box">
                     <input type="text" id="perm_addr_line1" name="perm_addr_line1" required maxlength="15" #perm_addr_line1="ngModel"
                     [(ngModel)]="contact.perm_addr_line1" >
@@ -358,19 +365,40 @@
                     <label>Gross Annual Income</label>
 
                   </div>
+                  <div class="user-box">
+                    <!-- <input type="text" id="title" name="title" required  #title="ngModel" [(ngModel)]="contact.title" >-->
+                     <label>Account Type</label><br>
+                     <div *ngIf="!acct_type?.valid && (acct_type?.dirty || acct_type?.touched)" class="error">
+                       <div *ngIf="acct_type.errors.required">
+                         Title is required
+                       </div>
+                     </div><br>
+                     <div class="user-box">  
+                       <select id="acct_type" name="acct_type" required  #acct_type="ngModel" [(ngModel)]="contact.acct_type">
+                          <option value=""></option>
+                          <option value="Current">Current</option>
+                          <option value="Salary">Salary</option>
+                          <option value="Savings">Savings</option>                    
+                       </select>
+                       </div>
+                   </div>
                   
-					                  <!-- <input type="text" id="service_ref_no" name="service_ref_no" placeholder="Service Number" #service_ref_no="ngModel"   [(ngModel)]="contact.service_ref_no"> -->
-                  <input type="text" id="acct_type" name="acct_type" placeholder="Account Type" #acct_type="ngModel"   [(ngModel)]="contact.acct_type">
-                  <!-- <input type="text" id="acct_status" name="acct_status" placeholder="Account Status" #sacct_status="ngModel"   [(ngModel)]="contact.acct_status"> -->
-                  <input type="checkbox" id="opt_debit_card" name="opt_debit_card" placeholder="Opt for Debit Card" #opt_debit_card="ngModel"   [(ngModel)]="contact.opt_debit_card">Opt for Debit Card<br>
-                  <input type="checkbox" id="opt_netbanking" name="opt_netbanking" placeholder="Opt for NetBanking" #sopt_netbanking="ngModel"   [(ngModel)]="contact.opt_netbanking">Opt for Net Banking<br>
+                  
+					        <!-- <input type="text" id="service_ref_no" name="service_ref_no" placeholder="Service Number" #service_ref_no="ngModel"   [(ngModel)]="contact.service_ref_no">
+                  <input type="text" id="acct_type" name="acct_type" placeholder="Account Type" #acct_type="ngModel"   [(ngModel)]="contact.acct_type"><br>
+                   <input type="text" id="acct_status" name="acct_status" placeholder="Account Status" #sacct_status="ngModel"   [(ngModel)]="contact.acct_status"> -->
+                  
+                  <pre class="checkbox">
 
-                  <pre>
-                    <br>  
-                   </pre>
-                  <input type="submit" value="Register">
+                    
+                                                                                  <input type="checkbox" id="opt_debit_card" name="opt_debit_card" placeholder="Opt for Debit Card" #opt_debit_card="ngModel"   [(ngModel)]="contact.opt_debit_card">Opt for Debit Card<br>
+                                                                                  <input type="checkbox" id="opt_netbanking" name="opt_netbanking" placeholder="Opt for NetBanking" #sopt_netbanking="ngModel"   [(ngModel)]="contact.opt_netbanking">Opt for Net Banking<br>
+                  </pre>
+                
+                  <input class="btn btn-primary" type="submit" value="Register">
+                
                 </form>
-               </div> 
+                      </div> 
     </div>
  </body>
 </html>

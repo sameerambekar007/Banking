@@ -26,7 +26,7 @@ export class Openaccount {
     inc_source:string;
     gross_annual_inc:number;
     acct_type:string;
-   // acct_status:string;
+    //acct_status:string;
     opt_debit_card:string;
     opt_netbanking:string
 }

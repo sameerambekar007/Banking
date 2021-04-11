@@ -29,6 +29,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ApprovalpendingComponent } from './approvalpending/approvalpending.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerloginComponent } from './customerlogin/customerlogin.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CustomerloginComponent } from './customerlogin/customerlogin.component'
     AccountstatementmainComponent,
     AboutusComponent,
     ApprovalpendingComponent,
-    CustomerloginComponent
+    CustomerloginComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

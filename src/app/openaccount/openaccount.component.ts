@@ -43,7 +43,7 @@ export class OpenaccountComponent implements OnInit{
         inc_source:"",
         gross_annual_inc:null,
         acct_type:"",
-        //acct_status:"",
+        //acct_status: "open",
         opt_debit_card:"",
         opt_netbanking:""
       };
@@ -89,7 +89,7 @@ export class OpenaccountComponent implements OnInit{
     inc_source:string;
     gross_annual_inc:number;
     acct_type:string;
-  //  acct_status:string;
+    //acct_status:string;
     opt_debit_card:string;
     opt_netbanking:string
   }

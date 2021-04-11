@@ -22,6 +22,7 @@ import { RegisterforibComponent } from './registerforib/registerforib.component'
 import { RtgstransactionComponent } from './rtgstransaction/rtgstransaction.component';
 import { SessionexpiredComponent } from './sessionexpired/sessionexpired.component';
 import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
+import { TableComponent } from './table/table.component';
 import { TransactionsuccessComponent } from './transactionsuccess/transactionsuccess.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
@@ -50,6 +51,7 @@ const routes: Routes = [
   {path:'approvalpending',component:ApprovalpendingComponent},
   {path:'aboutus',component:AboutusComponent},
   {path:'custlogin',component:CustomerloginComponent},
+  {path:'table',component:TableComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'**',component:ErrorComponent}
 ];

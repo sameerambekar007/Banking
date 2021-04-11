@@ -30,15 +30,15 @@
         <div class="login-box">
             <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Account Opening requests Welcome admin {{sessionStorage.getItem('username')}}</h2>
             <section>
-              <form >
+              <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate >
                 
                 <div class="tbl-header">
                   <table cellpadding="0" cellspacing="0" border="0">
                     <thead>
                       <tr>
-                        <th>Serial No.</th>
                         <th>Service request number</th>
                         <th>Customer Name</th>
+                        <th>Customer Account type</th>
                         <th>View Customer Details</th>
                         <th>Approve Request</th>
                         <th>Deny Request</th>
@@ -49,22 +49,19 @@
                 <div class="tbl-content">
                   <table cellpadding="0" cellspacing="0" border="0">
                     <tbody>
-                      <tr >
-                        <td>1</td>
-                        <td>213122312312</td>
-                        <td>John Doe</td>
-                        <td><a  [routerLink]="['/userprofile']" class="">View</a></td>
-                        <td><a  [routerLink]="['/userprofile']" class="">Approve</a></td>
-                        <td><a  [routerLink]="['/userprofile']" class="">Deny</a></td>
-                      </tr>
-                      <tr >
-                        <td>2</td>
-                        <td>213122312312</td>
-                        <td>John Doe</td>
-                        <td><a  [routerLink]="['/userprofile']" class="">View</a></td>
-                        <td><a  [routerLink]="['/userprofile']" class="">Approve</a></td>
-                        <td><a  [routerLink]="['/userprofile']" class="">Deny</a></td>
-                      </tr>
+                      <tr *ngFor="let customers of customerRequests">
+                        <td id="service_ref_no" name="service_ref_no" #service_ref_no="ngModel"   [(ngModel)]="contact.service_ref_no" > {{customers.service_ref_no}}</td>
+                        <td id="first_name" name="first_name" #first_name="ngModel"   [(ngModel)]="contact.first_name">{{customers.first_name}}</td>
+                        <td id="acct_type" name="acct_type" #acct_type="ngModel"   [(ngModel)]="contact.acct_type" > {{customers.acct_type}}</td>
+                        <td><a  [routerLink]="['/userprofile']" class="">View Details</a></td>
+                        <td><a (click) ="onSubmit()" [routerLink]="['/admindash']" class="">Approve</a></td>
+                        <!-- <td><input type="Submit" value="Approve"></td> -->
+                        <td><a (click) ="RequestDenied()" [routerLink]="['/admindash']" class="">Deny</a></td>
+                        <!-- <td>
+                            <button [routerLink]="['/update/', product.id]">Update</button>
+                            <button type="button" (click)="delete(product.id)">Remove</button>
+                        </td>
+                           -->
                     </tbody>
                   </table>
                 </div>
@@ -78,7 +75,16 @@
           
         
       </div>
+      <!-- <tr *ngFor="let customers of customerRequests">
+        <td>{{customers.service_ref_no}}</td>
+        <td>{{customers.first_name}}</td>
+        <td>{{customers.acct_type}}</td>
+        <td>
+            <button [routerLink]="['/update/', product.id]">Update</button>
+            <button type="button" (click)="delete(product.id)">Remove</button>
+        </td>
+    </tr> -->
 
-</body>
+  </body>
 </html>
   

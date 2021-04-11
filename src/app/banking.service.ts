@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Admin} from './admin';
 import { Openaccount } from './openaccount';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http"
+import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
+import { CustomerRequests } from "./customer-requests";
 
 	import {  Observable, throwError } from 'rxjs';
 	import { catchError } from 'rxjs/operators';
@@ -25,7 +26,18 @@ export class BankingService {
     return(req);
   }
   create(Customer): Observable<Openaccount> {
-     console.log("INSIDE SERVECE",Customer);
+     console.log("INSIDE SERVICE",Customer);
      return this.httpClient.post<Openaccount>(this.apiServer + '/OpenAccount/', JSON.stringify(Customer), this.httpOptions)
  }
+ getAll(): Observable<CustomerRequests[]> {
+  //console.log("INSIDE SERVICE");
+  return this.httpClient.get<CustomerRequests[]>(this.apiServer + '/AdminDashboard/')
+}
+approve(Customer):Observable<CustomerRequests>
+  {
+    //console.log("INSIDE SERVECE",user1);
+    var req = this.httpClient.post<CustomerRequests>(this.apiServer + '/Account_HolderInsert/',JSON.stringify(Customer), this.httpOptions)
+    //console.log(req);
+    return(req);
+  }
 }
