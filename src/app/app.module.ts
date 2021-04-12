@@ -30,6 +30,10 @@ import { ApprovalpendingComponent } from './approvalpending/approvalpending.comp
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerloginComponent } from './customerlogin/customerlogin.component';
 import { TableComponent } from './table/table.component';
+import { AccountlockedComponent } from './accountlocked/accountlocked.component';
+import { AccountstatusComponent } from './accountstatus/accountstatus.component';
+import { AccountstatusmainComponent } from './accountstatusmain/accountstatusmain.component';
+import { TransactionfailedComponent } from './transactionfailed/transactionfailed.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,11 @@ import { TableComponent } from './table/table.component';
     AboutusComponent,
     ApprovalpendingComponent,
     CustomerloginComponent,
-    TableComponent
+    TableComponent,
+    AccountlockedComponent,
+    AccountstatusComponent,
+    AccountstatusmainComponent,
+    TransactionfailedComponent
   ],
   imports: [
     BrowserModule,

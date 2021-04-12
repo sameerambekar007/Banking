@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { AccountlockedComponent } from './accountlocked/accountlocked.component';
 import { AccountstatementComponent } from './accountstatement/accountstatement.component';
 import { AccountstatementmainComponent } from './accountstatementmain/accountstatementmain.component';
+import { AccountstatusComponent } from './accountstatus/accountstatus.component';
+import { AccountstatusmainComponent } from './accountstatusmain/accountstatusmain.component';
 import { AccountsummaryComponent } from './accountsummary/accountsummary.component';
 import { AddbeneficiaryComponent } from './addbeneficiary/addbeneficiary.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
@@ -23,6 +26,7 @@ import { RtgstransactionComponent } from './rtgstransaction/rtgstransaction.comp
 import { SessionexpiredComponent } from './sessionexpired/sessionexpired.component';
 import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
 import { TableComponent } from './table/table.component';
+import { TransactionfailedComponent } from './transactionfailed/transactionfailed.component';
 import { TransactionsuccessComponent } from './transactionsuccess/transactionsuccess.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 
@@ -52,6 +56,10 @@ const routes: Routes = [
   {path:'aboutus',component:AboutusComponent},
   {path:'custlogin',component:CustomerloginComponent},
   {path:'table',component:TableComponent},
+  {path:'accountlocked',component:AccountlockedComponent},
+  {path:'accountstatus',component:AccountstatusComponent},
+  {path:'accountstatusmain',component:AccountstatusmainComponent},
+  {path:'transactionfailed',component:TransactionfailedComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'**',component:ErrorComponent}
 ];
