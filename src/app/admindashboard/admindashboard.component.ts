@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import {BankingService} from '../banking.service';
 import { FormGroup,FormBuilder, FormControl, Validators } from '@angular/forms';
 import {CustomerRequests} from '../customer-requests';
+import {ActivatedRoute} from '@angular/router'; 
+import {AccountHolderinsert} from '../account-holderinsert';
+
 
 @Component({
   selector: 'app-admindashboard',
@@ -11,11 +14,15 @@ import {CustomerRequests} from '../customer-requests';
 })
 export class AdmindashboardComponent implements OnInit {
   contact:contact;
-  contactForm: FormControl;
+  cust:CustomerRequests;
+  
+ contactForm: FormControl;
   customerRequests: CustomerRequests[] = [];
   // CustomerRequests:CustomerRequests;
-  constructor(private router:Router,
-    public bankingService: BankingService) { }
+  constructor(
+    public bankingService: BankingService,
+    private router:ActivatedRoute,
+    ) { }
   
   ngOnInit(): void {
     this.contact = { 
@@ -29,7 +36,7 @@ export class AdmindashboardComponent implements OnInit {
 
     this.bankingService.getAll().subscribe((data: CustomerRequests[])=>{
       //console.log("inside subscribe")
-      this.customerRequests=data;
+       this.customerRequests=data;
      //console.log(this.customerRequests);
   }) 
   }
@@ -50,23 +57,20 @@ export class AdmindashboardComponent implements OnInit {
 //     });
 // }
 
-onSubmit(contactForm) {
-  console.log(contactForm.value) 
-  this.bankingService.approve(contactForm.value).subscribe(res => {
-     // console.log(res)
-      if(res.toString()=="Found")
-      {
-        console.log("In Found");
-      
-      }
-      else
-      {
-        alert("Invalid request!!");
-      }
-      //console.log(sessionStorage);
-    });
-}
+onSubmit(customer) {
+  console.log(customer);
 
+
+  console.log(new AccountHolderinsert(customer.first_name,customer.acct_type,customer.service_ref_no));
+  // this.cust.acct_type=acct_type;
+  // this.cust.first_name=first_name;
+  // this.cust.service_ref_no=service_ref_no;
+  this.bankingService.Accountholder(new AccountHolderinsert(customer.first_name,customer.acct_type,customer.service_ref_no)).subscribe(res=>
+    {
+      console.log("Customer added!")
+    })
+  
+}
 
   
   RequestDenied()

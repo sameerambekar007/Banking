@@ -6,39 +6,53 @@
     <div class="content" style="align-items: center;">
             <div class="login-box">
                 <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Add New Beneficiary</h2>
-                <form>
+                <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
 
+                  <!-- <div class="user-box">
+                    <input type="number" id="ben_id" name="ben_id" required  #ben_id="ngModel"
+                    [(ngModel)]="contact.ben_id">
+                    <label>Beneficiary ID </label>
+                  </div> -->
                   <div class="user-box">
-                    <input type="text"name="ben_name" required>
+                    <input type="text"id="ben_name" name="ben_name" required  #ben_name="ngModel"
+                    [(ngModel)]="contact.ben_name">
                     <label>Enter Beneficiary Name</label>
                   </div>
                   <div class="user-box">
-                    <input type="number"  name="ben_account" required>
+                    <input type="number"  id="ben_account_no" name="ben_account_no" required  #ben_account_no="ngModel"
+                    [(ngModel)]="contact.ben_account_no">
                     <label> Enter Beneficiary Account number </label>
                   </div>                 
-                   <div class="user-box">
+                   <!-- <div class="user-box">
                     <input type="number"  name="ben_re_enter_account" required>
                     <label>Re-enter Beneficiary Account number</label>
-                  </div>
+                  </div> -->
                   
                   <div class="user-box">
-                    <input type="text" name="nickname" required>
+                    <input type="text" id="ben_nickname" name="ben_nickname" required  #ben_nickname="ngModel"
+                    [(ngModel)]="contact.ben_nickname">
                     <label>Enter nick name </label>
                   </div>
                   <div class="user-box">
+                    <input type="number" id="account_no" name="account_no" required  #account_no="ngModel"
+                    [(ngModel)]="contact.account_no">
+                    <label>Enter Account No </label>
+                  </div>
+                  <!-- <div class="user-box">
                     <input type="text"  name="remarks" required>
                     <label>Enter Remarks</label>
 
-                  </div>
+                  </div> -->
                   
-                  <a [routerLink]="['/custdash']">
+                  <a [routerLink]="['/custdash']" >
                     Continue
                     <span></span> 
                 </a>
-                <a href="#">
-                    Save as Beneficiary
-                    <span></span> 
-                </a>
+                <a [routerLink]="['/custdash']" (click)="onSubmit(contactForm)">
+                  Add Beneficiary
+                  <span></span> 
+              </a>
+                
                 
  
                 </form>

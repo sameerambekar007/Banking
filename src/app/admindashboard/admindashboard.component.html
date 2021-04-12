@@ -30,7 +30,7 @@
         <div class="login-box">
             <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Account Opening requests Welcome admin {{sessionStorage.getItem('username')}}</h2>
             <section>
-              <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate >
+              <form  >
                 
                 <div class="tbl-header">
                   <table cellpadding="0" cellspacing="0" border="0">
@@ -54,8 +54,9 @@
                         <td id="first_name" name="first_name" #first_name="ngModel"   [(ngModel)]="contact.first_name">{{customers.first_name}}</td>
                         <td id="acct_type" name="acct_type" #acct_type="ngModel"   [(ngModel)]="contact.acct_type" > {{customers.acct_type}}</td>
                         <td><a  [routerLink]="['/userprofile']" class="">View Details</a></td>
-                        <td><a (click) ="onSubmit()" [routerLink]="['/admindash']" class="">Approve</a></td>
+                        <td><a (click) ="onSubmit(customers)" [routerLink]="['/admindash']" class="">Approve</a></td>
                         <!-- <td><input type="Submit" value="Approve"></td> -->
+                        <!-- <input type="submit" [routerLink]="['/admindash/', customers.service_ref_no]" (click) value="Approve"> -->
                         <td><a (click) ="RequestDenied()" [routerLink]="['/admindash']" class="">Deny</a></td>
                         <!-- <td>
                             <button [routerLink]="['/update/', product.id]">Update</button>

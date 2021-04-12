@@ -6,32 +6,37 @@
     <div class="content" style="align-items: center;">
             <div class="login-box">
                 <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Initiate RTGS Payment</h2>
-                <form>
+                <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
 
                   <div class="user-box">
-                    <input type="number" name=" account" required>
+                    <input type="number" id="account_no" name="account_no" required  #account_no="ngModel"
+                    [(ngModel)]="contact.account_no">
                     <label>Enter Your Account number</label>
                   </div>
                   <div class="user-box">
-                    <input type="number"  name="rec_account" required>
+                    <input type="number"  id="recipient_acct" name="recipient_acct" required  #recipient_acct="ngModel"
+                    [(ngModel)]="contact.recipient_acct">
                     <label>Enter Recepient Account number </label>
                   </div>                 
                    <div class="user-box">
-                    <input type="number" name="amount" required>
+                    <input type="number" id="amount" name="amount" required  #amount="ngModel"
+                    [(ngModel)]="contact.amount">
                     <label>Enter Amount</label>
                   </div>
                   
                   <div class="user-box">
-                    <input type="date" name="date" required>
+                    <input type="date" id="trans_date" name="trans_date" required  #trans_date="ngModel"
+                    [(ngModel)]="contact.trans_date">
                     <label></label>
                   </div>
                   <div class="user-box">
-                    <input type="text"  name="remarks" required>
+                    <input type="text"  id="remarks" name="remarks" required  #remarks="ngModel"
+                    [(ngModel)]="contact.remarks">
                     <label>Enter Remarks</label>
 
                   </div>
                   
-                  <a [routerLink]="['/transuccess']">
+                  <a [routerLink]="['/transuccess']" (click)="onSubmit(contactForm)">
                     Continue
                     <span></span> 
                 </a>

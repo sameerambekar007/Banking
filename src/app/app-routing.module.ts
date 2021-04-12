@@ -44,6 +44,7 @@ const routes: Routes = [
   {path:'forgotuserid',component:ForgotuseridComponent},
   {path:'addben',component:AddbeneficiaryComponent},
   {path:'admindash',component:AdmindashboardComponent},
+  {path:'admindash/:service_ref_no',component:AdmindashboardComponent},
   {path:'custdash',component:CustomerdashboardComponent},
   {path:'addben',component:AddbeneficiaryComponent},
   {path:'sessionexpired',component:SessionexpiredComponent},

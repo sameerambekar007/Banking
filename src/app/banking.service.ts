@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Admin} from './admin';
 import { Openaccount } from './openaccount';
+import {Addbeneficiary} from './addbeneficiary';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { CustomerRequests } from "./customer-requests";
-
+import { Impstransfer } from "./impstransfer";
 	import {  Observable, throwError } from 'rxjs';
+  import {AccountHolderinsert} from "./account-holderinsert";
 	import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -33,11 +35,30 @@ export class BankingService {
   //console.log("INSIDE SERVICE");
   return this.httpClient.get<CustomerRequests[]>(this.apiServer + '/AdminDashboard/')
 }
-approve(Customer):Observable<CustomerRequests>
-  {
-    //console.log("INSIDE SERVECE",user1);
-    var req = this.httpClient.post<CustomerRequests>(this.apiServer + '/Account_HolderInsert/',JSON.stringify(Customer), this.httpOptions)
-    //console.log(req);
-    return(req);
-  }
+approve(service_ref_no, Customer): Observable<CustomerRequests> {
+  return this.httpClient.put<CustomerRequests>(this.apiServer + '/Account_HolderInsert/' + service_ref_no, JSON.stringify(Customer), this.httpOptions)
+}
+getById(service_ref_no): Observable<CustomerRequests> {
+  return this.httpClient.get<CustomerRequests>(this.apiServer + '/OpenAccount/' + service_ref_no)
+}
+addben(Beneficiary): Observable<Addbeneficiary> {
+  console.log("INSIDE SERVICE",Beneficiary);
+  return this.httpClient.post<Addbeneficiary>(this.apiServer + '/AddBeneficiaries/', JSON.stringify(Beneficiary), this.httpOptions)
+}
+imps(impstransaction): Observable<Impstransfer> {
+  console.log("INSIDE SERVICE",impstransaction);
+  return this.httpClient.post<Impstransfer>(this.apiServer + '/Impstransfer/', JSON.stringify(impstransaction), this.httpOptions)
+}
+neft(impstransaction): Observable<Impstransfer> {
+  console.log("INSIDE SERVICE",impstransaction);
+  return this.httpClient.post<Impstransfer>(this.apiServer + '/Nefttransfer/', JSON.stringify(impstransaction), this.httpOptions)
+}
+rtgs(impstransaction): Observable<Impstransfer> {
+  console.log("INSIDE SERVICE",impstransaction);
+  return this.httpClient.post<Impstransfer>(this.apiServer + '/Rtgstransfer/', JSON.stringify(impstransaction), this.httpOptions)
+}
+Accountholder(Accountholder): Observable<AccountHolderinsert> {
+  console.log("INSIDE SERVICE",Accountholder);
+  return this.httpClient.post<AccountHolderinsert>(this.apiServer + '/Account_HolderInsert/', JSON.stringify(Accountholder), this.httpOptions)
+}
 }
