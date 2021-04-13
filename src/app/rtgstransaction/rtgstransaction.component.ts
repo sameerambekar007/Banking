@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BankingService } from '../banking.service';
+import {Addbeneficiary} from '../addbeneficiary';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { BankingService } from '../banking.service';
 export class RtgstransactionComponent implements OnInit {
 
   contact:contact;
+  public beneficiarylist:Addbeneficiary[]=[];
   constructor(private router:Router,
     public bankingService: BankingService) { }
 
@@ -20,8 +22,25 @@ export class RtgstransactionComponent implements OnInit {
       trans_date:null,
       remarks:"",
       amount:null,
-      account_no:null
+      account_no:JSON.parse(sessionStorage.getItem('account_no'))
     }
+    this.bankingService.getAllBeneficiaries().subscribe((data: Addbeneficiary[])=>{
+      //console.log("inside subscribe")
+       //console.log(data);
+      // console.log(this.beneficiarylist);
+      for (let i = 0; i < data.length;i++) 
+               {
+                //  console.log("inside for")
+                if (data[i].account_no==JSON.parse(sessionStorage.getItem('account_no')))
+                {
+                  //console.log("inside if")
+                  //console.log(this.accountholder1[i].account_no)
+                    this.beneficiarylist.push(data[i]);
+                }
+              }
+              console.log(this.beneficiarylist)
+  
+  })
   }
   onSubmit(contactForm)
   {

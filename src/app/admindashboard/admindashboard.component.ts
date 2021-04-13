@@ -5,6 +5,7 @@ import { FormGroup,FormBuilder, FormControl, Validators } from '@angular/forms';
 import {CustomerRequests} from '../customer-requests';
 import {ActivatedRoute} from '@angular/router'; 
 import {AccountHolderinsert} from '../account-holderinsert';
+import { Openaccount } from '../openaccount';
 
 
 @Component({
@@ -18,6 +19,9 @@ export class AdmindashboardComponent implements OnInit {
   
  contactForm: FormControl;
   customerRequests: CustomerRequests[] = [];
+  openaccount:Openaccount[] =[];
+  
+  customer: any;
   // CustomerRequests:CustomerRequests;
   constructor(
     public bankingService: BankingService,
@@ -34,33 +38,24 @@ export class AdmindashboardComponent implements OnInit {
 
 
 
-    this.bankingService.getAll().subscribe((data: CustomerRequests[])=>{
-      //console.log("inside subscribe")
-       this.customerRequests=data;
-     //console.log(this.customerRequests);
-  }) 
-  }
-//   onClick(){    
-//     console.log("Approve button is clicked!");  
-//     this.bankingService.login(this.customerRequests).subscribe(res => {
-//       console.log(res)
-//       if(res.toString()=="Found")
-//       {
-//         console.log("In Found");
-      
-//       }
-//       else
-//       {
-//         alert("Invalid login!!");
-//       }
-//       console.log(sessionStorage);
-//     });
-// }
+  //   this.bankingService.getAll().subscribe((data: CustomerRequests[])=>{
+  //     //console.log("inside subscribe")
+  //      this.customerRequests=data;
+  //    //console.log(this.customerRequests);
+  // })
+  this.bankingService.getAll1().subscribe((data: Openaccount[])=>{
+    //console.log("inside subscribe")
+     this.openaccount=data;
+     console.log(this.openaccount);
+     //console.log(this.openaccount);
+   //console.log(this.customerRequests);
+})
+  
+
+}
 
 onSubmit(customer) {
-  console.log(customer);
-
-
+  //console.log(customer);
   console.log(new AccountHolderinsert(customer.first_name,customer.acct_type,customer.service_ref_no));
   // this.cust.acct_type=acct_type;
   // this.cust.first_name=first_name;
@@ -71,7 +66,12 @@ onSubmit(customer) {
     })
   
 }
-
+viewdetails(customer)
+{
+  this.customer=customer;
+  //console.log(typeof(this.customer));
+  console.log(this.customer);
+}
   
   RequestDenied()
   {

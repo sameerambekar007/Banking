@@ -11,13 +11,25 @@
                   <div class="user-box">
                     <input type="number" id="account_no" name="account_no" required  #account_no="ngModel"
                     [(ngModel)]="contact.account_no">
-                    <label>Enter Your Account number</label>
+                    <label>Your Account number</label>
                   </div>
                   <div class="user-box">
                     <input type="number"  id="recipient_acct" name="recipient_acct" required  #recipient_acct="ngModel"
                     [(ngModel)]="contact.recipient_acct">
                     <label>Enter Recepient Account number </label>
-                  </div>                 
+                  </div>   
+                  
+                  <table>
+                    <tr *ngFor="let beneficiaries of beneficiarylist">
+                      <td>
+                        <h2>{{beneficiaries.ben_name}}</h2>
+                      </td>
+                      <td>
+                        <h2>{{beneficiaries.ben_account_no}}</h2>
+                      </td>
+
+                    </tr>
+                  </table>              
                    <div class="user-box">
                     <input type="number" id="amount" name="amount" required  #amount="ngModel"
                     [(ngModel)]="contact.amount">

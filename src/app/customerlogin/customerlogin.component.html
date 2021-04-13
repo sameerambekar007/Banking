@@ -18,15 +18,15 @@
           <div class="col-md-6">
               <div class="card">
                  <!-- <img src="../assets/bg3.jpg" alt="Notebook" style="width:100%; height: 100%; position: absolute; z-index: 100;">  -->
-                  <form class="box">
+                  <form class="box" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
                         <h5>Login</h5>
-                      <p class="text-muted"> Please enter your login and password!</p>
+                      <p class="text-muted"> Please enter your login and password! </p>
                             <!-- <img src="../assets/customer-avatar.png" alt="Avatar" class="avatar"> -->
-                            <input type="text" name="" placeholder="Customer ID">
-                            <input type="password" name="" placeholder="Password"> 
+                            <input type="text"  id="customer_id" name="customer_id" placeholder="Customer id" #customer_id="ngModel"   [(ngModel)]="contact.customer_id">
+                            <input type="password" id="login_pass" name="login_pass" placeholder="Customer Password" #login_pass="ngModel"   [(ngModel)]="contact.login_pass"> 
 
 
-                            <input type="submit" [routerLink]="['/custdash']" value="Login" >
+                            <input type="submit"  value="Login" >
                             <input type="submit" [routerLink]="['/forgotpassword']" value="Forgot Password?" >
                             <input type="submit" [routerLink]="['/forgotuserid']" value="Forgot User Id?" >
                             <input class="al" type="submit" [routerLink]="['/login']" value="Admin Login" >

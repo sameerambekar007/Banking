@@ -49,20 +49,13 @@
                 <div class="tbl-content">
                   <table cellpadding="0" cellspacing="0" border="0">
                     <tbody>
-                      <tr *ngFor="let customers of customerRequests">
-                        <td id="service_ref_no" name="service_ref_no" #service_ref_no="ngModel"   [(ngModel)]="contact.service_ref_no" > {{customers.service_ref_no}}</td>
-                        <td id="first_name" name="first_name" #first_name="ngModel"   [(ngModel)]="contact.first_name">{{customers.first_name}}</td>
-                        <td id="acct_type" name="acct_type" #acct_type="ngModel"   [(ngModel)]="contact.acct_type" > {{customers.acct_type}}</td>
-                        <td><a  [routerLink]="['/userprofile']" class="">View Details</a></td>
+                      <tr *ngFor="let customers of openaccount">
+                        <td> {{customers.service_ref_no}}</td>
+                        <td>{{customers.first_name}}</td>
+                        <td > {{customers.acct_type}}</td>
+                        <td><a (click) = "viewdetails(customers)" [routerLink]="['/admindash']" class="">View Details</a></td>
                         <td><a (click) ="onSubmit(customers)" [routerLink]="['/admindash']" class="">Approve</a></td>
-                        <!-- <td><input type="Submit" value="Approve"></td> -->
-                        <!-- <input type="submit" [routerLink]="['/admindash/', customers.service_ref_no]" (click) value="Approve"> -->
                         <td><a (click) ="RequestDenied()" [routerLink]="['/admindash']" class="">Deny</a></td>
-                        <!-- <td>
-                            <button [routerLink]="['/update/', product.id]">Update</button>
-                            <button type="button" (click)="delete(product.id)">Remove</button>
-                        </td>
-                           -->
                     </tbody>
                   </table>
                 </div>
@@ -72,10 +65,214 @@
               
               
           </div>
+          <!-- <div class="login-box">
+            <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">User Details</h2>
+            <section>
+              <form  >
+                
+                <div class="tbl-header">
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                      <tr>
+                        <th>Service request number</th>
+                        <th>Customer Title</th>
+                        <th>Customer First Name</th>
+                        <th>Customer Middle Name</th>
+                        <th>Customer Last Name</th>
+                        <th>Customer Account type</th>
+                        
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div class="tbl-content">
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                      
+                        <td > {{customer.service_ref_no}}</td>
+                        <td >{{customer.title}}</td>
+                        <td > {{customer.first_name}}</td>
+                        <td > {{customer.middle_name}}</td>
+                        <td > {{customer.last_name}}</td>
+                        <td > {{customer.acct_type}}</td>
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+              </section>
+              
+              
+              
+          </div> -->
+        </div>
+      
+        <div class="login-box">
+          <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Customer Details</h2>
+          <section>
+            
+              <div>
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <thead>
+                    <tr>
+                      <td>Service Number</td>
+                      <td>-</td>
+                      <td>{{customer.service_ref_no}}</td>
+                    </tr>
+                    <tr>
+                      <td>Title</td>
+                      <td>-</td>
+                      <td>{{customer.title}}</td>
+                    </tr>
+                    <tr>
+                      <td>First Name</td>
+                      <td>-</td>
+                      <td>{{customer.first_name}}</td>
+                    </tr>
+                    <tr>
+                      <td>Middle Name</td>
+                      <td>-</td>
+                      <td>{{customer.middle_name}}</td>
+                    </tr>
+                    <tr>
+                      <td>Last Name</td>
+                      <td>-</td>
+                      <td>{{customer.last_name}}</td>
+                    </tr>
+                    <tr>
+                      <td>Father Name</td>
+                      <td>-</td>
+                      <td>{{customer.father_name}}</td>
+                    </tr>
+                    <tr>
+                      <td>Mobile Number</td>
+                      <td>-</td>
+                      <td>{{customer.mobile_no}}</td>
+                    </tr>
+                    <tr>
+                      <td>Email ID</td>
+                      <td>-</td>
+                      <td>{{customer.email_id}}</td>
+                    </tr>
+                    <tr>
+                      <td>Aadhar Number</td>
+                      <td>-</td>
+                      <td>{{customer.aadhar_no}}</td>
+                    </tr>
+                    <tr>
+                      <td>Date of Birth</td>
+                      <td>-</td>
+                      <td>{{customer.date_of_birth}}</td>
+                    </tr>
+                    <tr>
+                      <td>Resedential Address Line 1</td>
+                      <td>-</td>
+                      <td>{{customer.res_addr_line1}}</td>
+                    </tr>
+                    <tr>
+                      <td>Resedential Address Line 2</td>
+                      <td>-</td>
+                      <td>{{customer.res_addr_line2}}</td>
+                    </tr>
+                    <tr>
+                      <td>Resedential Landmark</td>
+                      <td>-</td>
+                      <td>{{customer.res_landmark}}</td>
+                    </tr>
+                    <tr>
+                      <td>Resedential State</td>
+                      <td>-</td>
+                      <td>{{customer.res_state}}</td>
+                    </tr>
+                    <tr>
+                      <td>Resedential City</td>
+                      <td>-</td>
+                      <td>{{customer.res_city}}</td>
+                    </tr>
+                    <tr>
+                      <td>Resedential Pincode</td>
+                      <td>-</td>
+                      <td>{{customer.res_pincode}}</td>
+                    </tr>
+                    <tr>
+                      <td>Permanent Address Line 1</td>
+                      <td>-</td>
+                      <td>{{customer.perm_addr_line1}}</td>
+                    </tr>
+                    <tr>
+                      <td>Permanent Address Line 2</td>
+                      <td>-</td>
+                      <td>{{customer.perm_addr_line2}}</td>
+                    </tr>
+                    <tr>
+                      <td>Permanent Landmark</td>
+                      <td>-</td>
+                      <td>{{customer.perm_landmark}}</td>
+                    </tr>
+                    <tr>
+                      <td>Permanent State</td>
+                      <td>-</td>
+                      <td>{{customer.perm_state}}</td>
+                    </tr>
+                    <tr>
+                      <td>Permanent City</td>
+                      <td>-</td>
+                      <td>{{customer.perm_city}}</td>
+                    </tr>
+                    <tr>
+                      <td>Permanent Pincode</td>
+                      <td>-</td>
+                      <td>{{customer.perm_pincode}}</td>
+                    </tr>
+                    <tr>
+                      <td>Occupation Type</td>
+                      <td>-</td>
+                      <td>{{customer.occ_type}}</td>
+                    </tr>
+                    <tr>
+                      <td>Source of Income</td>
+                      <td>-</td>
+                      <td>{{customer.inc_source}}</td>
+                    </tr>
+                    <tr>
+                      <td>Gross Annual Income</td>
+                      <td>-</td>
+                      <td>{{customer.gross_annual_inc}}</td>
+                    </tr>
+                    <tr>
+                      <td>Account Type</td>
+                      <td>-</td>
+                      <td>{{customer.acct_type}}</td>
+                    </tr>
+                    <tr>
+                      <td>Account Status</td>
+                      <td>-</td>
+                      <td>{{customer.acct_status}}</td>
+                    </tr>
+                    <tr>
+                      <td>Debit Card</td>
+                      <td>-</td>
+                      <td>{{customer.opt_debit_card}}</td>
+                    </tr>
+                    <tr>
+                      <td>Net-Banking </td>
+                      <td>-</td>
+                      <td>{{customer.opt_netbanking}}</td>
+                    </tr>
+                    
+                  </thead>
+                </table>
+              </div>
+              
+            </section>
+            
+            
+            
+            
+        </div>
 
-          
+      
         
-      </div>
+      
       <!-- <tr *ngFor="let customers of customerRequests">
         <td>{{customers.service_ref_no}}</td>
         <td>{{customers.first_name}}</td>

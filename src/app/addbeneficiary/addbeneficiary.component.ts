@@ -18,7 +18,7 @@ export class AddbeneficiaryComponent implements OnInit {
       ben_name:"",
       ben_nickname:"",
      // ben_id:null,
-      account_no:null
+      account_no:JSON.parse(sessionStorage.getItem('account_no'))
   }
 
 }

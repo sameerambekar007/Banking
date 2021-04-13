@@ -11,7 +11,7 @@
                   <div class="user-box">
                     <input type="number" id="account_no" name="account_no" required  #account_no="ngModel"
                     [(ngModel)]="contact.account_no">
-                    <label>Enter Your Account number</label>
+                    <label>Your Account number</label>
                   </div>
                   <div class="user-box">
                     <input type="number"  id="recipient_acct" name="recipient_acct" required  #recipient_acct="ngModel"
@@ -23,9 +23,19 @@
                     [(ngModel)]="contact.amount">
                     <label>Enter Amount</label>
                   </div>
-                  
+                  <table>
+                    <tr *ngFor="let beneficiaries of beneficiarylist">
+                      <td>
+                        <h2>{{beneficiaries.ben_name}}</h2>
+                      </td>
+                      <td>
+                        <h2>{{beneficiaries.ben_account_no}}</h2>
+                      </td>
+
+                    </tr>
+                  </table> 
                   <div class="user-box">
-                    <input type="date" id="trans_date" name="trans_date" required  #trans_date="ngModel"
+                    <input type="date" max="2021-04-22" min="2021-04-22" id="trans_date" name="trans_date" required  #trans_date="ngModel"
                     [(ngModel)]="contact.trans_date">
                     <label></label>
                   </div>

@@ -7,7 +7,7 @@ import { CustomerRequests } from "./customer-requests";
 import { Impstransfer } from "./impstransfer";
 	import {  Observable, throwError } from 'rxjs';
   import {AccountHolderinsert} from "./account-holderinsert";
-	import { catchError } from 'rxjs/operators';
+import {AccountHolder} from "./account-holder";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,13 @@ export class BankingService {
     console.log(req);
     return(req);
   }
+  custlogin(accountholder):Observable<AccountHolder>
+  {
+    console.log("INSIDE SERVICE",accountholder);
+    var req = this.httpClient.post<AccountHolder>(this.apiServer + '/Account_HolderLogin/',JSON.stringify(accountholder), this.httpOptions)
+    console.log(req);
+    return(req);
+  }
   create(Customer): Observable<Openaccount> {
      console.log("INSIDE SERVICE",Customer);
      return this.httpClient.post<Openaccount>(this.apiServer + '/OpenAccount/', JSON.stringify(Customer), this.httpOptions)
@@ -35,12 +42,25 @@ export class BankingService {
   //console.log("INSIDE SERVICE");
   return this.httpClient.get<CustomerRequests[]>(this.apiServer + '/AdminDashboard/')
 }
+getAll1(): Observable<Openaccount[]> {
+  //console.log("INSIDE SERVICE");
+  return this.httpClient.get<Openaccount[]>(this.apiServer + '/OpenAccount/')
+}
+getAllaccountholders(): Observable<AccountHolder[]> {
+  //console.log("INSIDE SERVICE");
+  return this.httpClient.get<AccountHolder[]>(this.apiServer + '/Account_HolderLogin/')
+}
+getAllBeneficiaries(): Observable<Addbeneficiary[]> {
+  //console.log("INSIDE SERVICE");
+  return this.httpClient.get<Addbeneficiary[]>(this.apiServer + '/AddBeneficiaries/')
+}
+getById(account_no): Observable<CustomerRequests> {
+  return this.httpClient.get<CustomerRequests>(this.apiServer + '/Account_HolderLogin/' + account_no)
+}
 approve(service_ref_no, Customer): Observable<CustomerRequests> {
   return this.httpClient.put<CustomerRequests>(this.apiServer + '/Account_HolderInsert/' + service_ref_no, JSON.stringify(Customer), this.httpOptions)
 }
-getById(service_ref_no): Observable<CustomerRequests> {
-  return this.httpClient.get<CustomerRequests>(this.apiServer + '/OpenAccount/' + service_ref_no)
-}
+
 addben(Beneficiary): Observable<Addbeneficiary> {
   console.log("INSIDE SERVICE",Beneficiary);
   return this.httpClient.post<Addbeneficiary>(this.apiServer + '/AddBeneficiaries/', JSON.stringify(Beneficiary), this.httpOptions)
