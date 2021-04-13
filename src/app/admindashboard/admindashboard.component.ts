@@ -35,6 +35,7 @@ export class AdmindashboardComponent implements OnInit {
       service_ref_no:null
     
     };
+    
 
 
 
@@ -47,11 +48,27 @@ export class AdmindashboardComponent implements OnInit {
     //console.log("inside subscribe")
      this.openaccount=data;
      console.log(this.openaccount);
+     remove(this.customer)
+     {
+
+      for (let i = 0; i < this.openaccount.length;i++)
+      {
+
+        if(this.openaccount[i].service_ref_no==this.customer.service_ref_no)
+        {
+          console.log("inside if")
+          console.log(this.customer.service_ref_no)
+          this.openaccount.splice(i,1)
+          console.log(this.openaccount)
+        }
+      }
+      // this.openaccount.splice()
+     }
+      // this.openaccount.splice()
+     
      //console.log(this.openaccount);
    //console.log(this.customerRequests);
 })
-  
-
 }
 
 onSubmit(customer) {
@@ -66,6 +83,22 @@ onSubmit(customer) {
     })
   
 }
+// remove(customer)
+//      {
+
+//       for (let i = 0; i < this.openaccount.length;i++)
+//       {
+
+//         if(this.openaccount[i].service_ref_no==customer.service_ref_no)
+//         {
+//           console.log("inside if")
+//           console.log(customer.service_ref_no)
+//           this.openaccount.splice(i,1)
+//           console.log(this.openaccount)
+//         }
+//       }
+//       // this.openaccount.splice()
+//      }
 viewdetails(customer)
 {
   this.customer=customer;
@@ -80,7 +113,11 @@ viewdetails(customer)
   public sessionStorage = sessionStorage;
   public session=sessionStorage.getItem('admin_id');
   
-  
+  logout()
+  {
+    sessionStorage.clear()
+    console.log("session info" + sessionStorage)
+  }
 }
 
 export class contact {
@@ -88,5 +125,9 @@ export class contact {
   acct_type: string;
   service_ref_no:number;
 
+}
+
+function remove(Customer: any) {
+  throw new Error('Function not implemented.');
 }
 

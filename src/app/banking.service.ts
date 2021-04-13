@@ -34,6 +34,10 @@ export class BankingService {
     console.log(req);
     return(req);
   }
+  custblocked(accountholder): Observable<AccountHolder> {
+   // console.log("INSIDE SERVICE",accountholder);
+    return this.httpClient.post<AccountHolder>(this.apiServer + '/AccountBlock/', JSON.stringify(accountholder), this.httpOptions)
+  }
   create(Customer): Observable<Openaccount> {
      console.log("INSIDE SERVICE",Customer);
      return this.httpClient.post<Openaccount>(this.apiServer + '/OpenAccount/', JSON.stringify(Customer), this.httpOptions)

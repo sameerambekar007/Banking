@@ -16,6 +16,10 @@ public custid:string;
 public key:number;
 //data: Array<any> = new Array<any>();
 public accountholder1:AccountHolder[]=[];
+
+public count: number = 0;
+public prev:string='old';
+
   constructor(private router:Router,
     public bankingService: BankingService) { }
 
@@ -49,6 +53,7 @@ public accountholder1:AccountHolder[]=[];
   console.log(this.accountholder1)
   }
   onSubmit(contactForm) {
+    this.prev=='old'
     console.log(contactForm.value) 
     this.bankingService.custlogin(contactForm.value).subscribe(res => {
         console.log(res)
@@ -86,7 +91,42 @@ public accountholder1:AccountHolder[]=[];
         }
         else
         {
-          alert("Invalid login!!");
+         // alert("Invalid login!!");
+         if(this.prev=='old')
+         {
+           this.prev=contactForm.value.admin_id;
+           this.count=1;
+           alert ("invalid login" + this.count)
+           console.log("invalid login",this.count);
+           
+         }
+         else if(this.prev==contactForm.value.admin_id)
+         {
+           this.count++;
+           alert ("invalid login" + this.count)
+           console.log("invalid login",this.count);
+           //alert ("invalid login" )
+           if(this.count==3)
+           {
+             
+             this.bankingService.custblocked(contactForm.value).subscribe(res=>
+              {
+                alert("your account has been blocked, Press ok to reactivate it. ")
+              })
+             this.router.navigateByUrl('/changepassword');
+           }
+         }
+         else
+         {
+         this.prev=contactForm.value.admin_id;
+         this.count=1;
+         console.log("invalid login",this.count);
+       }
+          // this.bankingService.custblocked(contactForm.value).subscribe(res=>
+          //   {
+          //     console.log("Account blocked!")
+          //   })
+      
         }
         console.log(sessionStorage);
       });
