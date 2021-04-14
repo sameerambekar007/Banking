@@ -15,6 +15,7 @@ export class ImpstransactionComponent implements OnInit {
  public beneficiarylist:Addbeneficiary[]=[];
   public abc:string;
   public account_no:number;
+  public beneficiarylist1:any
   constructor(private router:Router,
     public bankingService: BankingService) { }
 
@@ -34,23 +35,30 @@ export class ImpstransactionComponent implements OnInit {
       
   // })
 
-  this.bankingService.getAllBeneficiaries().subscribe((data: Addbeneficiary[])=>{
-    //console.log("inside subscribe")
-     //console.log(data);
-    // console.log(this.beneficiarylist);
-    for (let i = 0; i < data.length;i++) 
-             {
-              //  console.log("inside for")
-              if (data[i].account_no==JSON.parse(sessionStorage.getItem('account_no')))
-              {
-                //console.log("inside if")
-                //console.log(this.accountholder1[i].account_no)
-                  this.beneficiarylist.push(data[i]);
-              }
-            }
-            console.log(this.beneficiarylist)
+//   this.bankingService.getAllBeneficiaries().subscribe((data: Addbeneficiary[])=>{
+//     //console.log("inside subscribe")
+//      //console.log(data);
+//     // console.log(this.beneficiarylist);
+//     for (let i = 0; i < data.length;i++) 
+//              {
+//               //  console.log("inside for")
+//               if (data[i].account_no==JSON.parse(sessionStorage.getItem('account_no')))
+//               {
+//                 //console.log("inside if")
+//                 //console.log(this.accountholder1[i].account_no)
+//                   this.beneficiarylist.push(data[i]);
+//               }
+//             }
+//             console.log(this.beneficiarylist)
 
-})
+// }) 
+
+  this.bankingService.getreleventbeneficiary(this.contact).subscribe(res => {
+      //console.log(res)
+      console.log(typeof(res))
+      this.beneficiarylist1 = res
+      console.log(this.beneficiarylist1)
+    });
   
   }
   

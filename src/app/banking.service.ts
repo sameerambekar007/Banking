@@ -61,8 +61,23 @@ getAllBeneficiaries(): Observable<Addbeneficiary[]> {
 getById(account_no): Observable<CustomerRequests> {
   return this.httpClient.get<CustomerRequests>(this.apiServer + '/Account_HolderLogin/' + account_no)
 }
+getreleventbeneficiary(beneficiaries):Observable<Addbeneficiary>
+  {
+    console.log("INSIDE SERVICE",beneficiaries);
+    return this.httpClient.post<Addbeneficiary>(this.apiServer + '/GetRelevantBeneficiaries/',JSON.stringify(beneficiaries), this.httpOptions)
+    // console.log(req);
+    // return(req);
+  }
 approve(service_ref_no, Customer): Observable<CustomerRequests> {
   return this.httpClient.put<CustomerRequests>(this.apiServer + '/Account_HolderInsert/' + service_ref_no, JSON.stringify(Customer), this.httpOptions)
+}
+approvechangestatus(Customer): Observable<Openaccount> {
+  console.log("INSIDE SERVICE",Customer);
+  return this.httpClient.post<Openaccount>(this.apiServer + '/ApproveAccount/', JSON.stringify(Customer), this.httpOptions)
+}
+declineaccount(Customer): Observable<Openaccount> {
+  console.log("INSIDE SERVICE",Customer);
+  return this.httpClient.post<Openaccount>(this.apiServer + '/DeclineAccount/', JSON.stringify(Customer), this.httpOptions)
 }
 
 addben(Beneficiary): Observable<Addbeneficiary> {

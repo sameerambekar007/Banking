@@ -30,7 +30,7 @@
         <div class="login-box">
             <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Account Opening requests Welcome admin {{sessionStorage.getItem('username')}}</h2>
             <section>
-              <form  >
+              <form>
                 
                 <div class="tbl-header">
                   <table cellpadding="0" cellspacing="0" border="0">
@@ -54,9 +54,8 @@
                         <td>{{customers.first_name}}</td>
                         <td > {{customers.acct_type}}</td>
                         <td><a (click) = "viewdetails(customers)" [routerLink]="['/admindash']" class="">View Details</a></td>
-                        <td><a (click) = "remove(customers)" [routerLink]="['/admindash']" class="">Remove</a></td>
-                        <td><a (click) ="onSubmit(customers)" [routerLink]="['/admindash']" class="">Approve</a></td>
-                        <td><a (click) ="RequestDenied()" [routerLink]="['/admindash']" class="">Deny</a></td>
+                        <td><a (click) ="onSubmit(customers);remove(customers)" [routerLink]="['/admindash']" class="">Approve</a></td>
+                        <td><a (click) ="RequestDenied(customers)" [routerLink]="['/admindash']" class="">Deny</a></td>
                     </tbody>
                   </table>
                 </div>
@@ -66,48 +65,9 @@
               
               
           </div>
-          <!-- <div class="login-box">
-            <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">User Details</h2>
-            <section>
-              <form  >
-                
-                <div class="tbl-header">
-                  <table cellpadding="0" cellspacing="0" border="0">
-                    <thead>
-                      <tr>
-                        <th>Service request number</th>
-                        <th>Customer Title</th>
-                        <th>Customer First Name</th>
-                        <th>Customer Middle Name</th>
-                        <th>Customer Last Name</th>
-                        <th>Customer Account type</th>
-                        
-                      </tr>
-                    </thead>
-                  </table>
-                </div>
-                <div class="tbl-content">
-                  <table cellpadding="0" cellspacing="0" border="0">
-                    <tbody>
-                      
-                        <td > {{customer.service_ref_no}}</td>
-                        <td >{{customer.title}}</td>
-                        <td > {{customer.first_name}}</td>
-                        <td > {{customer.middle_name}}</td>
-                        <td > {{customer.last_name}}</td>
-                        <td > {{customer.acct_type}}</td>
-                    </tbody>
-                  </table>
-                </div>
-              </form>
-              </section>
-              
-              
-              
-          </div> -->
         </div>
-      
-        <!-- <div class="login-box">
+      <div class="content">
+        <div class="login-box">
           <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Customer Details</h2>
           <section>
             
@@ -265,12 +225,9 @@
               </div>
               
             </section>
-            
-            
-            
-            
-        </div> -->
 
+            </div>
+          </div>
       
         
       
@@ -286,4 +243,3 @@
 
   </body>
 </html>
-  

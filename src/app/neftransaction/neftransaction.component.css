@@ -254,7 +254,12 @@ body {
       display: block;
     }
   }
-  
+  h6 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: left;
+  }
   .login-box {
     position: relative;
     top: 50%;

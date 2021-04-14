@@ -274,7 +274,14 @@ body {
     color: #fff;
     text-align: center;
   }
+  h6 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: left;
+  }
   
+
   .login-box .user-box {
     position: relative;
   }

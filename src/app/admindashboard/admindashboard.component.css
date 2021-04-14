@@ -274,6 +274,12 @@ body {
     color: #fff;
     text-align: center;
   }
+  h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
   
   .login-box .user-box {
     position: relative;
@@ -425,7 +431,7 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
   }
   .tbl-content {
-    height: 100px;
+    height: 250px;
     overflow-x: auto;
     margin-top: 0px;
   }

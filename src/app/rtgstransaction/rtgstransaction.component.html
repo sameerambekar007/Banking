@@ -13,11 +13,20 @@
                     [(ngModel)]="contact.account_no">
                     <label>Your Account number</label>
                   </div>
-                  <div class="user-box">
+                  <!-- <div class="user-box">
                     <input type="number"  id="recipient_acct" name="recipient_acct" required  #recipient_acct="ngModel"
                     [(ngModel)]="contact.recipient_acct">
                     <label>Enter Recepient Account number </label>
-                  </div>                 
+                  </div>                  -->
+
+                  <h6 >Select the Account number from the following beneficiaries</h6>
+                  <div class="user-box"> 
+                    <select id="recipient_acct" name="recipient_acct" required  #recipient_acct="ngModel"
+                    [(ngModel)]="contact.recipient_acct" >
+                      <option [value]="beneficiaries.ben_account_no" *ngFor="let beneficiaries of beneficiarylist1">{{beneficiaries.ben_name}}{{beneficiaries.ben_account_no}}</option>
+                    </select>
+                    
+                  </div>
                    <div class="user-box">
                     <input type="number" id="amount" name="amount" required  #amount="ngModel"
                     [(ngModel)]="contact.amount">

@@ -44,34 +44,19 @@ export class AdmindashboardComponent implements OnInit {
   //      this.customerRequests=data;
   //    //console.log(this.customerRequests);
   // })
+console.log(sessionStorage)
+  if(sessionStorage!=null)
+  {
   this.bankingService.getAll1().subscribe((data: Openaccount[])=>{
     //console.log("inside subscribe")
      this.openaccount=data;
      console.log(this.openaccount);
-     remove(this.customer)
-     {
-
-      for (let i = 0; i < this.openaccount.length;i++)
-      {
-
-        if(this.openaccount[i].service_ref_no==this.customer.service_ref_no)
-        {
-          console.log("inside if")
-          console.log(this.customer.service_ref_no)
-          this.openaccount.splice(i,1)
-          console.log(this.openaccount)
-        }
-      }
-      // this.openaccount.splice()
-     }
-      // this.openaccount.splice()
-     
-     //console.log(this.openaccount);
-   //console.log(this.customerRequests);
 })
 }
-
+  }
 onSubmit(customer) {
+  if(sessionStorage!=null)
+  {
   //console.log(customer);
   console.log(new AccountHolderinsert(customer.first_name,customer.acct_type,customer.service_ref_no));
   // this.cust.acct_type=acct_type;
@@ -81,43 +66,45 @@ onSubmit(customer) {
     {
       console.log("Customer added!")
     })
-  
+  }
 }
-// remove(customer)
-//      {
-
-//       for (let i = 0; i < this.openaccount.length;i++)
-//       {
-
-//         if(this.openaccount[i].service_ref_no==customer.service_ref_no)
-//         {
-//           console.log("inside if")
-//           console.log(customer.service_ref_no)
-//           this.openaccount.splice(i,1)
-//           console.log(this.openaccount)
-//         }
-//       }
-//       // this.openaccount.splice()
-//      }
+remove(customer)
+     {
+      this.bankingService.approvechangestatus(customer).subscribe(res=>
+        {
+          console.log("Customer status changed!")
+        })
+  
+     }
 viewdetails(customer)
 {
+  if(sessionStorage!=null)
+  {
   this.customer=customer;
   //console.log(typeof(this.customer));
   console.log(this.customer);
+  }
 }
   
-  RequestDenied()
+  RequestDenied(customer)
   {
-    console.log("Customer is denied account");
-  }
-  public sessionStorage = sessionStorage;
-  public session=sessionStorage.getItem('admin_id');
+    this.bankingService.declineaccount(customer).subscribe(res=>
+      {
+        console.log("Customer Denclined account!")
+      })
+}
+  // public sessionStorage = sessionStorage;
+  // public session=sessionStorage.getItem('admin_id');
   
   logout()
   {
     sessionStorage.clear()
     console.log("session info" + sessionStorage)
   }
+  
+  public sessionStorage = sessionStorage;
+  public session=sessionStorage.getItem('admin_id');
+  
 }
 
 export class contact {

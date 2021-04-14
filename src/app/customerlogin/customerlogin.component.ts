@@ -60,31 +60,23 @@ public prev:string='old';
         if(res.toString()=="Found")
         {
           sessionStorage.setItem('customer_id',contactForm.value.customer_id);
-          //console.log(contactForm.value.customer_id)
           this.bankingService.getAllaccountholders().subscribe((data: AccountHolder[])=>{
-            //console.log("inside subscribe")
              this.accountholder1=data;
              this.custid=sessionStorage.getItem('customer_id')
              console.log(this.custid)
-          //   console.log(this.accountholder1);
              for (let i = 0; i < this.accountholder1.length;i++) 
              {
                console.log("inside for")
               if (this.accountholder1[i].customer_id==this.custid)
               {
-                //console.log("inside if")
-                //console.log(this.accountholder1[i].account_no)
                 let key = 'account_no';
-                //localStorage.setItem(key, 'Value');
                  sessionStorage.setItem('account_no',JSON.stringify(this.accountholder1[i].account_no));
+                 sessionStorage.setItem('service_ref_no',JSON.stringify(this.accountholder1[i].service_ref_no))
               }
             }
-             //console.log(this.openaccount);
-           //console.log(this.customerRequests);
-           //console.log(this.accountholder1)
            console.log(sessionStorage);
         })
-        //console.log(this.accountholder1)
+
         console.log(sessionStorage);
 
           this.router.navigateByUrl('/custdash');
@@ -94,13 +86,13 @@ public prev:string='old';
          // alert("Invalid login!!");
          if(this.prev=='old')
          {
-           this.prev=contactForm.value.admin_id;
+           this.prev=contactForm.value.customer_id;
            this.count=1;
            alert ("invalid login" + this.count)
            console.log("invalid login",this.count);
            
          }
-         else if(this.prev==contactForm.value.admin_id)
+         else if(this.prev==contactForm.value.customer_id)
          {
            this.count++;
            alert ("invalid login" + this.count)
@@ -113,13 +105,14 @@ public prev:string='old';
               {
                 alert("your account has been blocked, Press ok to reactivate it. ")
               })
-             this.router.navigateByUrl('/changepassword');
+             this.router.navigateByUrl('/forgotpassword');
            }
          }
          else
          {
-         this.prev=contactForm.value.admin_id;
+         this.prev=contactForm.value.customer_id;
          this.count=1;
+         alert("invalid login" + this.count)
          console.log("invalid login",this.count);
        }
           // this.bankingService.custblocked(contactForm.value).subscribe(res=>
@@ -132,7 +125,6 @@ public prev:string='old';
       });
   }
   public sessionStorage = sessionStorage;
-  public session=sessionStorage.getItem('admin_id');
 }
 
 export class contact{
