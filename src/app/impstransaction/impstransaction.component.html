@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <script>
-    console.log("in script")
-  </script>  
 
 <body>
      
@@ -39,11 +36,11 @@
                     [(ngModel)]="contact.amount">
                     <label>Enter Amount</label>
                   </div>
-                  
                   <div class="user-box">
-                    <input type="date" max="2021-04-22" min="2021-04-22" id="trans_date" name="trans_date" required  #trans_date="ngModel"
-                    [(ngModel)]="contact.trans_date">
-                    <label></label>
+                    <input type="number"  id="trans_pass" name="trans_pass" required  #trans_pass="ngModel"
+                    [(ngModel)]="contact.trans_pass">
+                    <label>Enter Transaction Password</label>
+
                   </div>
                   <div class="user-box">
                     <input type="text"  id="remarks" name="remarks" required  #remarks="ngModel"
@@ -51,8 +48,13 @@
                     <label>Enter Remarks</label>
 
                   </div>
+
+                  <div class="user-box">
+                    <input type="hidden"  id="ref_id" name="ref_id" required  #ref_id="ngModel"
+                    [(ngModel)]="contact.ref_id">
+                    </div>
                   
-                  <a [routerLink]="['/transuccess']" (click)="onSubmit(contactForm)">
+                  <a (click)="onSubmit(contactForm)">
                     Continue
                     <span></span> 
                 </a>

@@ -34,6 +34,7 @@ import { AccountlockedComponent } from './accountlocked/accountlocked.component'
 import { AccountstatusComponent } from './accountstatus/accountstatus.component';
 import { AccountstatusmainComponent } from './accountstatusmain/accountstatusmain.component';
 import { TransactionfailedComponent } from './transactionfailed/transactionfailed.component';
+import { InvalidtranspasswordComponent } from './invalidtranspassword/invalidtranspassword.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { TransactionfailedComponent } from './transactionfailed/transactionfaile
     AccountlockedComponent,
     AccountstatusComponent,
     AccountstatusmainComponent,
-    TransactionfailedComponent
+    TransactionfailedComponent,
+    InvalidtranspasswordComponent
   ],
   imports: [
     BrowserModule,

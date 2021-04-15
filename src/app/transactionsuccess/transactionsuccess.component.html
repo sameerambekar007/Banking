@@ -2,70 +2,59 @@
 <html lang="en" dir="ltr">
   <body>
     <div class="content">
-      <div class="login-box">
-         
-          <section>
 
-            <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Transaction Successful!!!</h2>
-              <div>
-                <table cellpadding="0" cellspacing="0" border="0">
-                  <thead>
-                    <tr>
-                        <td><b>Reference ID</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><b>Mobile Number</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><b>Paid To Account</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><b>Amount</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><b>From Account</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><b>On</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><b>Remarks</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    
-                    
-                  </thead>
-                </table>
-              </div>
-              
-            </section>
+        <h1 style="font-family: Bradley Hand ITC; font-size: 200%; color: white;text-align: center;">Transaction Successful</h1>
+        <section>
+          
+            <div>
+              <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                  <tr>
+                    <td>Reference Id</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].ref_id}}</td>
+                  </tr>
+                  <tr>
+                    <td>Amount</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].amount}}</td>
+                  </tr>
+                  <tr>
+                    <td>Mode of transfer</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].mode}}</td>
+                  </tr>
+                  <tr>
+                    <td>Your account number</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].account_no}}</td>
+                  </tr>
+                  <tr>
+                    <td>Recepient Accoun Number</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].recipient_acct}}</td>
+                  </tr>
+                  <tr>
+                    <td>Transaction date and time</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].trans_date}}</td>
+                  </tr>
+                  <tr>
+                    <td>Transaction Remarks</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].remarks}}</td>
+                  </tr>
+                
+                  
+                </thead>
+              </table>
+            </div>
             
-            
-            
+          </section>
+
+
         </div>
-
-       
-      
-    </div>
-       
-  
-
 
 
  </body>
 </html>
-      

@@ -18,6 +18,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
 import { HomeComponent } from './home/home.component';
 import { ImpstransactionComponent } from './impstransaction/impstransaction.component';
+import { InvalidtranspasswordComponent } from './invalidtranspassword/invalidtranspassword.component';
 import { LoginComponent } from './login/login.component';
 import { NeftransactionComponent } from './neftransaction/neftransaction.component';
 import { OpenaccountComponent } from './openaccount/openaccount.component';
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path:'accountstatus',component:AccountstatusComponent},
   {path:'accountstatusmain',component:AccountstatusmainComponent},
   {path:'transactionfailed',component:TransactionfailedComponent},
+  {path:'invalidtranspassword',component:InvalidtranspasswordComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'**',component:ErrorComponent}
 ];

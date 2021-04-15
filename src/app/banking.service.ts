@@ -8,6 +8,7 @@ import { Impstransfer } from "./impstransfer";
 	import {  Observable, throwError } from 'rxjs';
   import {AccountHolderinsert} from "./account-holderinsert";
 import {AccountHolder} from "./account-holder";
+import {Transactions} from "./transactions";
 
 @Injectable({
   providedIn: 'root'
@@ -58,6 +59,14 @@ getAllBeneficiaries(): Observable<Addbeneficiary[]> {
   //console.log("INSIDE SERVICE");
   return this.httpClient.get<Addbeneficiary[]>(this.apiServer + '/AddBeneficiaries/')
 }
+fetchuserdetails(Customer): Observable<Openaccount> {
+  console.log("INSIDE SERVICE",Customer);
+  return this.httpClient.post<Openaccount>(this.apiServer + '/FetchUserProfile/', JSON.stringify(Customer), this.httpOptions)
+}
+fetchsuccessfultrans(Transaction): Observable<Transactions> {
+  console.log("INSIDE SERVICE",Transaction);
+  return this.httpClient.post<Transactions>(this.apiServer + '/FetchTransactions/', JSON.stringify(Transaction), this.httpOptions)
+}
 getById(account_no): Observable<CustomerRequests> {
   return this.httpClient.get<CustomerRequests>(this.apiServer + '/Account_HolderLogin/' + account_no)
 }
@@ -86,7 +95,8 @@ addben(Beneficiary): Observable<Addbeneficiary> {
 }
 imps(impstransaction): Observable<Impstransfer> {
   console.log("INSIDE SERVICE",impstransaction);
-  return this.httpClient.post<Impstransfer>(this.apiServer + '/Impstransfer/', JSON.stringify(impstransaction), this.httpOptions)
+  var result= this.httpClient.post<Impstransfer>(this.apiServer + '/Impstransfer/', JSON.stringify(impstransaction), this.httpOptions)
+  return (result);
 }
 neft(impstransaction): Observable<Impstransfer> {
   console.log("INSIDE SERVICE",impstransaction);

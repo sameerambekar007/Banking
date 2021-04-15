@@ -2,78 +2,167 @@
 <html lang="en" dir="ltr">
   <body>
     <div class="content">
-      <div class="login-box">
-         
-          <section>
-            <img src="../../assets/customer-avatar.png" class="profile_image" alt="">
-            <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">User Profile</h2>
-              <div>
-                <table cellpadding="0" cellspacing="0" border="0">
-                  <thead>
-                    <tr>
-                        <td><b>Name</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><b>Mobile Number</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><b>Email Id</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><b>Adhar-card no</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><b>Date of Birth</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><b>Residential address</b></td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                      <td><b>Permanent address</b></td>
-                      <td>-</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><b>Occupation</b></td>
-                      <td>-</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><b>Account type</b></td>
-                      <td>-</td>
-                      <td></td>
-                    </tr>
-                    
-                    
-                    
-                  </thead>
-                </table>
-              </div>
-              
-            </section>
+
+        <h1 style="font-family: Bradley Hand ITC; font-size: 200%; color: white;text-align: center;">User Details</h1>
+        <section>
+          
+            <div>
+              <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                  <tr>
+                    <td>Service Number</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].service_ref_no}}</td>
+                  </tr>
+                  <tr>
+                    <td>Title</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].title}}</td>
+                  </tr>
+                  <tr>
+                    <td>First Name</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].first_name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Middle Name</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].middle_name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Last Name</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].last_name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Father Name</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].father_name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Mobile Number</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].mobile_no}}</td>
+                  </tr>
+                  <tr>
+                    <td>Email ID</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].email_id}}</td>
+                  </tr>
+                  <tr>
+                    <td>Aadhar Number</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].aadhar_no}}</td>
+                  </tr>
+                  <tr>
+                    <td>Date of Birth</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].date_of_birth}}</td>
+                  </tr>
+                  <tr>
+                    <td>Resedential Address Line 1</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].res_addr_line1}}</td>
+                  </tr>
+                  <tr>
+                    <td>Resedential Address Line 2</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].res_addr_line2}}</td>
+                  </tr>
+                  <tr>
+                    <td>Resedential Landmark</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].res_landmark}}</td>
+                  </tr>
+                  <tr>
+                    <td>Resedential State</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].res_state}}</td>
+                  </tr>
+                  <tr>
+                    <td>Resedential City</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].res_city}}</td>
+                  </tr>
+                  <tr>
+                    <td>Resedential Pincode</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].res_pincode}}</td>
+                  </tr>
+                  <tr>
+                    <td>Permanent Address Line 1</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].perm_addr_line1}}</td>
+                  </tr>
+                  <tr>
+                    <td>Permanent Address Line 2</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].perm_addr_line2}}</td>
+                  </tr>
+                  <tr>
+                    <td>Permanent Landmark</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].perm_landmark}}</td>
+                  </tr>
+                  <tr>
+                    <td>Permanent State</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].perm_state}}</td>
+                  </tr>
+                  <tr>
+                    <td>Permanent City</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].perm_city}}</td>
+                  </tr>
+                  <tr>
+                    <td>Permanent Pincode</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].perm_pincode}}</td>
+                  </tr>
+                  <tr>
+                    <td>Occupation Type</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].occ_type}}</td>
+                  </tr>
+                  <tr>
+                    <td>Source of Income</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].inc_source}}</td>
+                  </tr>
+                  <tr>
+                    <td>Gross Annual Income</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].gross_annual_inc}}</td>
+                  </tr>
+                  <tr>
+                    <td>Account Type</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].acct_type}}</td>
+                  </tr>
+                  <tr>
+                    <td>Account Status</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].acct_status}}</td>
+                  </tr>
+                  <tr>
+                    <td>Debit Card</td>
+                    <td>-</td>
+                    <td>{{userprofile[0].opt_debit_card}}</td>
+                  </tr>
+                  <tr>
+                    <td>Net-Banking </td>
+                    <td>-</td>
+                    <td>{{userprofile[0].opt_netbanking}}</td>
+                  </tr>
+                  
+                </thead>
+              </table>
+            </div>
             
-            
-            
+          </section>
+
+
         </div>
-
-       
-      
-    </div>
-       
-  
-
 
 
  </body>

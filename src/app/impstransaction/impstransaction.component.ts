@@ -22,10 +22,12 @@ export class ImpstransactionComponent implements OnInit {
   ngOnInit(): void {
     this.contact = { 
       recipient_acct:null,
-      trans_date:null,
+      //trans_date:null,
       remarks:"",
       amount:null,
-      account_no: JSON.parse(sessionStorage.getItem('account_no'))
+      account_no: JSON.parse(sessionStorage.getItem('account_no')),
+      trans_pass:null,
+      ref_id:""
     }
   //   this.bankingService.getAllaccountholders().subscribe((data: AccountHolder[])=>{
       
@@ -67,10 +69,26 @@ export class ImpstransactionComponent implements OnInit {
     //console.log("Hello");
 
     //contactForm.value=this.account_no
+    contactForm.value.ref_id= "IMPS"+"@"+Math.floor(Math.random() * (100000 - 10000 + 1));
+    sessionStorage.setItem('ref_id',contactForm.value.ref_id)
     console.log(contactForm.value);
     this.bankingService.imps(contactForm.value).subscribe(res=>
       {
+        if(res.toString()=="success")
+        {
         console.log("Transaction Success!")
+        this.router.navigateByUrl('/transuccess');
+        }
+        if(res.toString()=="invalidpass")
+        {
+        console.log("Invalid Password!")
+        this.router.navigateByUrl('/invalidtranspassword');
+        }
+        if(res.toString()=="notenoughbalance")
+        {
+        console.log("Insufficient balance!")
+        this.router.navigateByUrl('/transactionfailed');
+        }
       })
 }
 public sessionStorage = sessionStorage;
@@ -78,8 +96,10 @@ public sessionStorage = sessionStorage;
 
 export class contact{
   recipient_acct:number;
-  trans_date:Date;
+  //trans_date:Date;
   remarks:string;
   amount:number;
   account_no:number;
+  trans_pass:number;
+  ref_id:string
 }
