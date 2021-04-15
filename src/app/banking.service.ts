@@ -9,6 +9,7 @@ import { Impstransfer } from "./impstransfer";
   import {AccountHolderinsert} from "./account-holderinsert";
 import {AccountHolder} from "./account-holder";
 import {Transactions} from "./transactions";
+import {Registerforib} from './registerforib';
 
 @Injectable({
   providedIn: 'root'
@@ -92,6 +93,10 @@ declineaccount(Customer): Observable<Openaccount> {
 addben(Beneficiary): Observable<Addbeneficiary> {
   console.log("INSIDE SERVICE",Beneficiary);
   return this.httpClient.post<Addbeneficiary>(this.apiServer + '/AddBeneficiaries/', JSON.stringify(Beneficiary), this.httpOptions)
+}
+registerforib(Customer): Observable<Registerforib> {
+  console.log("INSIDE SERVICE",Customer);
+  return this.httpClient.post<Registerforib>(this.apiServer + '/RegisterForIB/', JSON.stringify(Customer), this.httpOptions)
 }
 imps(impstransaction): Observable<Impstransfer> {
   console.log("INSIDE SERVICE",impstransaction);

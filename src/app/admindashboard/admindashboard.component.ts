@@ -45,7 +45,7 @@ export class AdmindashboardComponent implements OnInit {
   //    //console.log(this.customerRequests);
   // })
 console.log(sessionStorage)
-  if(sessionStorage!=null)
+  if(sessionStorage.getItem('admin_id')!=null)
   {
   this.bankingService.getAll1().subscribe((data: Openaccount[])=>{
     //console.log("inside subscribe")
@@ -55,7 +55,7 @@ console.log(sessionStorage)
 }
   }
 onSubmit(customer) {
-  if(sessionStorage!=null)
+  if(sessionStorage.getItem('admin_id')!=null)
   {
   //console.log(customer);
   console.log(new AccountHolderinsert(customer.first_name,customer.acct_type,customer.service_ref_no));
@@ -69,16 +69,20 @@ onSubmit(customer) {
   }
 }
 remove(customer)
+
      {
+      if(sessionStorage.getItem('admin_id')!=null)
+      {
       this.bankingService.approvechangestatus(customer).subscribe(res=>
         {
           console.log("Customer status changed!")
         })
+      }
   
      }
 viewdetails(customer)
 {
-  if(sessionStorage!=null)
+  if(sessionStorage.getItem('admin_id')!=null)
   {
   this.customer=customer;
   //console.log(typeof(this.customer));
@@ -88,10 +92,13 @@ viewdetails(customer)
   
   RequestDenied(customer)
   {
+    if(sessionStorage.getItem('admin_id')!=null)
+    {
     this.bankingService.declineaccount(customer).subscribe(res=>
       {
         console.log("Customer Denclined account!")
       })
+    }
 }
   // public sessionStorage = sessionStorage;
   // public session=sessionStorage.getItem('admin_id');

@@ -6,32 +6,40 @@
     <div class="content">
             <div class="login-box">
                 <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Register For Netbanking</h2>
-                <form>
+                <form #contactForm="ngForm" (ngSubmit)="OnSubmit(contactForm)" novalidate>
 
                   <div class="user-box">
-                    <input type="text" name="Account Number">
+                    <input type="text" id="customer_id" name="customer_id" required  #customer_id="ngModel"
+                    [(ngModel)]="contact.customer_id" >
+                    <label>Customer Id</label>
+                  </div>
+                  <div class="user-box">
+                    <input type="text" id="account_no" name="account_no" required  #account_no="ngModel"
+                    [(ngModel)]="contact.account_no" >
                     <label>Account Number</label>
                   </div>
                   <div class="user-box">
-                    <input type="password" name="Set Login Password">
+                    <input type="password" id="login_pass" name="login_pass" required  #login_pass="ngModel"
+                    [(ngModel)]="contact.login_pass">
                     <label>Set Login Password </label>
                   </div>                 
-                   <div class="user-box">
+                   <!-- <div class="user-box">
                     <input type="password" name="Confirm Login Password">
                     <label>Confirm Login Password</label>
-                  </div>
+                  </div> -->
                   
                   <div class="user-box">
-                    <input type="password" name="Set Transaction Password">
+                    <input type="password" id="trans_pass" name="trans_pass" required  #trans_pass="ngModel"
+                    [(ngModel)]="contact.trans_pass">
                     <label>Set Transaction Password</label>
                   </div>
-                  <div class="user-box">
+                  <!-- <div class="user-box">
                     <input type="password" name="Confirm Transaction Password">
                     <label>Confirm Transaction Password</label>
 
-                  </div>
+                  </div> -->
                   
-                  <a href="#">
+                  <a [routerLink]="['/registerforib']" (click)="OnSubmit(contactForm)">
                     Register
                     <span></span> 
                 </a>

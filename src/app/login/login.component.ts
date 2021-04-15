@@ -32,7 +32,7 @@ onSubmit(contactForm) {
       {
         //console.log("In Found");
         
-        sessionStorage.setItem('username',contactForm.value.admin_id);
+        sessionStorage.setItem('admin_id',contactForm.value.admin_id);
         this.router.navigateByUrl('/admindash');
         //let key = 'Item 1';
         //sessionStorage.setItem(key, 'username');
