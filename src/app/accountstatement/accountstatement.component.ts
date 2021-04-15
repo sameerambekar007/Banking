@@ -11,5 +11,7 @@ export class AccountstatementComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  public sessionStorage = sessionStorage;
+  public session=sessionStorage.getItem('customer_id');
 
 }

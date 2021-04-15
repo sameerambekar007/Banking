@@ -2,6 +2,47 @@
 <html lang="en" dir="ltr">
 
 <body>
+  <!--mobile navigation bar start-->
+  <div class="mobile_nav">
+    <div class="nav_bar">
+      <img src="../../assets/customer-avatar.png" class="mobile_profile_image" alt="">
+      <i class="fa fa-bars nav_btn"></i>
+    </div>
+    <div class="mobile_nav_items">
+        <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
+      <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
+      <!-- <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a> -->
+      <div class="dropdown">
+        <button class="dropbtn">Fund Transfer</button>
+        <div class="dropdown-content">
+          <a [routerLink]="['/imps']">IMPS Transfer</a>
+          <a [routerLink]="['/neft']">NEFT Transfer</a>
+          <a [routerLink]="['/rtgs']">RTGS Transfer</a>
+        </div>
+      </div>
+      <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
+      <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
+    </div>
+  </div>
+  <!--mobile navigation bar end-->
+  <!--sidebar start-->
+  <div class="sidebar">
+    <div class="profile_info">
+      <img src="../../assets/customer-avatar.png" class="profile_image" alt="">
+      <h4>{{sessionStorage.getItem('customer_id')}}</h4>
+    </div>
+   <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
+    <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
+    <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+    <ul>
+     <li class="bullet" style="color:white;"><span style="color:white;"> <a [routerLink]="['/imps']">IMPS Transfer</a></span></li>
+      <li class="bullet" style="color:white;"><span style="color:white;">  <a [routerLink]="['/neft']">NEFT Transfer</a></span></li>
+       <li class="bullet" style="color:white;"><span style="color:white;"> <a [routerLink]="['/rtgs']">RTGS Transfer</a></span></li>
+      </ul>
+    <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
+    <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
+   </div>
+  <!--sidebar end-->
      
     <div class="content" style="align-items: center;">
             <div class="login-box">
@@ -10,8 +51,16 @@
                 <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
 
                   <div class="user-box">
-                    <input type="number"  id="account_no" name="account_no" required  #account_no="ngModel"
+                    <input type="number"  id="account_no" name="account_no" required pattern=".{16}"  #account_no="ngModel"
                     [(ngModel)]="contact.account_no" readonly>
+                    <div *ngIf="!account_no?.valid && (account_no?.dirty || account_no?.touched)" class="error">
+                      <div style="color: crimson;"*ngIf="account_no.errors.required">
+                        Account Number is required
+                      </div>
+                      <div style="color: crimson;"*ngIf="trans_pass.errors.pattern">
+                        Account Number should be of 16 Digits
+                        </div>
+                    </div>
                     <label>Your Account number</label>
                   </div>
                   <!-- <div class="user-box">
@@ -32,19 +81,45 @@
                   </div>
                   
                    <div class="user-box">
-                    <input type="number" id="amount" name="amount" required  #amount="ngModel"
+                    <input type="number" id="amount" name="amount" required min="1" #amount="ngModel"
                     [(ngModel)]="contact.amount">
-                    <label>Enter Amount</label>
+                    <div *ngIf="!amount?.valid && (amount?.dirty || amount?.touched)" class="error">
+                      <div style="color: crimson;"*ngIf="amount.errors.required">
+                        Amount is required
+                      </div>
+                      <div style="color: crimson;"*ngIf="amount.errors.maxlength">
+                        Amount Length should be {{amount.errors.min?.requiredLength}}
+                      </div>
+
                   </div>
+                  <label>Enter Amount</label>
+                </div>
                   <div class="user-box">
-                    <input type="number"  id="trans_pass" name="trans_pass" required  #trans_pass="ngModel"
+                    <input type="number"  id="trans_pass" name="trans_pass" required pattern="[0-9]{5}"  #trans_pass="ngModel"
                     [(ngModel)]="contact.trans_pass">
+                    <div *ngIf="!trans_pass?.valid && (trans_pass?.dirty || trans_pass?.touched)" class="error">
+                      <div style="color: crimson;"*ngIf="trans_pass.errors.required">
+                        Transaction Password is required
+                      </div>
+                      
+                    <div style="color: crimson;"*ngIf="trans_pass.errors.pattern">
+                     Transaction Password should be of 5 Digits
+                     </div>
+                    </div>
                     <label>Enter Transaction Password</label>
 
                   </div>
                   <div class="user-box">
-                    <input type="text"  id="remarks" name="remarks" required  #remarks="ngModel"
+                    <input type="text"  id="remarks" name="remarks" required maxlength="25" #remarks="ngModel"
                     [(ngModel)]="contact.remarks">
+                    <div *ngIf="!remarks?.valid && (remarks?.dirty || remarks?.touched)" class="error">
+                      <div style="color: crimson;"*ngIf="remarks.errors.required">
+                          Remarks is required
+                      </div>
+                     <div style="color: crimson;"*ngIf="remarks.errors.maxlength">
+                      Remarks Length should be {{remarks.errors.maxlength?.requiredLength}}
+                    </div>
+              </div>
                     <label>Enter Remarks</label>
 
                   </div>
@@ -71,8 +146,9 @@
                 </a>
  
                 </form>
-               </div> 
-    </div>
- </body>
+                </div>
+          </div>
+   </body>
 </html>
-      
+               
+  

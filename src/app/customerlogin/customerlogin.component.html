@@ -22,14 +22,26 @@
                         <h5>Login</h5>
                       <p class="text-muted"> Please enter your login and password! </p>
                             <!-- <img src="../assets/customer-avatar.png" alt="Avatar" class="avatar"> -->
-                            <input type="text"  id="customer_id" name="customer_id" placeholder="Customer id" #customer_id="ngModel"   [(ngModel)]="contact.customer_id">
-                            <input type="password" id="login_pass" name="login_pass" placeholder="Customer Password" #login_pass="ngModel"   [(ngModel)]="contact.login_pass"> 
+                            <input type="text"  id="customer_id" name="customer_id" placeholder="Customer id" #customer_id="ngModel" 
+                              [(ngModel)]="contact.customer_id" required>
+                              <div *ngIf="!customer_id?.valid && (customer_id?.dirty || customer_id?.touched)" class="error">
+                                <div style="color: crimson;"*ngIf="customer_id.errors.required">
+                                  Customer ID is required
+                                </div>
+                    </div>
+                            <input type="password" id="login_pass" name="login_pass" placeholder="Customer Password" #login_pass="ngModel" 
+                              [(ngModel)]="contact.login_pass" required> 
+                              <div *ngIf="!login_pass?.valid && (login_pass?.dirty || login_pass?.touched)" class="error">
+                                <div style="color: crimson;"*ngIf="login_pass.errors.required">
+                                  Login Password is required
+                                </div>
+                    </div>
 
 
                             <input type="submit"  value="Login" >
                             <input type="submit" [routerLink]="['/forgotpassword']" value="Forgot Password?" >
                             <input type="submit" [routerLink]="['/forgotuserid']" value="Forgot User Id?" >
-                            <input class="al" type="submit" [routerLink]="['/login']" value="Admin Login" >
+                            <input class="al" type="submit" [routerLink]="['/login']" value="Admin Login"  >
                       
                       
                      

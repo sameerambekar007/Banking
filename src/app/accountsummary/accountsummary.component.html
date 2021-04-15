@@ -29,53 +29,63 @@
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src="C:\Users\Snehal\Downloads\snehal\attachments\employee avatr.png" class="mobile_profile_image" alt="">
+        <img src="../../assets/customer-avatar.png" class="mobile_profile_image" alt="">
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
-        <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
+          <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
         <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
-        <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+        <!-- <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a> -->
+        <div class="dropdown">
+          <button class="dropbtn">Fund Transfer</button>
+          <div class="dropdown-content">
+            <a [routerLink]="['/imps']">IMPS Transfer</a>
+            <a [routerLink]="['/neft']">NEFT Transfer</a>
+            <a [routerLink]="['/rtgs']">RTGS Transfer</a>
+          </div>
+        </div>
         <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
         <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
-      
       </div>
     </div>
     <!--mobile navigation bar end-->
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
-        <img src="../../assets/customer-avatar.png  " class="profile_image" alt="">
-        <h4>Jimin</h4>
+        <img src="../../assets/customer-avatar.png" class="profile_image" alt="">
+        <h4>{{sessionStorage.getItem('customer_id')}}</h4>
       </div>
-      <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
+     <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
       <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
       <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+      <ul>
+       <li class="bullet" style="color:white;"><span style="color:white;"> <a [routerLink]="['/imps']">IMPS Transfer</a></span></li>
+        <li class="bullet" style="color:white;"><span style="color:white;">  <a [routerLink]="['/neft']">NEFT Transfer</a></span></li>
+         <li class="bullet" style="color:white;"><span style="color:white;"> <a [routerLink]="['/rtgs']">RTGS Transfer</a></span></li>
+        </ul>
       <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
       <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
-    
-    </div>
+     </div>
     <!--sidebar end-->
     <div class="content">
       <div class="login-box">
           <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Account Summary</h2>
-          <label>Account Holder Name:</label><br>
-          <label>Account Name:</label><br>
-          <label>Account Balance:</label><br>
+          <!-- <label style="color: whitesmoke;">Account Holder Name :</label><br>
+          <label style="color: whitesmoke;">Account Name :</label><br>
+          <label style="color: whitesmoke;">Account Balance :</label><br> -->
           <section>
 
-            <h4 style="font-family: Bradley Hand ITC; font-size: 200%;">Recent Transactions</h4>
+            <!-- <h4 style="font-family: Bradley Hand ITC; font-size: 200%;color: whitesmoke;">Recent Transactions</h4> -->
               <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0">
                   <thead>
                     <tr>
                       <th>Account No</th>
-                      <th>Owner Name</th>
-                      <th>Benificiary Account No</th>
-                      <th>Benificiary Owner Name</th>
-                      <th>Amount</th>
-                      <th>Date</th>
-                      <th>Remarks</th>
+                      <th>Customer Name</th>
+                      <th>Balance</th>
+                      <th>Service Reference number</th>
+                      <th>Account type</th>
+                      <th>Account Status</th>
                     </tr>
                   </thead>
                 </table>
@@ -84,13 +94,12 @@
                 <table cellpadding="0" cellspacing="0" border="0">
                   <tbody>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{{accountsummary[0].account_no}}</td>
+                      <td>{{accountsummary[0].customer_name}}</td>
+                      <td>{{accountsummary[0].balance}}</td>
+                      <td>{{accountsummary[0].service_ref_no}}</td>
+                      <td>{{accountsummary[0].acct_type}}</td>
+                      <td>{{accountsummary[0].account_status}}</td>
                     </tr>
                    
                   </tbody>

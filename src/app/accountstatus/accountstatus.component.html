@@ -6,11 +6,18 @@
     <div class="content" style="align-items: center;">
             <div class="login-box">
                 <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Check Account Status</h2>
-                <form>
+                <form #contactForm="ngForm" (ngSubmit)="OnSubmit(contactForm)" novalidate>
 
                   <div class="user-box">
-                    <input type="text" name=" account" required>
+                    <input type="text" id="service_ref_no" name="service_ref_no" required  #service_ref_no="ngModel"
+                    [(ngModel)]="contact.service_ref_no">
                     <label>Enter Your Service Number</label>
+                  </div>
+
+                  <div class="user-box">
+                    <input type="text" id="mobile_no" name="mobile_no" required  #mobile_no="ngModel"
+                    [(ngModel)]="contact.mobile_no">
+                    <label>Enter Your Mobile Number</label>
                   </div>
                  
                   
@@ -18,10 +25,10 @@
 
                   
                   
-                  <a [routerLink]="['/accountstatusmain']">
+                  <a (click)="OnSubmit(contactForm)">
                     View
-                    <span></span> 
-                </a>
+                    <span></span>
+                  </a>
                
                 
  

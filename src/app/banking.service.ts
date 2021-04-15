@@ -60,14 +60,23 @@ getAllBeneficiaries(): Observable<Addbeneficiary[]> {
   //console.log("INSIDE SERVICE");
   return this.httpClient.get<Addbeneficiary[]>(this.apiServer + '/AddBeneficiaries/')
 }
-fetchuserdetails(Customer): Observable<Openaccount> {
+accountsummary(AccountHolder): Observable<Addbeneficiary> {
+  console.log("INSIDE SERVICE",AccountHolder);
+  return this.httpClient.post<Addbeneficiary>(this.apiServer + '/AccountSummary/', JSON.stringify(AccountHolder), this.httpOptions)
+}
+fetchuserdetails(Customer): Observable<Registerforib> {
   console.log("INSIDE SERVICE",Customer);
-  return this.httpClient.post<Openaccount>(this.apiServer + '/FetchUserProfile/', JSON.stringify(Customer), this.httpOptions)
+  return this.httpClient.post<Registerforib>(this.apiServer + '/FetchUserProfile/', JSON.stringify(Customer), this.httpOptions)
+}
+fetchaccountopeningsatatus(Customer): Observable<Openaccount> {
+  console.log("INSIDE SERVICE",Customer);
+  return this.httpClient.post<Openaccount>(this.apiServer + '/CheckAccountOpeningStatus/', JSON.stringify(Customer), this.httpOptions)
 }
 fetchsuccessfultrans(Transaction): Observable<Transactions> {
   console.log("INSIDE SERVICE",Transaction);
   return this.httpClient.post<Transactions>(this.apiServer + '/FetchTransactions/', JSON.stringify(Transaction), this.httpOptions)
 }
+
 getById(account_no): Observable<CustomerRequests> {
   return this.httpClient.get<CustomerRequests>(this.apiServer + '/Account_HolderLogin/' + account_no)
 }

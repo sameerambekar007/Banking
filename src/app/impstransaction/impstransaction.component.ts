@@ -92,6 +92,7 @@ export class ImpstransactionComponent implements OnInit {
       })
 }
 public sessionStorage = sessionStorage;
+
 }
 
 export class contact{

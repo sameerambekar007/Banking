@@ -22,9 +22,20 @@
                         <h5>Admin Login</h5>
                       <p class="text-muted"> Please enter your login and password!</p>
                             <!-- <img src="../assets/customer-avatar.png" alt="Avatar" class="avatar"> -->
-                            <input type="text" id="admin_id" name="admin_id" placeholder="Admin ID" #admin_id="ngModel"
-                            [(ngModel)]="contact.admin_id" >
-                            <input type="password" id="admin_password" name="admin_password" placeholder="Admin Password" #admin_password="ngModel"   [(ngModel)]="contact.admin_password"> 
+                            <input type="text" id="admin_id" name="admin_id" placeholder="Admin ID" #admin_id="ngModel" 
+                            [(ngModel)]="contact.admin_id" required>
+                            <div *ngIf="!admin_id?.valid && (admin_id?.dirty || admin_id?.touched)" class="error">
+                              <div style="color: crimson;"*ngIf="admin_id.errors.required">
+                                Admin ID is required
+                              </div>
+                  </div>
+                            <input type="password" id="admin_password" name="admin_password" placeholder="Admin Password" #admin_password="ngModel"
+                               [(ngModel)]="contact.admin_password" required> 
+                               <div *ngIf="!admin_password?.valid && (admin_password?.dirty || admin_password?.touched)" class="error">
+                                <div style="color: crimson;"*ngIf="admin_password.errors.required">
+                                  Admin Password is required
+                                </div>
+                    </div>
 
 
                             <input type="submit" value="Login" >
