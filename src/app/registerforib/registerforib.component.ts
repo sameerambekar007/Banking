@@ -32,6 +32,7 @@ contact:Registerforib;
     console.log(contactForm.value)
     this.bankingService.registerforib(contactForm.value).subscribe(res=>
       {
+        console.log(res)
         if(res.toString()=="success")
         {
         console.log("Login and transaction pass generated!")

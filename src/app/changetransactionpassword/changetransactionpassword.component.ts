@@ -1,37 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BankingService } from '../banking.service';
-import {Accountstatement} from '../accountstatement';
+
 @Component({
-  selector: 'app-changepassword',
-  templateUrl: './changepassword.component.html',
-  styleUrls: ['./changepassword.component.css']
+  selector: 'app-changetransactionpassword',
+  templateUrl: './changetransactionpassword.component.html',
+  styleUrls: ['./changetransactionpassword.component.css']
 })
-export class ChangepasswordComponent implements OnInit {
+export class ChangetransactionpasswordComponent implements OnInit {
 contact:contact
   constructor(private router:Router,
     public bankingService: BankingService) { }
 
   ngOnInit(): void {
     this.contact={
-      login_pass:"",
-      new_pass:"",
-      reenter_new_pass:"",
+      trans_pass:null,
+      new_trans_pass:null,
+      reenter_trans_pass:null,
       account_no:JSON.parse(sessionStorage.getItem('account_no'))
     };
   }
-
   OnSubmit(contactForm)
   {
     contactForm.value.account_no=this.contact.account_no
     console.log(contactForm.value)
-    if(contactForm.value.new_pass!=contactForm.value.reenter_new_pass)
+    if(contactForm.value.new_trans_pass!=contactForm.value.reenter_trans_pass)
     {
       alert("Password and Reenter do not match")
     }
+    
     else
     {
-    this.bankingService.changepassword(this.contact).subscribe(res=>
+    this.bankingService.changetranspassword(this.contact).subscribe(res=>
       {
         if(res.toString()=="success")
         {
@@ -43,14 +43,12 @@ contact:contact
         }
       })
   }
+
 }
-  public sessionStorage = sessionStorage;
-  public session=sessionStorage.getItem('account_no');
 }
 export class contact{
-  login_pass:string;
-  new_pass:string;
-  reenter_new_pass:string;
+  trans_pass:number;
+  new_trans_pass:number;
+  reenter_trans_pass:number;
   account_no:number;
 }
-

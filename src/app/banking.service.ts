@@ -10,6 +10,7 @@ import { Impstransfer } from "./impstransfer";
 import {AccountHolder} from "./account-holder";
 import {Transactions} from "./transactions";
 import {Registerforib} from './registerforib';
+import {Accountstatement} from './accountstatement';
 
 @Injectable({
   providedIn: 'root'
@@ -64,9 +65,23 @@ accountsummary(AccountHolder): Observable<Addbeneficiary> {
   console.log("INSIDE SERVICE",AccountHolder);
   return this.httpClient.post<Addbeneficiary>(this.apiServer + '/AccountSummary/', JSON.stringify(AccountHolder), this.httpOptions)
 }
+accountstatement(accountholder): Observable<Accountstatement> {
+  console.log("INSIDE SERVICE of accountholder",accountholder);
+  var result= this.httpClient.post<Accountstatement>(this.apiServer + '/AccountStatement/', JSON.stringify(accountholder), this.httpOptions)
+  //console.log( result)
+  return (result);
+}
 fetchuserdetails(Customer): Observable<Registerforib> {
   console.log("INSIDE SERVICE",Customer);
   return this.httpClient.post<Registerforib>(this.apiServer + '/FetchUserProfile/', JSON.stringify(Customer), this.httpOptions)
+}
+changepassword(accountholder): Observable<Registerforib> {
+  console.log("INSIDE SERVICE",accountholder);
+  return this.httpClient.post<Registerforib>(this.apiServer + '/ChangePassword/', JSON.stringify(accountholder), this.httpOptions)
+}
+changetranspassword(accountholder): Observable<Registerforib> {
+  console.log("INSIDE SERVICE",accountholder);
+  return this.httpClient.post<Registerforib>(this.apiServer + '/ChangeTransPassword/', JSON.stringify(accountholder), this.httpOptions)
 }
 fetchaccountopeningsatatus(Customer): Observable<Openaccount> {
   console.log("INSIDE SERVICE",Customer);

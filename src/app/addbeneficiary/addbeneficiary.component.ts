@@ -30,9 +30,12 @@ onSubmit(contactForm)
     this.bankingService.addben(contactForm.value).subscribe(res=>
       {
         console.log("Beneficiary added!")
+        this.router.navigateByUrl('/custdash');
       })
 
   }
+  public sessionStorage = sessionStorage;
+  public session=sessionStorage.getItem('customer_id');
 }
 
 export class contact{

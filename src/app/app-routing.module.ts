@@ -11,6 +11,7 @@ import { AddbeneficiaryComponent } from './addbeneficiary/addbeneficiary.compone
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { ApprovalpendingComponent } from './approvalpending/approvalpending.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { ChangetransactionpasswordComponent } from './changetransactionpassword/changetransactionpassword.component';
 import { CustomerdashboardComponent } from './customerdashboard/customerdashboard.component';
 import { CustomerloginComponent } from './customerlogin/customerlogin.component';
 import { ErrorComponent } from './error/error.component';
@@ -52,6 +53,7 @@ const routes: Routes = [
   {path:'setnewpass',component:SetnewpasswordComponent},
   {path:'transuccess',component:TransactionsuccessComponent},
   {path:'changepassword',component:ChangepasswordComponent},
+  {path:'changetranspass',component:ChangetransactionpasswordComponent},
   {path:'userprofile',component:UserprofileComponent},
   {path:'accountsummary',component:AccountsummaryComponent},
   {path:'approvalpending',component:ApprovalpendingComponent},

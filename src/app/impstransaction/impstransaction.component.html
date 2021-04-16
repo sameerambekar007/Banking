@@ -72,7 +72,7 @@
                     
                     <select id="recipient_acct" name="recipient_acct" required  #recipient_acct="ngModel"
                     [(ngModel)]="contact.recipient_acct" >
-                      <option [value]="beneficiaries.ben_account_no" *ngFor="let beneficiaries of beneficiarylist1">{{beneficiaries.ben_name}}{{beneficiaries.ben_account_no}}</option>
+                      <option [value]="beneficiaries.ben_account_no" *ngFor="let beneficiaries of beneficiarylist1">{{beneficiaries.ben_name}}--{{beneficiaries.ben_account_no}}</option>
                     </select>
                     
                   </div>

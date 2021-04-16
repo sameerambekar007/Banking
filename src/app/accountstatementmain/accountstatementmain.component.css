@@ -266,6 +266,7 @@ body {
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
+    height: auto;
   }
   
   .login-box h2 {
@@ -420,12 +421,16 @@ body {
     table-layout: fixed;
   }
   .tbl-header {
+    margin-left: -30px;
     background-color: rgba(255, 255, 255, 0.3);
+    width: 830px;
   }
   .tbl-content {
     height: 100px;
+    margin-left: -30px;
     overflow-x: auto;
     margin-top: 0px;
+    width: 810px;
   }
   th {
     padding: 20px 15px;
