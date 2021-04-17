@@ -3,85 +3,57 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADFC Customer Dashboard</title>
+    <title>Customer Dashboard</title>
     <!-- <link rel="stylesheet" href="styles\style3.css"> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script> -->
   </head>
   <body>
-
-    <input type="checkbox" id="check">
-    <!--header area start-->
-    <header>
-      <label for="check">
-        <i class="fas fa-bars" id="sidebar_btn"></i>
-      </label>
-      <div class="left_area">
-        <h3>  ADFC <span>Bank</span></h3>
-      </div>
-      <div class="right_area">
-        <a (click)="logout()" class="logout_btn">Logout</a>
-      </div>
-
-    </header>
-    <!--header area end-->
+    <header id="header" class="fixed-top d-flex align-items-cente">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
   
-    <!--mobile navigation bar start-->
-    <div class="mobile_nav">
-      <div class="nav_bar">
-        <img src="../../assets/customer-avatar.png" class="mobile_profile_image" alt="">
-        <i class="fa fa-bars nav_btn"></i>
+        <h1 class="logo me-auto me-lg-0"><a href="index.html">RSVZ</a></h1>
+  
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto" [routerLink]="['/custdash']">Home</a></li>
+          <li>  <a [routerLink]="['/userprofile']"  class="nav-link scrollto">User Profile</a></li>
+          <li><a [routerLink]="['/changepassword']"  class="nav-link scrollto">Change Password</a></li>
+          <li><a [routerLink]="['/changetranspass']"  class="nav-link scrollto">Change Transaction Password</a></li>
+          <li><a class="nav-link scrollto" [routerLink]="['/aboutus']">About us</a></li>
+          <li><a class="nav-link scrollto" [routerLink]="['/contactus']">Contact us</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <a [routerLink]="['/home']" (click)="logout()" class="book-a-table-btn scrollto d-none d-lg-flex">Logout</a>
+  
       </div>
-      <div class="mobile_nav_items">
-          <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
-        <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
-        <!-- <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a> -->
-        <div class="dropdown">
-          <button class="dropbtn">Fund Transfer</button>
-          <div class="dropdown-content">
-            <a [routerLink]="['/imps']">IMPS Transfer</a>
-            <a [routerLink]="['/neft']">NEFT Transfer</a>
-            <a [routerLink]="['/rtgs']">RTGS Transfer</a>
-          </div>
-        </div>
-        <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
-        <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
-        <a [routerLink]="['/changetranspass']"><i class="fas fa-pen-nib"></i><span>Change Transaction Password</span></a>
-      </div>
-    </div>
-    <!--mobile navigation bar end-->
+    </header>
+    <input type="checkbox" id="check">
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
         <img src="../../assets/customer-avatar.png" class="profile_image" alt="">
-        <h4>{{sessionStorage.getItem('customer_id')}}</h4>
+        <h4>Jimin</h4>
       </div>
-     <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
+      <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
       <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
-      <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
-      <ul>
-       <li class="bullet" style="color:white;"><span style="color:white;"> <a [routerLink]="['/imps']">IMPS Transfer</a></span></li>
-        <li class="bullet" style="color:white;"><span style="color:white;">  <a [routerLink]="['/neft']">NEFT Transfer</a></span></li>
-         <li class="bullet" style="color:white;"><span style="color:white;"> <a [routerLink]="['/rtgs']">RTGS Transfer</a></span></li>
-        </ul>
+      <a [routerLink]="['/fundtransfer']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
       <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
       <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
-      <a [routerLink]="['/changetranspass']"><i class="fas fa-pen-nib"></i><span>Change Transaction Password</span></a>
-     </div>
-    <!--sidebar end-->
-
+      </div>
     <div class="content">
             <div class="login-box">
                 <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Welcome Back....{{sessionStorage.getItem('customer_id')}}</h2>
                 
                     <p style="color: aliceblue; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">You’ll find innovation in every corner of our business. From staying ahead of the curve on technology, to continually finding ways of improving processes, to collaborating with trailblazers – bringing new ideas to life is central to the way we support people, businesses, communities and the wider economy.
-                        Find out how ADFC is powering creative thinking, spearheading change in financial services and adapting in a constantly evolving world.
-                        From the launch of the UK’s first credit card and contactless payments to the world’s first ATM, ADFC has been transforming banking for the better for generations.
+                        Find out how RSVZ is powering creative thinking, spearheading change in financial services and adapting in a constantly evolving world.
+                        From the launch of the India’s first credit card and contactless payments to the world’s first ATM, RSVZ has been transforming banking for the better for generations.
                         
                     </p>
                   
                   <br>
-                    <p style="color: aliceblue;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">ADFC has a longstanding tradition of partnering with fintech companies to bring innovative solutions into the market. Our range of programmes help fintech startups to innovate and grow – while bringing brilliant new ideas into the sector, for the benefit of our customers and clients. But we don’t focus on fintech alone – our initiatives for startups also support ground-breaking businesses across sectors including gamestech, lawtech and agritech</p>
+                    <p style="color: aliceblue;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">RSVZ has a longstanding tradition of partnering with fintech companies to bring innovative solutions into the market. Our range of programmes help fintech startups to innovate and grow – while bringing brilliant new ideas into the sector, for the benefit of our customers and clients. But we don’t focus on fintech alone – our initiatives for startups also support ground-breaking businesses across sectors including gamestech, lawtech and agritech</p>
                   
               </div>
 

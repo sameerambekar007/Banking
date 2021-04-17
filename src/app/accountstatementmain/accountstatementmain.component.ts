@@ -56,5 +56,9 @@ console.log(this.contact)
 
       })
 }
+logout()
+{
+  sessionStorage.clear();
+}
 }
 

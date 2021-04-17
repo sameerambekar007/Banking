@@ -97,6 +97,10 @@ contactForm.value.ref_id= "RTGS"+"@"+Math.floor(Math.random() * (100000 - 10000 
       })
 }
 public sessionStorage = sessionStorage;
+logout()
+{
+  sessionStorage.clear();
+}
 }
 
 export class contact{

@@ -63,6 +63,10 @@ userprofile:any
         
       })
   }
+  logout()
+  {
+    sessionStorage.clear();
+  }
   
   
 }

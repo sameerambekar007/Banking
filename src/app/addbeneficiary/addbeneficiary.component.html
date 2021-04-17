@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <body>
+    <header id="header" class="fixed-top d-flex align-items-cente">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+  
+        <h1 class="logo me-auto me-lg-0"><a href="index.html">RSVZ</a></h1>
+  
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto" [routerLink]="['/custdash']">Home</a></li>
+          <li>  <a [routerLink]="['/userprofile']"  class="nav-link scrollto">User Profile</a></li>
+          <li><a [routerLink]="['/changepassword']"  class="nav-link scrollto">Change Password</a></li>
+          <li><a [routerLink]="['/changetranspass']"  class="nav-link scrollto">Change Transaction Password</a></li>
+          <li><a class="nav-link scrollto" [routerLink]="['/aboutus']">About us</a></li>
+          <li><a class="nav-link scrollto" [routerLink]="['/contactus']">Contact us</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <a [routerLink]="['/home']" (click)="logout()" class="book-a-table-btn scrollto d-none d-lg-flex">Logout</a>
+  
+      </div>
+    </header>
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
@@ -10,15 +30,7 @@
       <div class="mobile_nav_items">
           <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
         <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
-        <!-- <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a> -->
-        <div class="dropdown">
-          <button class="dropbtn">Fund Transfer</button>
-          <div class="dropdown-content">
-            <a [routerLink]="['/imps']">IMPS Transfer</a>
-            <a [routerLink]="['/neft']">NEFT Transfer</a>
-            <a [routerLink]="['/rtgs']">RTGS Transfer</a>
-          </div>
-        </div>
+        <a [routerLink]="['/fundtransfer']"><i class="fas fa-money-check"></i><span>Fund Transfer</span></a>
         <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
         <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
       </div>
@@ -32,12 +44,7 @@
       </div>
      <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
       <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
-      <a [routerLink]="['/imps']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
-      <ul>
-       <li class="bullet" style="color:white;"><span style="color:white;"> <a [routerLink]="['/imps']">IMPS Transfer</a></span></li>
-        <li class="bullet" style="color:white;"><span style="color:white;">  <a [routerLink]="['/neft']">NEFT Transfer</a></span></li>
-         <li class="bullet" style="color:white;"><span style="color:white;"> <a [routerLink]="['/rtgs']">RTGS Transfer</a></span></li>
-        </ul>
+      <a [routerLink]="['/fundtransfer']"><i class="fas fa-money-check"></i><span>Fund Transfer</span></a>
       <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
       <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
      </div>

@@ -34,4 +34,8 @@ contact:Registerforib;
   }
   public sessionStorage = sessionStorage;
   public session=sessionStorage.getItem('customer_id');
+  logout()
+  {
+    sessionStorage.clear();
+  }
 }

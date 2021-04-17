@@ -36,6 +36,9 @@ import { AccountstatusmainComponent } from './accountstatusmain/accountstatusmai
 import { TransactionfailedComponent } from './transactionfailed/transactionfailed.component';
 import { InvalidtranspasswordComponent } from './invalidtranspassword/invalidtranspassword.component';
 import { ChangetransactionpasswordComponent } from './changetransactionpassword/changetransactionpassword.component';
+import { FundtransferComponent } from './fundtransfer/fundtransfer.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { ForgottransactionpasswordComponent } from './forgottransactionpassword/forgottransactionpassword.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +73,10 @@ import { ChangetransactionpasswordComponent } from './changetransactionpassword/
     AccountstatusmainComponent,
     TransactionfailedComponent,
     InvalidtranspasswordComponent,
-    ChangetransactionpasswordComponent
+    ChangetransactionpasswordComponent,
+    FundtransferComponent,
+    ContactusComponent,
+    ForgottransactionpasswordComponent
   ],
   imports: [
     BrowserModule,

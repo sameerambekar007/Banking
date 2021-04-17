@@ -36,6 +36,10 @@ onSubmit(contactForm)
   }
   public sessionStorage = sessionStorage;
   public session=sessionStorage.getItem('customer_id');
+logout()
+{
+  sessionStorage.clear();
+}
 }
 
 export class contact{

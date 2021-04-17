@@ -46,6 +46,10 @@ contact:contact
 }
   public sessionStorage = sessionStorage;
   public session=sessionStorage.getItem('account_no');
+  logout()
+  {
+    sessionStorage.clear();
+  }
 }
 export class contact{
   login_pass:string;

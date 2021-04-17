@@ -37,5 +37,9 @@ contact:Transactions;
         
       })
   }
+  logout()
+  {
+    sessionStorage.clear();
+  }
 
 }

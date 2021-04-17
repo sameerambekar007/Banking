@@ -43,7 +43,12 @@ contact:contact
         }
       })
   }
+  
 
+}
+logout()
+{
+  sessionStorage.clear();
 }
 }
 export class contact{

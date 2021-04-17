@@ -11,5 +11,8 @@ export class TransactionfailedComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+logout()
+{
+  sessionStorage.clear();
+}
 }

@@ -95,6 +95,10 @@ export class NeftransactionComponent implements OnInit {
       })
 }
 public sessionStorage = sessionStorage;
+logout()
+{
+  sessionStorage.clear();
+}
 }
 
 export class contact{

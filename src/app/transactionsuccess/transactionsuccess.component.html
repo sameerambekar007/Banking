@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <body>
+    <header id="header" class="fixed-top d-flex align-items-cente">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+  
+        <h1 class="logo me-auto me-lg-0"><a href="index.html">RSVZ</a></h1>
+  
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto" [routerLink]="['/custdash']">Home</a></li>
+          <li>  <a [routerLink]="['/userprofile']"  class="nav-link scrollto">User Profile</a></li>
+          <li><a [routerLink]="['/changepassword']"  class="nav-link scrollto">Change Password</a></li>
+          <li><a [routerLink]="['/changetranspass']"  class="nav-link scrollto">Change Transaction Password</a></li>
+          <li><a class="nav-link scrollto" [routerLink]="['/aboutus']">About us</a></li>
+          <li><a class="nav-link scrollto" [routerLink]="['/contactus']">Contact us</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <a [routerLink]="['/home']" (click)="logout()" class="book-a-table-btn scrollto d-none d-lg-flex">Logout</a>
+  
+      </div>
+    </header>
+    <div class="sidebar">
+      <div class="profile_info">
+        <img src="../../assets/customer-avatar.png" class="profile_image" alt="">
+        <h4>Jimin</h4>
+      </div>
+      <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
+      <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
+      <a [routerLink]="['/fundtransfer']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+      <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
+      <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
+      <a href="#"><i class="fa fa-user fa-lg"></i><span>Logout</span></a>
+     </div>
     <div class="content">
 
         <h1 style="font-family: Bradley Hand ITC; font-size: 200%; color: white;text-align: center;">Transaction Successful</h1>
         <section>
           
-            <div>
-              <table cellpadding="0" cellspacing="0" border="0">
+            <div> 
+              <table cellpadding="0" cellspacing="0"  >
                 <thead>
                   <tr>
                     <td>Reference Id</td>

@@ -12,11 +12,14 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { ApprovalpendingComponent } from './approvalpending/approvalpending.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { ChangetransactionpasswordComponent } from './changetransactionpassword/changetransactionpassword.component';
+import { ContactusComponent } from './contactus/contactus.component';
 import { CustomerdashboardComponent } from './customerdashboard/customerdashboard.component';
 import { CustomerloginComponent } from './customerlogin/customerlogin.component';
 import { ErrorComponent } from './error/error.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ForgottransactionpasswordComponent } from './forgottransactionpassword/forgottransactionpassword.component';
 import { ForgotuseridComponent } from './forgotuserid/forgotuserid.component';
+import { FundtransferComponent } from './fundtransfer/fundtransfer.component';
 import { HomeComponent } from './home/home.component';
 import { ImpstransactionComponent } from './impstransaction/impstransaction.component';
 import { InvalidtranspasswordComponent } from './invalidtranspassword/invalidtranspassword.component';
@@ -44,6 +47,7 @@ const routes: Routes = [
   {path:'rtgs',component:RtgstransactionComponent},
   {path:'forgotpassword',component:ForgotpasswordComponent},
   {path:'forgotuserid',component:ForgotuseridComponent},
+  {path:'forgottranspass',component:ForgottransactionpasswordComponent},
   {path:'addben',component:AddbeneficiaryComponent},
   {path:'admindash',component:AdmindashboardComponent},
   {path:'admindash/:service_ref_no',component:AdmindashboardComponent},
@@ -65,6 +69,8 @@ const routes: Routes = [
   {path:'accountstatusmain',component:AccountstatusmainComponent},
   {path:'transactionfailed',component:TransactionfailedComponent},
   {path:'invalidtranspassword',component:InvalidtranspasswordComponent},
+  {path:'fundtransfer',component:FundtransferComponent},
+  {path:'contactus',component:ContactusComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'**',component:ErrorComponent}
 ];

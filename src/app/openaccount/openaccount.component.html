@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <body>
-     
+    <header id="header" class="fixed-top d-flex align-items-cente">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+  
+        <h1 class="logo me-auto me-lg-0"><a href="index.html">RSVZ</a></h1>
+  
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto" [routerLink]="['/home']">Home</a></li>
+            <li><a class="nav-link scrollto" [routerLink]="['/aboutus']">About us</a></li>
+            <li><a class="nav-link scrollto" [routerLink]="['/contactus']">Contact us</a></li>
+            <li><a class="nav-link scrollto" [routerLink]="['/registerforib']">Register For Internent Banking</a></li>
+            <li><a class="nav-link scrollto" [routerLink]="['/accountstatus']">Check Account Opening Status</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+
+      </div>
+    </header>
     
-    <div class="content">
+
             <div class="login-box">
                <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Open a Savings Account</h2>
                 <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate >
@@ -391,15 +408,17 @@
                   <pre class="checkbox">
 
                     
-                                                                                  <input type="checkbox" id="opt_debit_card" name="opt_debit_card" placeholder="Opt for Debit Card" #opt_debit_card="ngModel"   [(ngModel)]="contact.opt_debit_card">Opt for Debit Card<br>
-                                                                                  <input type="checkbox" id="opt_netbanking" name="opt_netbanking" placeholder="Opt for NetBanking" #sopt_netbanking="ngModel"   [(ngModel)]="contact.opt_netbanking">Opt for Net Banking<br>
+                   <input type="checkbox" id="opt_debit_card" name="opt_debit_card" placeholder="Opt for Debit Card" #opt_debit_card="ngModel"   [(ngModel)]="contact.opt_debit_card">Opt for Debit Card<br>
+                   <input type="checkbox" id="opt_netbanking" name="opt_netbanking" placeholder="Opt for NetBanking" #sopt_netbanking="ngModel"   [(ngModel)]="contact.opt_netbanking">Opt for Net Banking<br>
                   </pre>
                 
-                  <input class="btn btn-primary" type="submit" value="Register">
-                
+                  <a href="#" (click)="onSubmit(contactForm)">
+                    Register
+                    <span></span> 
+                </a>
                 </form>
                       </div> 
-    </div>
+   
  </body>
 </html>
       
