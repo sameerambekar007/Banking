@@ -1,7 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <body>
-     
+    <header id="header" class="fixed-top d-flex align-items-cente">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+  
+        <h1 class="logo me-auto me-lg-0"><a href="index.html">RSVZ</a></h1>
+  
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto" [routerLink]="['/home']">Home</a></li>
+            <li><a class="nav-link scrollto" [routerLink]="['/aboutus']">About us</a></li>
+            <li><a class="nav-link scrollto" [routerLink]="['/contactus']">Contact us</a></li>
+            <li><a class="nav-link scrollto" [routerLink]="['/registerforib']">Register For Internent Banking</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <a [routerLink]="['/custlogin']" class="book-a-table-btn scrollto d-none d-lg-flex">Customer Login</a>
+  
+      </div>
+    </header>
     
     <div class="content" style="align-items: center;">
             <div class="login-box">
