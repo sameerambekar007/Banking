@@ -83,6 +83,22 @@ changetranspassword(accountholder): Observable<Registerforib> {
   console.log("INSIDE SERVICE",accountholder);
   return this.httpClient.post<Registerforib>(this.apiServer + '/ChangeTransPassword/', JSON.stringify(accountholder), this.httpOptions)
 }
+forgotcustomerid(accountholder): Observable<Registerforib> {
+  //console.log("INSIDE SERVICE",accountholder);
+  return this.httpClient.post<Registerforib>(this.apiServer + '/ForgotCustomerId/', JSON.stringify(accountholder), this.httpOptions)
+}
+sendcustomerid(accountholder): Observable<Registerforib> {
+  //console.log("INSIDE SERVICE",accountholder);
+  return this.httpClient.post<Registerforib>(this.apiServer + '/sendcustomerid/', JSON.stringify(accountholder), this.httpOptions)
+}
+forgotpassword(accountholder): Observable<Registerforib> {
+  //console.log("INSIDE SERVICE",accountholder);
+  return this.httpClient.post<Registerforib>(this.apiServer + '/ForgotPassword/', JSON.stringify(accountholder), this.httpOptions)
+}
+sendpassword(accountholder): Observable<Registerforib> {
+  //console.log("INSIDE SERVICE",accountholder);
+  return this.httpClient.post<Registerforib>(this.apiServer + '/sendpassword/', JSON.stringify(accountholder), this.httpOptions)
+}
 fetchaccountopeningsatatus(Customer): Observable<Openaccount> {
   console.log("INSIDE SERVICE",Customer);
   return this.httpClient.post<Openaccount>(this.apiServer + '/CheckAccountOpeningStatus/', JSON.stringify(Customer), this.httpOptions)

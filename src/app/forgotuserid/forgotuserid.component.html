@@ -17,16 +17,23 @@
           <div class="col-md-6">
               <div class="card">
                 <!-- <img src="bg3.jpg" alt="Notebook" style="width:100%; height: 100%; position: absolute; z-index: 100;"> -->
-                  <form  class="box">
+                   
+<form  class="box" #contactForm="ngForm" (ngSubmit)="OnSubmit(contact)" novalidate>
                         
-                      <p class="text-muted"> Forgot User ID</p>
-                            
-                            <input type="text" name="" placeholder="Enter Account Number">
-                            <input type="text" name="" placeholder="Enter OTP"> 
+  <p class="text-muted"> Forgot Customer ID</p>
+        
+        <input type="text" placeholder="Enter Account Number" id="account_no" name="account_no" #account_no="ngModel" 
+        [(ngModel)]="contact.account_no" required>
+        <input type="text" placeholder="Enter Email Id" id="email_id" name="email_id" #email_id="ngModel" 
+        [(ngModel)]="contact.email_id" required>
+        <a [routerLink]="['/forgotuserid']" (click)="OnClick(contact)">Generate OTP</a>
+        <input type="text" placeholder="Enter OTP" id="otp" name="otp" #otp="ngModel" 
+        [(ngModel)]="contact.otp" required> 
 
-                            <input type="submit"  value="Proceed" >
-                            <input type="submit"  value="Back" >
-                  </form>
+        <input type="submit" [disabled]="!contactForm.valid" value="Proceed" >
+        <input type="submit"  value="Back" >
+</form>
+
               </div>
           </div>
       </div>
