@@ -67,7 +67,7 @@ userprofile:any
   {
     sessionStorage.clear();
   }
-  
+  public sessionStorage=sessionStorage;
   
 }
 

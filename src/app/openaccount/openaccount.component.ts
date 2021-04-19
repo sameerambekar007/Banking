@@ -48,6 +48,16 @@ export class OpenaccountComponent implements OnInit{
         opt_netbanking:""
       };
     }
+    same(contactForm)
+  {
+    console.log(contactForm.value)
+    this.contact.perm_addr_line1=contactForm.value.res_addr_line1;
+    this.contact.perm_addr_line2=contactForm.value.res_addr_line2;
+    this.contact.perm_landmark=contactForm.value.res_landmark;
+    this.contact.perm_state=contactForm.value.res_state;
+    this.contact.perm_city=contactForm.value.res_city;
+    this.contact.perm_pincode=contactForm.value.res_pincode;
+  }
     onSubmit(contactForm)
   {
     //console.log("Hello");
@@ -59,6 +69,7 @@ export class OpenaccountComponent implements OnInit{
       })
 
   }
+  
   
   }
   

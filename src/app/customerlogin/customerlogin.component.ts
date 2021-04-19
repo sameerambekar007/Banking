@@ -72,6 +72,7 @@ public prev:string='old';
                 let key = 'account_no';
                  sessionStorage.setItem('account_no',JSON.stringify(this.accountholder1[i].account_no));
                  sessionStorage.setItem('service_ref_no',JSON.stringify(this.accountholder1[i].service_ref_no))
+                 sessionStorage.setItem('customer_name',this.accountholder1[i].customer_name)
               }
             }
            console.log(sessionStorage);

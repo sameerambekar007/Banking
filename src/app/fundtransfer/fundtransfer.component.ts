@@ -15,4 +15,5 @@ logout()
 {
   sessionStorage.clear();
 }
+public sessionStorage=sessionStorage;
 }

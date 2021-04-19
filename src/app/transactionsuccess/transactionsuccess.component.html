@@ -24,7 +24,7 @@
     <div class="sidebar">
       <div class="profile_info">
         <img src="../../assets/customer-avatar.png" class="profile_image" alt="">
-        <h4>Jimin</h4>
+        <h4>{{sessionStorage.getItem('customer_name')}}</h4>
       </div>
       <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
       <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>

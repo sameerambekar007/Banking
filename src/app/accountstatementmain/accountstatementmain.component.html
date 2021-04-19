@@ -60,14 +60,14 @@
     <div class="sidebar">
       <div class="profile_info">
         <img src="../../assets/customer-avatar.png" class="profile_image" alt="">
-        <h4>Jimin</h4>
+        <h4>{{sessionStorage.getItem('customer_name')}}</h4>
       </div>
       <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
       <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
       <a [routerLink]="['/fundtransfer']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
       <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
       <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
-      <a href="#"><i class="fa fa-user fa-lg"></i><span>Logout</span></a>
+        <a [routerLink]="['/home']" (click)="logout()"><i class="fa fa-user fa-lg"></i><span>Logout</span></a>
      </div>
     <!--sidebar end-->
 
@@ -77,10 +77,10 @@
             <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Account Statement</h2>
             <form #contactForm="ngForm" (ngSubmit)="OnSubmit(contactForm)" novalidate>
               <div >
-                <label><h2>From</h2> </label>
+                <label><h2> <pre> From </pre></h2> </label>
                 <input type="datetime-local" id="trans_date" name="trans_date" required  #trans_date="ngModel"
                 [(ngModel)]="contact.trans_date">
-                <label><h2>To</h2></label>
+                <label><h2><pre> To </pre></h2></label>
                 <input type="datetime-local" id="to_trans_date" name="to_trans_date" required  #to_trans_date="ngModel"
                 [(ngModel)]="contact.to_trans_date">
               </div>

@@ -50,6 +50,7 @@ logout()
 {
   sessionStorage.clear();
 }
+public sessionStorage = sessionStorage;
 }
 export class contact{
   trans_pass:number;

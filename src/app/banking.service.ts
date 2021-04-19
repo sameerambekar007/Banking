@@ -99,6 +99,14 @@ sendpassword(accountholder): Observable<Registerforib> {
   //console.log("INSIDE SERVICE",accountholder);
   return this.httpClient.post<Registerforib>(this.apiServer + '/sendpassword/', JSON.stringify(accountholder), this.httpOptions)
 }
+forgotTranspasssword(accountholder): Observable<Registerforib> {
+  //console.log("INSIDE SERVICE",accountholder);
+  return this.httpClient.post<Registerforib>(this.apiServer + '/ForgotTransPassword/', JSON.stringify(accountholder), this.httpOptions)
+}
+sendTranspassword(accountholder): Observable<Registerforib> {
+  //console.log("INSIDE SERVICE",accountholder);
+  return this.httpClient.post<Registerforib>(this.apiServer + '/sendTranspassword/', JSON.stringify(accountholder), this.httpOptions)
+}
 fetchaccountopeningsatatus(Customer): Observable<Openaccount> {
   console.log("INSIDE SERVICE",Customer);
   return this.httpClient.post<Openaccount>(this.apiServer + '/CheckAccountOpeningStatus/', JSON.stringify(Customer), this.httpOptions)

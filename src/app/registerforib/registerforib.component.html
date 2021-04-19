@@ -9,7 +9,6 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
             <li><a class="nav-link scrollto" [routerLink]="['/home']">Home</a></li>
-            <li><a class="nav-link scrollto" [routerLink]="['/registerforib']">Register For Internent Banking</a></li>
             <li><a class="nav-link scrollto" [routerLink]="['/accountstatus']">Check Account Opening Status</a></li>
             <li><a class="nav-link scrollto" [routerLink]="['/aboutus']">About us</a></li>
             <li><a class="nav-link scrollto" [routerLink]="['/contactus']">Contact us</a></li>
@@ -29,17 +28,48 @@
                   <div class="user-box">
                     <input type="text" id="customer_id" name="customer_id" required  #customer_id="ngModel"
                     [(ngModel)]="contact.customer_id" >
+                    <div style="color: red;" *ngIf="!customer_id?.valid && (customer_id?.dirty || customer_id?.touched)" class="error">
+                      <div *ngIf="customer_id.errors.required">
+                        Customer Id is required
+                      </div>
+                    </div>
                     <label>Customer Id</label>
                   </div>
                   <div class="user-box">
                     <input type="text" id="account_no" name="account_no" required  #account_no="ngModel"
                     [(ngModel)]="contact.account_no" >
+                    <div style="color: red;" *ngIf="!account_no?.valid && (account_no?.dirty || account_no?.touched)" class="error">
+                      <div *ngIf="account_no.errors.required">
+                        Account Number is required
+                      </div>
+                    </div>
                     <label>Account Number</label>
                   </div>
                   <div class="user-box">
-                    <input type="password" id="login_pass" name="login_pass" required  #login_pass="ngModel"
+                    <input type="password" id="login_pass" name="login_pass" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" #login_pass="ngModel"
                     [(ngModel)]="contact.login_pass">
+                    <div style="color: red;" *ngIf="!login_pass?.valid && (login_pass?.dirty || login_pass?.touched)" class="error">
+                      <div *ngIf="login_pass.errors.required">
+                        Login Password is required
+                      </div>
+                      <div *ngIf="login_pass.errors.pattern">
+                        Login Password should contain atleast one uppercase,one lowercase,one number, one special character and should be of 8 to 15 length                             
+                      </div>
+                    </div>
                     <label>Set Login Password </label>
+                  </div> 
+                  <div class="user-box">
+                    <input type="password" id="reenter_login_pass" name="reenter_login_pass" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$" #reenter_login_pass="ngModel"
+                    [(ngModel)]="contact.reenter_login_pass">
+                    <div style="color: red;" *ngIf="!reenter_login_pass?.valid && (reenter_login_pass?.dirty || reenter_login_pass?.touched)" class="error">
+                      <div *ngIf="reenter_login_pass.errors.required">
+                        Required
+                      </div>
+                      <div *ngIf="reenter_login_pass.errors.pattern">
+                        Reentered Password should be similar to the new password          
+                      </div>
+                    </div>
+                    <label>Reenter Login Password </label>
                   </div>                 
                    <!-- <div class="user-box">
                     <input type="password" name="Confirm Login Password">
@@ -47,9 +77,30 @@
                   </div> -->
                   
                   <div class="user-box">
-                    <input type="password" id="trans_pass" name="trans_pass" required  #trans_pass="ngModel"
+                    <input type="password" id="trans_pass" name="trans_pass" required pattern="[0-9]{5}" #trans_pass="ngModel"
                     [(ngModel)]="contact.trans_pass">
+                    <div style="color: red;" *ngIf="!trans_pass?.valid && (trans_pass?.dirty || trans_pass?.touched)" class="error">
+                      <div *ngIf="trans_pass.errors.required">
+                        New Transaction Password is required
+                      </div>
+                      <div *ngIf="trans_pass.errors.pattern">
+                        New Transaction Password should be numeric and of length 5                              
+                      </div>
+                    </div> 
                     <label>Set Transaction Password</label>
+                  </div>
+                  <div class="user-box">
+                    <input type="password" id="reenter_trans_pass" name="reenter_trans_pass" required pattern="[0-9]{5}" #reenter_trans_pass="ngModel"
+                    [(ngModel)]="contact.reenter_trans_pass">
+                    <div style="color: red;" *ngIf="!reenter_trans_pass?.valid && (reenter_trans_pass?.dirty || reenter_trans_pass?.touched)" class="error">
+                      <div *ngIf="reenter_trans_pass.errors.required">
+                        New Transaction Password is required
+                      </div>
+                      <div *ngIf="reenter_trans_pass.errors.pattern">
+                        Both the passwords should match                              
+                      </div>
+                    </div> 
+                    <label>Reenter Transaction Password</label>
                   </div>
                   <!-- <div class="user-box">
                     <input type="password" name="Confirm Transaction Password">
@@ -57,12 +108,14 @@
 
                   </div> -->
                   
-                  <a [routerLink]="['/registerforib']" (click)="OnSubmit(contactForm)">
+                  <!-- <a [routerLink]="['/registerforib']"  (click)="OnSubmit(contactForm)">
                     Register
                     <span></span> 
                 </a>
- 
-                </form>
+  -->
+              <input type="submit" [disabled]="!contactForm.valid" value="Proceed" class="submit" style="background-color: black;">
+            <span></span>    
+            </form>
                </div> 
     </div>
  </body>

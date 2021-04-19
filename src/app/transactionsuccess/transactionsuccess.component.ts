@@ -41,5 +41,5 @@ contact:Transactions;
   {
     sessionStorage.clear();
   }
-
+public sessionStorage=sessionStorage;
 }

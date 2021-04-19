@@ -47,6 +47,7 @@
       <a [routerLink]="['/fundtransfer']"><i class="fas fa-money-check"></i><span>Fund Transfer</span></a>
       <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
       <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
+      <a [routerLink]="['/home']" (click)="logout()"><i class="fa fa-user fa-lg"></i><span>Logout</span></a>
      </div>
     <!--sidebar end-->
      
@@ -73,12 +74,15 @@
                   <label>Enter Beneficiary Name</label>
                   </div>
                   <div class="user-box">
-                    <input type="number"  id="ben_account_no" name="ben_account_no" required  #ben_account_no="ngModel"
+                    <input type="number"  id="ben_account_no" name="ben_account_no" required pattern="[0-9]{16}" #ben_account_no="ngModel"
                     [(ngModel)]="contact.ben_account_no">
-                    <div *ngIf="!ben_account_no?.valid && (ben_account_no?.dirty || ben_account_no?.touched)" class="error">
-                      <div style="color: crimson;"*ngIf="ben_account_no.errors.required">
+                    <div style="color: crimson;" *ngIf="!ben_account_no?.valid && (ben_account_no?.dirty || ben_account_no?.touched)" class="error">
+                      <div *ngIf="ben_account_no.errors.required">
                         Beneficiary Account Number is required
-                      </div>            
+                      </div>    
+                      <div *ngIf="ben_account_no.errors.pattern">
+                        Beneficiary Account number should be of 16 digits                           
+                      </div>        
                     
                   </div>
                   <label> Enter Beneficiary Account number </label> 
@@ -116,16 +120,14 @@
 
                   </div> -->
                   
-                  <a [routerLink]="['/custdash']" >
-                    Continue
-                    <span></span> 
-                </a>
+                  
                 <!-- <a [routerLink]="['/custdash']" (click)="onSubmit(contactForm)" >
                   Add Beneficiary
                   <span></span> 
               </a> -->
-              <button type="submit" [disabled]="!contactForm.valid" >Add Beneficiary</button>
-                
+              <button type="submit" [disabled]="!contactForm.valid"  class="submit" style="background-color: black;" >Add Beneficiary
+              <span></span> 
+              </button>
                 
  
                 </form>

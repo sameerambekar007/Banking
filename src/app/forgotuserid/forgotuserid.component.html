@@ -16,7 +16,7 @@
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
-        <a [routerLink]="['/login']" class="book-a-table-btn scrollto d-none d-lg-flex">Admin Login</a>
+        <a [routerLink]="['/custlogin']" class="book-a-table-btn scrollto d-none d-lg-flex">Login</a>
   
       </div>
     </header>
@@ -27,14 +27,28 @@
         
         <input type="text" placeholder="Enter Account Number" id="account_no" name="account_no" #account_no="ngModel" 
         [(ngModel)]="contact.account_no" required>
+        <div style="color: red;" *ngIf="!account_no?.valid && (account_no?.dirty || account_no?.touched)" class="error">
+          <div *ngIf="account_no.errors.required">
+            Account Number is required
+          </div>
+        </div>
         <input type="text" placeholder="Enter Email Id" id="email_id" name="email_id" #email_id="ngModel" 
         [(ngModel)]="contact.email_id" required>
+        <div  style="color: red;" *ngIf="!email_id?.valid && (email_id?.dirty || email_id?.touched)" class="error">
+          <div *ngIf="email_id.errors.required">
+            Email Id is required
+          </div>
+        </div>
         <a [routerLink]="['/forgotuserid']" (click)="OnClick(contact)">Generate OTP</a>
         <input type="text" placeholder="Enter OTP" id="otp" name="otp" #otp="ngModel" 
         [(ngModel)]="contact.otp" required> 
-
+        <div  style="color: red;" *ngIf="!otp?.valid && (otp?.dirty || otp?.touched)" class="error">
+          <div *ngIf="otp.errors.required">
+            OTP is required
+          </div>
+          </div>
         <input type="submit" [disabled]="!contactForm.valid" value="Proceed" >
-        <input type="submit"  value="Back" >
+        <!-- <input type="submit"  value="Back" > -->
 </form>
 
 </div>  

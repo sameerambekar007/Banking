@@ -9,7 +9,7 @@ import {BankingService} from '../banking.service';
   styleUrls: ['./registerforib.component.css']
 })
 export class RegisterforibComponent implements OnInit {
-contact:Registerforib;
+contact:contact;
 //bankingService:BankingService;
   constructor(private router:Router,
     public bankingService: BankingService) { }
@@ -20,16 +20,24 @@ contact:Registerforib;
       login_pass:"",
       account_no:null,
       trans_pass:null,
-      service_ref_no:null,
-      balance:null,
-      customer_name:"",
-      acct_type:"",
-      account_status:"",
+      reenter_login_pass:"",
+      reenter_trans_pass:null,
     };
   }
   OnSubmit(contactForm)
   {
-    console.log(contactForm.value)
+    
+    if(contactForm.value.login_pass!=contactForm.value.reenter_login_pass)
+    {
+      alert("Login password and reenter password does not match!")
+    }
+    else if(contactForm.value.trans_pass!=contactForm.value.reenter_trans_pass)
+    {
+      alert("Transaction password and reenter transaction password does not match!")
+    }
+    //console.log(contactForm.value)
+    else
+    {
     this.bankingService.registerforib(contactForm.value).subscribe(res=>
       {
         console.log(res)
@@ -50,6 +58,16 @@ contact:Registerforib;
     alert("Customer Id and Account number do not match!")
   }
       })
+    }
   }  
+}
+export class contact
+{
+  customer_id:string;
+  login_pass:string;
+  reenter_login_pass:string;
+  account_no:number;
+  trans_pass:number;
+  reenter_trans_pass:number;
 }
 

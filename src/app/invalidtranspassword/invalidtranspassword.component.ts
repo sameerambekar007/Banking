@@ -11,5 +11,9 @@ export class InvalidtranspasswordComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+logout()
+{
+  sessionStorage.clear();
+}
+public sessionStorage=sessionStorage;
 }

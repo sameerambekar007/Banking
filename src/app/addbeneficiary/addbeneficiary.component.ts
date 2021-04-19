@@ -29,7 +29,7 @@ onSubmit(contactForm)
 
     this.bankingService.addben(contactForm.value).subscribe(res=>
       {
-        console.log("Beneficiary added!")
+        alert("Beneficiary added successfully!")
         this.router.navigateByUrl('/custdash');
       })
 
