@@ -15,6 +15,7 @@ import { ChangetransactionpasswordComponent } from './changetransactionpassword/
 import { ContactusComponent } from './contactus/contactus.component';
 import { CustomerdashboardComponent } from './customerdashboard/customerdashboard.component';
 import { CustomerloginComponent } from './customerlogin/customerlogin.component';
+import { DisplaybeneficiariesComponent } from './displaybeneficiaries/displaybeneficiaries.component';
 import { ErrorComponent } from './error/error.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ForgottransactionpasswordComponent } from './forgottransactionpassword/forgottransactionpassword.component';
@@ -53,6 +54,7 @@ const routes: Routes = [
   {path:'admindash/:service_ref_no',component:AdmindashboardComponent},
   {path:'custdash',component:CustomerdashboardComponent},
   {path:'addben',component:AddbeneficiaryComponent},
+  {path:'displaybeneficiaries',component:DisplaybeneficiariesComponent},
   {path:'sessionexpired',component:SessionexpiredComponent},
   {path:'setnewpass',component:SetnewpasswordComponent},
   {path:'transuccess',component:TransactionsuccessComponent},

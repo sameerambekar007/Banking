@@ -37,21 +37,40 @@
       <a [routerLink]="['/home']" (click)="logout()"><i class="fa fa-user fa-lg"></i><span>Logout</span></a>
       </div>
     <div class="content">
-            <div class="login-box">
-                <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Welcome Back....{{sessionStorage.getItem('customer_name')}}</h2>
-                
-                    <p style="color: aliceblue; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">You’ll find innovation in every corner of our business. From staying ahead of the curve on technology, to continually finding ways of improving processes, to collaborating with trailblazers – bringing new ideas to life is central to the way we support people, businesses, communities and the wider economy.
-                        Find out how RSVZ is powering creative thinking, spearheading change in financial services and adapting in a constantly evolving world.
-                        From the launch of the India’s first credit card and contactless payments to the world’s first ATM, RSVZ has been transforming banking for the better for generations.
-                        
-                    </p>
-                  
-                  <br>
-                    <p style="color: aliceblue;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">RSVZ has a longstanding tradition of partnering with fintech companies to bring innovative solutions into the market. Our range of programmes help fintech startups to innovate and grow – while bringing brilliant new ideas into the sector, for the benefit of our customers and clients. But we don’t focus on fintech alone – our initiatives for startups also support ground-breaking businesses across sectors including gamestech, lawtech and agritech</p>
-                  
-              </div>
-
+        <div class="login-box">
             
+            <div class="tbl-content1">
+                <table cellpadding="0" cellspacing="0" border="0" >
+                  <tbody>
+                      <tr>
+                      <th colspan="2" >Beneficiary Id</th>
+                      <th colspan="2" >Beneficiary Name</th>
+                      <th colspan="2" >Beneficiary nickname</th>
+                      <th colspan="2" >Beneficiary Account Number</th>                       </tr>
+                   
+                  </tbody>
+                </table>
+              </div>
+          </div>
+          <form >
+            <div class="login-box">
+                <div class="tbl-content1">
+                    
+                    <table cellpadding="0" cellspacing="0" border="0" >
+                      <tbody>
+                        <tr *ngFor="let beneficiaries of beneficiarylist1">
+                          <td colspan="2" >{{beneficiaries.ben_id}}</td>
+                          <td colspan="2" >{{beneficiaries.ben_name}}</td>
+                          <td colspan="2" >{{beneficiaries.ben_nickname}}</td>
+                          <td colspan="2" >{{beneficiaries.ben_account_no}}</td>                       </tr>
+                       
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+              <a [routerLink]="['/addben']" >Add Beneficiaries</a>
+              <span></span>
+            </form>
 
                
              

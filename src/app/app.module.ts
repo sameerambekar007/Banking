@@ -40,6 +40,7 @@ import { ChangetransactionpasswordComponent } from './changetransactionpassword/
 import { FundtransferComponent } from './fundtransfer/fundtransfer.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { ForgottransactionpasswordComponent } from './forgottransactionpassword/forgottransactionpassword.component';
+import { DisplaybeneficiariesComponent } from './displaybeneficiaries/displaybeneficiaries.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { ForgottransactionpasswordComponent } from './forgottransactionpassword/
     ChangetransactionpasswordComponent,
     FundtransferComponent,
     ContactusComponent,
-    ForgottransactionpasswordComponent
+    ForgottransactionpasswordComponent,
+    DisplaybeneficiariesComponent
   ],
   imports: [
     BrowserModule,
