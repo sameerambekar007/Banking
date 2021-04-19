@@ -13,6 +13,10 @@ export class ForgottransactionpasswordComponent implements OnInit {
     public bankingService: BankingService) { }
 
   ngOnInit(): void {
+    if(this.bankingService.loggedIn()==false)
+    {
+      this.router.navigateByUrl('/custlogin')
+    }
     this.contact={
       account_no:null,
       email_id:"",

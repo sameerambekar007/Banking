@@ -405,7 +405,7 @@
      
      body
 {
-  background-color: black;
+  /* background-color: black; */
 }
   .sidebar {
     z-index: 1;
@@ -1162,7 +1162,7 @@
      
      body
 {
-  background-color: black;
+  /* background-color: black; */
 }
   .sidebar {
     z-index: 1;

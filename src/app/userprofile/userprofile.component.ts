@@ -19,9 +19,14 @@ userprofile:any
   constructor(
     public bankingService: BankingService,
     private router:ActivatedRoute,
+    private router1:Router
   ) { }
 
   ngOnInit(): void {
+    if(this.bankingService.loggedIn()==false)
+    {
+      this.router1.navigateByUrl('/custlogin')
+    }
     this.contact = { 
       service_ref_no:JSON.parse(sessionStorage.getItem('service_ref_no')),
       title:"",

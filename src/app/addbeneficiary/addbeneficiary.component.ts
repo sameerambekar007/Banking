@@ -13,6 +13,10 @@ export class AddbeneficiaryComponent implements OnInit {
     public bankingService: BankingService) { }
 
   ngOnInit(): void {
+    if(this.bankingService.loggedIn()==false)
+    {
+      this.router.navigateByUrl('/custlogin')
+    }
     this.contact = { 
       ben_account_no:null,
       ben_name:"",

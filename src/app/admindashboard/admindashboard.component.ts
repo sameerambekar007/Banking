@@ -26,9 +26,14 @@ export class AdmindashboardComponent implements OnInit {
   constructor(
     public bankingService: BankingService,
     private router:ActivatedRoute,
+    private router1:Router
     ) { }
   
   ngOnInit(): void {
+    if(this.bankingService.adminloggedIn()==false)
+    {
+      this.router1.navigateByUrl('/login');
+    }
     this.contact = { 
       first_name: "",
       acct_type: "",

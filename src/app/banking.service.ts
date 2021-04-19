@@ -163,4 +163,22 @@ Accountholder(Accountholder): Observable<AccountHolderinsert> {
   console.log("INSIDE SERVICE",Accountholder);
   return this.httpClient.post<AccountHolderinsert>(this.apiServer + '/Account_HolderInsert/', JSON.stringify(Accountholder), this.httpOptions)
 }
+loggedIn() {
+  if(sessionStorage.getItem('customer_id')!=null)
+  {
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+adminloggedIn() {
+  if(sessionStorage.getItem('admin_id')!=null)
+  {
+    return true;
+  }
+  else{
+    return false;
+  }
+}
 }

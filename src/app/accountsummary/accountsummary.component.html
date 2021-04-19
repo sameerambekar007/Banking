@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADFC Withdraw</title>
-    <!-- <link rel="stylesheet" href="styles\style3.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script> -->
-  </head>
+  
   <body>
 
     <input type="checkbox" id="check">
@@ -114,7 +107,51 @@
             
             
         </div>
+        <div class="login-box1">
+          <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Recent Transactions</h2>
+          <section>
+              
+              <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  
+                  <thead>
+                    <tr >
+                      <th >Transaction Reference ID</th>
+                      <th colspan="1">Recipient Account Number</th>
+                      <th colspan="1">Sender Account No</th>
+                      <th >Amount</th>
+                      <th colspan="1">Transaction Date</th>
+                      <th colspan="1">Remarks</th>
+                      <th >Updated Balance after Credit</th>
+                      <th >Updated Balance after Debit</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="tbl-content1">
+                <table cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr *ngFor="let transaction of transactions2">
+                      <td colspan="2" >{{transaction.ref_id}}</td>
+                      <td colspan="3">{{transaction.recipient_acct}}</td>
+                      <td colspan="3">{{transaction.account_no}}</td>
+                      <td colspan="1">{{transaction.amount}}</td>
+                      <td colspan="3">{{transaction.trans_date}}</td>
+                      <td colspan="3">{{transaction.remarks}}</td>
+                      <td colspan="1">{{transaction.recipient_updated_credit}}</td>
+                      <td colspan="1">{{transaction.sender_updated_debit}}</td>
+                    </tr>
+                   
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            
+            
+            
+        </div>
 
+        
 
 </div>
 </body>

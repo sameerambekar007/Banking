@@ -23,6 +23,10 @@ export class NeftransactionComponent implements OnInit {
     public bankingService: BankingService) { }
 
   ngOnInit(): void {
+    if(this.bankingService.loggedIn()==false)
+    {
+      this.router.navigateByUrl('/custlogin')
+    }
     this.contact = { 
       recipient_acct:null,
      // trans_date:null,

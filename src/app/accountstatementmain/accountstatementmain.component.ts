@@ -18,6 +18,11 @@ contact:Accountstatement
     public bankingService: BankingService) { }
 
   ngOnInit(): void {
+    if(this.bankingService.loggedIn()==false)
+    {
+      this.router.navigateByUrl('/custlogin')
+    }
+
     this.contact={
       ref_id:"",
       mode:"",
@@ -29,7 +34,7 @@ contact:Accountstatement
       remarks:"",
       trans_pass:null,
     };
-
+    
     console.log(this.contact)  
   }
 

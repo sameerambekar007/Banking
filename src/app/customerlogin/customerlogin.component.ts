@@ -24,6 +24,7 @@ public prev:string='old';
     public bankingService: BankingService) { }
 
   ngOnInit(): void {
+   
     this.contact = { 
       customer_id:"",
       login_pass:"",
@@ -89,14 +90,22 @@ public prev:string='old';
          {
            this.prev=contactForm.value.customer_id;
            this.count=1;
-           alert ("invalid login" + this.count)
+           
+           if(this.count==1)
+           {
+            alert ("invalid login" + this.count + "\nAccount will be locked after 2 more invalid attempts")
+           }
            console.log("invalid login",this.count);
            
          }
          else if(this.prev==contactForm.value.customer_id)
          {
            this.count++;
-           alert ("invalid login" + this.count)
+           //alert ("invalid login" + this.count)
+           if(this.count==2)
+           {
+            alert ("invalid login" + this.count + "\nAccount will be locked after 1 more invalid attempt")
+           }
            console.log("invalid login",this.count);
            //alert ("invalid login" )
            if(this.count==3)
@@ -104,9 +113,10 @@ public prev:string='old';
              
              this.bankingService.custblocked(contactForm.value).subscribe(res=>
               {
-                alert("your account has been blocked, Press ok to reactivate it. ")
+               // alert("your account has been blocked, Press ok to reactivate it. ")
+                this.router.navigateByUrl('/accountlocked');
               })
-             this.router.navigateByUrl('/forgotpassword');
+             
            }
          }
          else

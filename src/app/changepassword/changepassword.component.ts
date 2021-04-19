@@ -13,6 +13,10 @@ contact:contact
     public bankingService: BankingService) { }
 
   ngOnInit(): void {
+    if(this.bankingService.loggedIn()==false)
+    {
+      this.router.navigateByUrl('/custlogin')
+    }
     this.contact={
       login_pass:"",
       new_pass:"",

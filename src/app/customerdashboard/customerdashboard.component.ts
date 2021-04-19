@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {BankingService} from '../banking.service';
 @Component({
   selector: 'app-customerdashboard',
   templateUrl: './customerdashboard.component.html',
@@ -7,9 +8,15 @@ import { Router } from '@angular/router';
 })
 export class CustomerdashboardComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+    public bankingService: BankingService) { }
 
   ngOnInit(): void {
+
+    if(this.bankingService.loggedIn()==false)
+    {
+      this.router.navigateByUrl('/custlogin')
+    }
   }
   logout()
   {

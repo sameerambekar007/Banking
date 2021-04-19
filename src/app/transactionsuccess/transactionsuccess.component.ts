@@ -15,9 +15,14 @@ contact:Transactions;
   constructor(
     public bankingService: BankingService,
     private router:ActivatedRoute,
+    private router1:Router
   ) { }
 
   ngOnInit(): void {
+    if(this.bankingService.loggedIn()==false)
+    {
+      this.router1.navigateByUrl('/custlogin')
+    }
     this.contact={
       ref_id:sessionStorage.getItem('ref_id'),
       mode:"",
