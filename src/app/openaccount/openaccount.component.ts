@@ -58,6 +58,10 @@ export class OpenaccountComponent implements OnInit{
     this.contact.perm_city=contactForm.value.res_city;
     this.contact.perm_pincode=contactForm.value.res_pincode;
   }
+  samename(contactForm)
+  {
+    this.contact.father_name=this.contact.middle_name
+  }
     onSubmit(contactForm)
   {
     //console.log("Hello");
@@ -65,7 +69,9 @@ export class OpenaccountComponent implements OnInit{
 
     this.bankingService.create(contactForm.value).subscribe(res=>
       {
+        alert("Account Opening application submitted successfully")
         console.log("Customer added!")
+        this.router.navigateByUrl('/accountstatus')
       })
 
   }

@@ -33,6 +33,10 @@ contact:contact
     {
       alert("Password and Reenter do not match")
     }
+    else if(contactForm.value.new_pass==contactForm.value.login_pass)
+    {
+      alert("New password and old password cannot be same")
+    }
     else
     {
     this.bankingService.changepassword(this.contact).subscribe(res=>

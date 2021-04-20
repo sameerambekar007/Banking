@@ -26,7 +26,7 @@
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
-        <img src="../../assets/goldprofile.jpg" class="profile_image" alt="">
+        <img src="../../assets/gold.jpg" class="profile_image" alt="">
         <h4>{{sessionStorage.getItem('customer_name')}}</h4>
       </div>
       <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
@@ -37,7 +37,7 @@
       <a [routerLink]="['/home']" (click)="logout()"><i class="fa fa-user fa-lg"></i><span>Logout</span></a>
       </div>
     <div class="content">
-        <div class="login-box">
+        <!-- <div class="login-box">
             
             <div class="tbl-content1">
                 <table cellpadding="0" cellspacing="0" border="0" >
@@ -70,9 +70,47 @@
               </div>
               <a [routerLink]="['/addben']" >Add Beneficiaries</a>
               <span></span>
-            </form>
+            </form> -->
 
                
+          <div class="login-box1">
+            <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">List of Beneficiaries</h2>
+            <section>
+                
+                <div class="tbl-header">
+                  <table cellpadding="0" cellspacing="0" border="0" >
+                    
+                    <thead>
+                      <tr style="background-color: black;" >
+                        <th colspan="2" >Beneficiary Id</th>
+                        <th colspan="2" >Beneficiary Name</th>
+                        <th colspan="2" >Beneficiary nickname</th>
+                        <th colspan="2" >Beneficiary Account Number</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div class="tbl-content1">
+                  <table cellpadding="0" cellspacing="0" border="0" >
+                    <tbody>
+                      <tr *ngFor="let beneficiaries of beneficiarylist1">
+                        <td colspan="2" >{{beneficiaries.ben_id}}</td>
+                        <td colspan="2" >{{beneficiaries.ben_name}}</td>
+                        <td colspan="2" >{{beneficiaries.ben_nickname}}</td>
+                        <td colspan="2" >{{beneficiaries.ben_account_no}}</td> </tr>
+                     
+                    </tbody>
+                  </table>
+                  <button type="submit"  [routerLink]="['/addben']" class="submit" style="background-color: black;" >Add new Beneficiary
+                    <span></span> 
+                    </button>
+                  
+                </div>
+              </section>
+              
+
+              
+          </div>
              
         
       

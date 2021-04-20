@@ -70,6 +70,7 @@ onSubmit(customer) {
   this.bankingService.Accountholder(new AccountHolderinsert(customer.first_name,customer.acct_type,customer.service_ref_no)).subscribe(res=>
     {
       console.log("Customer added!")
+      alert("Account created successfully!")
     })
   }
 }

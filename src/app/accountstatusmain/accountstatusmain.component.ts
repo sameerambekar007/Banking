@@ -13,10 +13,10 @@ export class AccountstatusmainComponent implements OnInit {
     public bankingService: BankingService) { }
 
   ngOnInit(): void {
-    if(this.bankingService.loggedIn()==false)
-    {
-      this.router.navigateByUrl('/custlogin')
-    }
+    // if(this.bankingService.loggedIn()==false)
+    // {
+    //   this.router.navigateByUrl('/custlogin')
+    // }
   }
 
 }

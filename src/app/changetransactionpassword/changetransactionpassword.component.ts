@@ -32,7 +32,10 @@ contact:contact
     {
       alert("Password and Reenter do not match")
     }
-    
+    else if(contactForm.value.new_trans_pass==contactForm.value.trans_pass)
+    {
+      alert("New password and old password cannot be same")
+    }
     else
     {
     this.bankingService.changetranspassword(this.contact).subscribe(res=>

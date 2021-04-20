@@ -74,6 +74,7 @@ public prev:string='old';
                  sessionStorage.setItem('account_no',JSON.stringify(this.accountholder1[i].account_no));
                  sessionStorage.setItem('service_ref_no',JSON.stringify(this.accountholder1[i].service_ref_no))
                  sessionStorage.setItem('customer_name',this.accountholder1[i].customer_name)
+                 sessionStorage.setItem('Balance',JSON.stringify(this.accountholder1[i].balance))
               }
             }
            console.log(sessionStorage);
@@ -82,6 +83,10 @@ public prev:string='old';
         console.log(sessionStorage);
 
           this.router.navigateByUrl('/custdash');
+        }
+        else if(res.toString()=="blocked")
+        {
+          this.router.navigateByUrl('/accountlocked');
         }
         else
         {

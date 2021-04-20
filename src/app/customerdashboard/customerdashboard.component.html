@@ -26,18 +26,20 @@
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
-        <img src="../../assets/goldprofile.jpg" class="profile_image" alt="">
+        <img src="../../assets/gold.jpg" class="profile_image" alt="">
         <h4>{{sessionStorage.getItem('customer_name')}}</h4>
       </div>
       <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
       <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
       <a [routerLink]="['/fundtransfer']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+      <a [routerLink]="['/displaybeneficiaries']"><i class="fa fa-user fa-lg"></i><span>Beneficiary List</span></a>
       <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
       <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
       <a [routerLink]="['/home']" (click)="logout()"><i class="fa fa-user fa-lg"></i><span>Logout</span></a>
       </div>
     <div class="content">
             <div class="login-box">
+              <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Your account Balance is INR {{sessionStorage.getItem('Balance')}}</h2>
                 <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Welcome Back....{{sessionStorage.getItem('customer_name')}}</h2>
                 
                     <p style="color: aliceblue; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">You’ll find innovation in every corner of our business. From staying ahead of the curve on technology, to continually finding ways of improving processes, to collaborating with trailblazers – bringing new ideas to life is central to the way we support people, businesses, communities and the wider economy.

@@ -33,8 +33,15 @@ onSubmit(contactForm)
 
     this.bankingService.addben(contactForm.value).subscribe(res=>
       {
+        if(res.toString()=="exists")
+        {
+          alert("Beneficiary already exists!")
+        }
+        else
+        {
         alert("Beneficiary added successfully!")
         this.router.navigateByUrl('/custdash');
+        }
       })
 
   }

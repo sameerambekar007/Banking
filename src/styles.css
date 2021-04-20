@@ -23,42 +23,46 @@ body {
 }
 .login-box
 {
-  font-size: xx-large;
+  font-size:large
 }
 .login-box1
 {
-  font-size: xx-large;
+  font-size: large;
 }
 .login-box1 .tbl-header table
 {
-  font-size: xx-large;
+  font-size: large;
 }
  .content .login-box1 .tbl-content1 td{
-  font-size: xx-large;
+  font-size: large;
 }
 /* .content .login-box1 .tbl-content1 td{
-  font-size: xx-large;
+  font-size: large;
 } */
 .content .login-box .tbl-content td{
-  font-size: xx-large;/*account statement,admin dashboard*/
+  font-size: large;/*account statement,admin dashboard*/
 }
 .content .login-box td{
-  font-size: xx-large;/*user-profile*/
+  font-size: large;/*user-profile*/
 }
 td{
-  font-size: xx-large;/*trasaction sucessfull*/
+  font-size: large;/*trasaction sucessfull*/
 }
 .content .login-box .tbl-header td{
-  font-size: xx-large;/*account summary*/
+  font-size: large;/*account summary*/
+}
+.content .login-box1 .tbl-content1 th
+{
+  font-size: 17px;
 }
 /* .tbl-content
 {
-  font-size: xx-large;
+  font-size: large;
 
 }
 .tbl-content1
 {
-  font-size: xx-large;
+  font-size: large;
 
 } */
 .my-container img {
@@ -121,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 */
 .navbar {
   padding: 0;
-  font-size: xx-large;
+  font-size: large;
 }
 
 .navbar ul {

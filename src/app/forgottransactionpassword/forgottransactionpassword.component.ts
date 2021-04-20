@@ -70,6 +70,7 @@ export class ForgottransactionpasswordComponent implements OnInit {
   {
     sessionStorage.clear();
   }
+  public sessionStorage=sessionStorage;
 
 }
 export class contact {

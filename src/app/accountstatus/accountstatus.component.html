@@ -29,12 +29,22 @@
                   <div class="user-box">
                     <input type="text" id="service_ref_no" name="service_ref_no" required  #service_ref_no="ngModel"
                     [(ngModel)]="contact.service_ref_no">
+                    <div style="color: red;" *ngIf="!service_ref_no?.valid && (service_ref_no?.dirty || service_ref_no?.touched)" class="error">
+                      <div *ngIf="service_ref_no.errors.required">
+                        Service Number is required
+                      </div>
+                    </div>
                     <label>Enter Your Service Number</label>
                   </div>
 
                   <div class="user-box">
                     <input type="text" id="mobile_no" name="mobile_no" required  #mobile_no="ngModel"
                     [(ngModel)]="contact.mobile_no">
+                    <div style="color: red;" *ngIf="!mobile_no?.valid && (mobile_no?.dirty || mobile_no?.touched)" class="error">
+                      <div *ngIf="mobile_no.errors.required">
+                        Mobile Number is required
+                      </div>
+                    </div>
                     <label>Enter Your Mobile Number</label>
                   </div>
                  

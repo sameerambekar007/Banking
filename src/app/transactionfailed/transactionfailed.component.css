@@ -218,7 +218,7 @@ body
     width: 850px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    
+   margin-bottom: 20%;
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
@@ -239,6 +239,7 @@ body
   
   .login-box .user-box input {
     width: 100%;
+   
     padding: 10px 0;
     font-size: 16px;
     color: #fff;
@@ -277,7 +278,7 @@ body
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #03e9f4);
+    background: linear-gradient(90deg, transparent, #cda45e);
     animation: btn-anim1 1s linear infinite;
   }
   
@@ -296,7 +297,7 @@ body
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #03e9f4);
+    background: linear-gradient(180deg, transparent, #cda45e);
     animation: btn-anim2 1s linear infinite;
     animation-delay: 0.25s;
   }
@@ -316,7 +317,7 @@ body
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #03e9f4);
+    background: linear-gradient(270deg, transparent, #cda45e);
     animation: btn-anim3 1s linear infinite;
     animation-delay: 0.5s;
   }
@@ -336,7 +337,7 @@ body
     left: 0;
     width: 2px;
     height: 1000%;
-    background: linear-gradient(360deg, transparent, #03e9f4);
+    background: linear-gradient(360deg, transparent, #cda45e);
     animation: btn-anim4 1s linear infinite;
     animation-delay: 0.75s;
   }
@@ -366,14 +367,15 @@ body
   width: 850px;
   padding: 40px;
   transform: translate(-50%, -50%);
-  
+  margin-left: 80px;
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  margin-top: 550px;
+  margin-top: 250px;
+  margin-bottom: 3000px;
   margin-right: 300px;
-  position: absolute;
-  height: 1700px;               
+  position: initial;
+  height: 520px;               
                          
   transform: translate(0, -50%)
      }
@@ -469,7 +471,7 @@ body
        left: -100%;
        width: 100%;
        height: 2px;
-       background: linear-gradient(90deg, transparent, #f3f2f1);
+       background: linear-gradient(90deg, transparent, #cda45e);
        animation: btn-anim1 1s linear infinite;
      }
      
@@ -508,7 +510,7 @@ body
        right: -100%;
        width: 100%;
        height: 2px;
-       background: linear-gradient(270deg, transparent, #f3f2f1);
+       background: linear-gradient(270deg, transparent, #cda45e);
        animation: btn-anim3 1s linear infinite;
        animation-delay: 0.5s;
      }
@@ -528,7 +530,7 @@ body
        left: 0;
        width: 2px;
        height: 1000%;
-       background: linear-gradient(360deg, transparent, #f3f2f1);
+       background: linear-gradient(360deg, transparent, #cda45e);
        animation: btn-anim4 1s linear infinite;
        animation-delay: 0.75s;
      }

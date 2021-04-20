@@ -30,7 +30,7 @@
     <!--mobile navigation bar start-->
     <div class="mobile_nav">
       <div class="nav_bar">
-        <img src="../../assets/customer-avatar.png" class="mobile_profile_image" alt="">
+        <img src="../../assets/gold.jpg" class="mobile_profile_image" alt="">
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
@@ -53,12 +53,13 @@
     <!--sidebar start-->
     <div class="sidebar">
       <div class="profile_info">
-        <img src="../../assets/customer-avatar.png" class="profile_image" alt="">
+        <img src="../../assets/gold.jpg" class="profile_image" alt="">
         <h4>{{sessionStorage.getItem('customer_name')}}</h4>
       </div>
       <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
       <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
       <a [routerLink]="['/fundtransfer']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+      <a [routerLink]="['/displaybeneficiaries']"><i class="fa fa-user fa-lg"></i><span>Beneficiary List</span></a>
       <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
       <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
       <a [routerLink]="['/home']" (click)="logout()"><i class="fa fa-user fa-lg"></i><span>Logout</span></a>
@@ -73,37 +74,45 @@
           <section>
 
             <!-- <h4 style="font-family: Bradley Hand ITC; font-size: 200%;color: whitesmoke;">Recent Transactions</h4> -->
-              <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">
-                  <thead>
-                    <tr>
-                      <th>Account No</th>
-                      <th>Customer Name</th>
-                      <th>Balance</th>
-                      <th>Service Reference number</th>
-                      <th>Account type</th>
-                      <th>Account Status</th>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
-              <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
-                  <tbody>
-                    <tr>
-                      <td>{{accountsummary[0].account_no}}</td>
-                      <td>{{accountsummary[0].customer_name}}</td>
-                      <td>{{accountsummary[0].balance}}</td>
-                      <td>{{accountsummary[0].service_ref_no}}</td>
-                      <td>{{accountsummary[0].acct_type}}</td>
-                      <td>{{accountsummary[0].account_status}}</td>
-                    </tr>
-                   
-                  </tbody>
-                </table>
-              </div>
-            </section>
+            <div class="table1" > 
+              <table cellpadding="0" cellspacing="0">
+                <thead>
+                  <tr>
+                    <td>Account No</td>
+                    <td class="t">-</td>
+                    <td>{{accountsummary[0].account_no}}</td>
+                  </tr>
+                  <tr>
+                    <td>Customer Name</td>
+                    <td>-</td>
+                    <td>{{accountsummary[0].customer_name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Balance</td>
+                    <td>-</td>
+                    <td>{{accountsummary[0].balance}}</td>
+                  </tr>
+                  <tr>
+                    <td>Service Reference number</td>
+                    <td>-</td>
+                    <td>{{accountsummary[0].service_ref_no}}</td>
+                  </tr>
+                  <tr>
+                    <td>Account type</td>
+                    <td>-</td>
+                    <td>{{accountsummary[0].acct_type}}</td>
+                  </tr>
+                  <tr>
+                    <td>Account Status</td>
+                    <td>-</td>
+                    <td>{{accountsummary[0].account_status}}</td>
+                  </tr>
+                </thead>
+              </table>
+            </div>
             
+            </section>
+         
             
             
         </div>
@@ -111,46 +120,65 @@
           <h2 style="font-family: Bradley Hand ITC; font-size: 200%;">Recent Transactions</h2>
           <section>
               
-              <div class="tbl-header">
+              <div class="tbl-content1">
                 <table cellpadding="0" cellspacing="0" border="0">
                   
                   <thead>
-                    <tr >
-                      <th >Transaction Reference ID</th>
-                      <th colspan="1">Recipient Account Number</th>
-                      <th colspan="1">Sender Account No</th>
-                      <th >Amount</th>
-                      <th colspan="1">Transaction Date</th>
-                      <th colspan="1">Remarks</th>
-                      <th >Updated Balance after Credit</th>
-                      <th >Updated Balance after Debit</th>
+                    <tr>
+                      <th>Transaction Reference ID</th>
+                      <th>Recipient Account Number</th>
+                      <th>Sender Account No</th>
+                      <th>Amount</th>
+                      <th>Transaction Date</th>
+                      <th>Remarks</th>
+                      <th>Updated Balance after Credit</th>
+                      <th>Updated Balance after Debit</th>
                     </tr>
                   </thead>
+                  <tr *ngFor="let transaction of transactions2">
+                    <td >{{transaction.ref_id}}</td>
+                    <td >{{transaction.recipient_acct}}</td>
+                    <td >{{transaction.account_no}}</td>
+                    <td >{{transaction.amount}}</td>
+                    <td >{{transaction.trans_date}}</td>
+                    <td >{{transaction.remarks}}</td>
+                    <td >{{transaction.recipient_updated_credit}}</td>
+                    <td >{{transaction.sender_updated_debit}}</td>
+                  </tr>
                 </table>
               </div>
-              <div class="tbl-content1">
+              <!-- <div class="tbl-content1">
                 <table cellpadding="0" cellspacing="0" border="0">
                   <tbody>
                     <tr *ngFor="let transaction of transactions2">
-                      <td colspan="2" >{{transaction.ref_id}}</td>
-                      <td colspan="3">{{transaction.recipient_acct}}</td>
-                      <td colspan="3">{{transaction.account_no}}</td>
-                      <td colspan="1">{{transaction.amount}}</td>
-                      <td colspan="3">{{transaction.trans_date}}</td>
-                      <td colspan="3">{{transaction.remarks}}</td>
-                      <td colspan="1">{{transaction.recipient_updated_credit}}</td>
-                      <td colspan="1">{{transaction.sender_updated_debit}}</td>
+                      <td  >{{transaction.ref_id}}</td>
+                      <td>{{transaction.recipient_acct}}</td>
+                      <td>{{transaction.account_no}}</td>
+                      <td>{{transaction.amount}}</td>
+                      <td>{{transaction.trans_date}}</td>
+                      <td>{{transaction.remarks}}</td>
+                      <td>{{transaction.recipient_updated_credit}}</td>
+                      <td>{{transaction.sender_updated_debit}}</td>
                     </tr>
                    
+                    <tr>
+                      <td>1234567890</td>
+                      <td>1234567890123456</td>
+                      <td>1234567890123456</td>
+                      <td>12345</td>
+                      <td>2021-04-18 19:30:22.440</td>
+                      <td>hjhgffcfddfghjjhffffghhj</td>
+                      <td>nhjjjkkk</td>
+                      <td>jhhhhjj</td>
+                      </tr>
                   </tbody>
                 </table>
-              </div>
+              </div> -->
             </section>
             
             
             
         </div>
-
         
 
 </div>

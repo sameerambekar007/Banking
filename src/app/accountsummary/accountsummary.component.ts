@@ -43,7 +43,7 @@ contact1:Accountstatement;
       recipient_acct:null,
       account_no:JSON.parse(sessionStorage.getItem('account_no')),
       amount:null,
-      trans_date:new Date("2020-04-18T12:19"),
+      trans_date:new Date("2020-04-18T19:30:22.44"),
       to_trans_date:new Date(),
       remarks:"",
       trans_pass:null,
@@ -53,10 +53,12 @@ contact1:Accountstatement;
         this.accountsummary=res;
        // console.log(this.accountsummary)
       })
-      console.log(this.contact1)
+      //console.log(this.contact1)
       this.bankingService.accountstatement(this.contact1).subscribe(res=>
         {
-          
+        // console.log(this.contact1)
+        console.log("res")
+         console.log(res) 
           this.transactions=res   
           this.debittransactions=this.transactions.debit
           this.credittransactions=this.transactions.credit
@@ -65,6 +67,7 @@ contact1:Accountstatement;
           this.transactions2=this.transactions1.slice(Math.max(this.transactions1.length - 4, 0))
           this.transactions2=this.transactions2.reverse();
           console.log(this.transactions2)
+          console.log(this.transactions1)
           
           //console.log(this.transactions)
   //        console.log(res)

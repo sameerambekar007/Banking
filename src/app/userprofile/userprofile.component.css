@@ -212,18 +212,19 @@ body
   }
   
   .login-box {
-    position: relative;
+    position: absolute;
     top: 70%;
     left: 50%;
     width: 850px;
+    height: 1800px;
     padding: 40px;
     transform: translate(-50%, -50%);
     
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
-    border: solid;
-    border-color: #cda45e;
+    /* border: solid;
+    border-color: #cda45e; */
   }
   
   .login-box h2 {
@@ -373,7 +374,10 @@ body
   margin-top: 550px;
   margin-right: 300px;
   position: absolute;
-  height: 1700px;               
+  height: 1900px;
+  border: solid;
+    border-color: #cda45e; 
+    border-radius: 24px;              
                          
   transform: translate(0, -50%)
      }

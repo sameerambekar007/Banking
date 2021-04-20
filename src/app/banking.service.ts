@@ -66,7 +66,7 @@ accountsummary(AccountHolder): Observable<Addbeneficiary> {
   return this.httpClient.post<Addbeneficiary>(this.apiServer + '/AccountSummary/', JSON.stringify(AccountHolder), this.httpOptions)
 }
 accountstatement(accountholder): Observable<Accountstatement> {
-  console.log("INSIDE SERVICE of accountholder",accountholder);
+  console.log("INSIDE SERVICE",accountholder);
   var result= this.httpClient.post<Accountstatement>(this.apiServer + '/AccountStatement/', JSON.stringify(accountholder), this.httpOptions)
   //console.log( result)
   return (result);

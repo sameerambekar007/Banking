@@ -28,7 +28,7 @@
   <!--mobile navigation bar start-->
   <div class="mobile_nav">
     <div class="nav_bar">
-      <img src="../../assets/customer-avatar.png" class="mobile_profile_image" alt="">
+      <img src="../../assets/gold.jpg" class="mobile_profile_image" alt="">
       <i class="fa fa-bars nav_btn"></i>
     </div>
     <div class="mobile_nav_items">
@@ -51,12 +51,13 @@
   <!--sidebar start-->
   <div class="sidebar">
     <div class="profile_info">
-      <img src="../../assets/customer-avatar.png" class="profile_image" alt="">
+      <img src="../../assets/gold.jpg" class="profile_image" alt="">
       <h4>{{sessionStorage.getItem('customer_name')}}</h4>
     </div>
     <a [routerLink]="['/accountsummary']" ><i class="fas fa-sliders-h"></i><span>Account Summary</span></a>
     <a [routerLink]="['/accountstatementmain']"><i class="fas fa-money-check"></i><span>Account Statement</span></a>
     <a [routerLink]="['/fundtransfer']"><i class="fas fa-donate"></i><span>Fund Transfer</span></a>
+    <a [routerLink]="['/displaybeneficiaries']"><i class="fa fa-user fa-lg"></i><span>Beneficiary List</span></a>
     <a [routerLink]="['/userprofile']"><i class="fas fa-user"></i><span>User Profile</span></a>
     <a [routerLink]="['/changepassword']"><i class="fas fa-pen-nib"></i><span>Change Password</span></a>
     <a [routerLink]="['/home']" (click)="logout()"><i class="fa fa-user fa-lg"></i><span>Logout</span></a> 
@@ -71,13 +72,13 @@
 
                   <div class="user-box">
                     <input type="number"  id="account_no" name="account_no" required  #account_no="ngModel"
-                    [(ngModel)]="contact.account_no" >
+                    [(ngModel)]="contact.account_no" hidden>
                     <div *ngIf="!account_no?.valid && (account_no?.dirty || account_no?.touched)" class="error">
                       <div style="color: crimson;"*ngIf="account_no.errors.required">
                         Account Number is required
                       </div>
                     </div>
-                    <label>Your Account number</label>
+                    <!-- <label>Your Account number</label> -->
                   </div>
                   <!-- <div class="user-box">
                     <input type="number"  id="recipient_acct" name="recipient_acct" required  #recipient_acct="ngModel"
@@ -85,26 +86,26 @@
                     <label>Enter Recepient Account number </label>
                   </div> -->
 
-                  <h6 >Select the Account number from the following beneficiaries</h6>
+                  <h5 >Select the Account number from the following beneficiaries</h5>
                   <div class="user-box"> 
                     
                     
                     <select id="recipient_acct" name="recipient_acct" required  #recipient_acct="ngModel"
                     [(ngModel)]="contact.recipient_acct" >
-                      <option [value]="beneficiaries.ben_account_no" *ngFor="let beneficiaries of beneficiarylist1">{{beneficiaries.ben_name}}{{beneficiaries.ben_account_no}}</option>
+                      <option [value]="beneficiaries.ben_account_no" *ngFor="let beneficiaries of beneficiarylist1">{{beneficiaries.ben_name}}--{{beneficiaries.ben_account_no}}</option>
                     </select>
                     
                   </div>
                   
                    <div class="user-box">
-                    <input type="number" id="amount" name="amount" required min="1" #amount="ngModel"
+                    <input type="number" id="amount" name="amount" required  #amount="ngModel"
                     [(ngModel)]="contact.amount">
-                    <div *ngIf="!amount?.valid && (amount?.dirty || amount?.touched)" class="error">
-                      <div style="color: crimson;"*ngIf="amount.errors.required">
+                    <div style="color: crimson;"*ngIf="!amount?.valid && (amount?.dirty || amount?.touched)" class="error">
+                      <div *ngIf="amount.errors.required">
                         Amount is required
                       </div>
-                      <div *ngIf="amount.errors.maxlength">
-                        Amount Length should be {{amount.errors.min?.requiredLength}}
+                      <div *ngIf="amount.errors.pattern">
+                        Amount should be greater than 0
                       </div>
                     
                   </div>
