@@ -6,6 +6,11 @@
    
 }
 
+html{
+  background-image: url("../../assets/bg1.jpg");
+  
+}
+
 .login-box {
        
        top: 50%;
@@ -616,10 +621,10 @@
     }
   }
   
-  .login-box {
+  /* .login-box {
     position: relative;
     top: 50%;
-    left: 100px;
+    left: 50%;
     width: 850px;
     padding: 40px;
     transform: translate(-50%, -50%);
@@ -629,7 +634,7 @@
     border-radius: 10px;
     border:solid;
     border-color:#cda45e ;
-  }
+  } */
   
   .login-box h2 {
     margin: 0 0 30px;
@@ -1376,7 +1381,7 @@
   .login-box {
     position: relative;
     top: 50%;
-    left: 400px;
+    left: 35%;
     width: 650px;
     padding: 40px;
     transform: translate(-50%, -50%);

@@ -80,10 +80,10 @@
               <div >
                 <label><h2> <pre> From </pre></h2> </label>
                 <input type="datetime-local" id="trans_date" name="trans_date" required  #trans_date="ngModel"
-                [(ngModel)]="contact.trans_date">
+                [(ngModel)]="contact.trans_date" style="background-color: darkgrey;">
                 <label><h2><pre> To </pre></h2></label>
                 <input type="datetime-local" id="to_trans_date" name="to_trans_date" required  #to_trans_date="ngModel"
-                [(ngModel)]="contact.to_trans_date">
+                [(ngModel)]="contact.to_trans_date" style="background-color: darkgrey;">
               </div>
 
               <a [routerLink]="['/accountstatementmain']" (click)="OnSubmit(contactForm)">

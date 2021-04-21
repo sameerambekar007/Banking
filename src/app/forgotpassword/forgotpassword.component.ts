@@ -45,6 +45,7 @@ contact:contact;
         if(res.toString()=="success")
         {
           alert("Password sent successfully on your email id")
+          this.router.navigateByUrl('/custlogin')
         }
         if(res.toString()=="fail")
         {

@@ -35,7 +35,7 @@
                       </div>
                     </div><br>
                     <div class="user-box">  
-                      <select id="title" name="title" required  #title="ngModel" [(ngModel)]="contact.title">
+                      <select id="title" name="title" required  #title="ngModel" [(ngModel)]="contact.title" style="background-color: black;">
                         <option value=""></option>
                         <option value="Mr">Mr</option>
                         <option value="Mrs">Mrs</option>
@@ -46,7 +46,7 @@
 
                   <div class="user-box">
                     <input type="text" id="first_name" name="first_name" required  #first_name="ngModel"
-                    [(ngModel)]="contact.first_name" >
+                    [(ngModel)]="contact.first_name" style="background-color: black;">
                     <div *ngIf="!first_name?.valid && (first_name?.dirty || first_name?.touched)" class="error">
                       <div style="color: crimson;"*ngIf="first_name.errors.required">
                         First Name is required
@@ -382,7 +382,7 @@
                     <label>Gross Annual Income</label>
 
                   </div>
-                  <div class="user-box">
+                  <div class="user-box" >
                     <!-- <input type="text" id="title" name="title" required  #title="ngModel" [(ngModel)]="contact.title" >-->
                      <label>Account Type</label><br>
                      <div *ngIf="!acct_type?.valid && (acct_type?.dirty || acct_type?.touched)" class="error">
@@ -390,9 +390,9 @@
                          Account Type is required
                        </div>
                      </div><br>
-                     <div class="user-box">  
-                       <select id="acct_type" name="acct_type" required  #acct_type="ngModel" [(ngModel)]="contact.acct_type">
-                          <option value=""></option>
+                     <div class="user-box" style="background-color: black;">  
+                       <select id="acct_type" name="acct_type" required  #acct_type="ngModel" [(ngModel)]="contact.acct_type" style="background-color: black;">
+                          <!-- <option value=""></option> -->
                           <option value="Current">Current</option>
                           <option value="Salary">Salary</option>
                           <option value="Savings">Savings</option>                    
@@ -405,7 +405,7 @@
                   <input type="text" id="acct_type" name="acct_type" placeholder="Account Type" #acct_type="ngModel"   [(ngModel)]="contact.acct_type"><br>
                    <input type="text" id="acct_status" name="acct_status" placeholder="Account Status" #sacct_status="ngModel"   [(ngModel)]="contact.acct_status"> -->
                   
-                  <pre class="checkbox">
+                  <pre class="checkbox" style="background-color: black; color: white; font-size: medium;" >
 
                     
                    <input type="checkbox" id="opt_debit_card" name="opt_debit_card" placeholder="Opt for Debit Card" #opt_debit_card="ngModel"   [(ngModel)]="contact.opt_debit_card">Opt for Debit Card<br>
@@ -413,7 +413,7 @@
                   </pre>
                 
                   <!-- <a href="#" (click)="onSubmit(contactForm)">
-                    Register
+                    Register 
                     <span></span> 
                 </a> -->
                 <button type="submit" [disabled]="!contactForm.valid"   class="submit" style="background-color: black;" >Register

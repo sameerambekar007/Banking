@@ -5,17 +5,19 @@ import {Addbeneficiary} from './addbeneficiary';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { CustomerRequests } from "./customer-requests";
 import { Impstransfer } from "./impstransfer";
-	import {  Observable, throwError } from 'rxjs';
+	import {  Observable, pipe, throwError } from 'rxjs';
   import {AccountHolderinsert} from "./account-holderinsert";
 import {AccountHolder} from "./account-holder";
 import {Transactions} from "./transactions";
 import {Registerforib} from './registerforib';
 import {Accountstatement} from './accountstatement';
+import { catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class BankingService {
+export class  BankingService {
   private apiServer = "http://localhost:62705/Api/";
   httpOptions = {
     headers: new HttpHeaders({
@@ -25,10 +27,11 @@ export class BankingService {
   constructor(private httpClient: HttpClient) { }
   login(admin):Observable<Admin>
   {
-    //console.log("INSIDE SERVECE",user1);
-    var req = this.httpClient.post<Admin>(this.apiServer + '/Adminslogin/',JSON.stringify(admin), this.httpOptions)
+    //console.log("INSIDE SERVICE",user1);
+    var req = this.httpClient.post<Admin>(this.apiServer + '/Adminslogin/',JSON.stringify(admin), this.httpOptions).pipe(catchError(this.errorHandler))
     console.log(req);
     return(req);
+    
   }
   custlogin(accountholder):Observable<AccountHolder>
   {
@@ -180,5 +183,17 @@ adminloggedIn() {
   else{
     return false;
   }
+}
+errorHandler(error) {
+  let errorMessage = '';
+  if(error.error instanceof ErrorEvent) {
+    // Get client-side error
+    errorMessage = error.error.message;
+  } else {
+    // Get server-side error
+    errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+  }
+  console.log(errorMessage);
+  return throwError(errorMessage);
 }
 }

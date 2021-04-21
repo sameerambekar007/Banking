@@ -47,6 +47,7 @@ count=0;
         if(res.toString()=="success")
         {
           alert("Customer Id sent successfully on your email id")
+          this.router.navigateByUrl('/custlogin')
         }
         if(res.toString()=="fail")
         {

@@ -49,6 +49,7 @@ export class ForgottransactionpasswordComponent implements OnInit {
         if(res.toString()=="success")
         {
           alert("Transaction Password sent successfully on your email id")
+          this.router.navigateByUrl('/custdash')
         }
         if(res.toString()=="fail")
         {

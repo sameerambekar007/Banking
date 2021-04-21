@@ -79,12 +79,12 @@
                     <label>Enter Recepient Account number </label>
                   </div> -->
 
-                  <h5 >Select the Account number from the following beneficiaries</h5>
+                  <h4>Select the Account number from the following beneficiaries</h4>
                   <div class="user-box"> 
                     
                     
                     <select id="recipient_acct" name="recipient_acct" required  #recipient_acct="ngModel"
-                    [(ngModel)]="contact.recipient_acct" >
+                    [(ngModel)]="contact.recipient_acct" style="background-color: black;">
                       <option [value]="beneficiaries.ben_account_no" *ngFor="let beneficiaries of beneficiarylist1">{{beneficiaries.ben_name}}--{{beneficiaries.ben_account_no}}</option>
                     </select>
                     

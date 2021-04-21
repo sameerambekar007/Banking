@@ -102,7 +102,8 @@ viewdetails(customer)
     {
     this.bankingService.declineaccount(customer).subscribe(res=>
       {
-        console.log("Customer Denclined account!")
+        console.log("Customer Declined account!")
+        alert("Customer Declined account!")
       })
     }
 }
